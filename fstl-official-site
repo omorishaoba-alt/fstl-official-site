@@ -1,0 +1,20 @@
+fsl-website
+│
+├── index.html
+├── about.html
+├── contact.html
+│
+├── /assets
+│      ├── logo.png
+│      ├── banner.png
+│      ├── favicon.ico
+│
+├── /css
+│      ├── style.css
+│
+├── /js
+│      ├── app.js
+│
+└── /docs
+       ├── brand-guide.pdf
+       ├── fstl-overview.pdf
