@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Standard Title Limited (FSTL)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4;}
+        header {background:#004080; color:white; padding:20px 0; text-align:center;}
+        nav a {color:white; margin:0 15px; text-decoration:none; font-weight:bold;}
+        section {padding:40px 20px; max-width:900px; margin:auto; background:white; margin-bottom:20px; border-radius:8px;}
+        h1, h2 {color:#004080;}
+        footer {text-align:center; padding:20px 0; background:#222; color:white;}
+        a.button {display:inline-block; padding:10px 20px; background:#004080; color:white; border-radius:5px; text-decoration:none;}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>First Standard Title Limited (FSTL)</h1>
+    <p>No country can develop or become developed without the collateralisation of its LANDED property assets nor its securitisation of these assets to create capital and economic boom. OTHERWISE, it's just wishful thinking.</p>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="about">
+    <h2>About FSTL</h2>
+    <p>First Standard Title Limited (FSTL) is a pioneer in securing and collateralising landed property assets in Nigeria. Our mission is to provide secure land registration, documentation, and financial empowerment through asset-backed securities. We combine legal precision with innovative financial solutions to create a sustainable economic impact.</p>
+    <p>We base our work on legal precedents and historical understanding of property rights to safeguard the interests of our clients and stakeholders. FSTL is committed to transparency, accuracy, and the protection of every property owner's rights.</p>
+</section>
+
+<section id="services">
+    <h2>Secure Landed Property Rights (SLPR)</h2>
+    <p>FSTL provides the following services:</p>
+    <ul>
+        <li>Legal verification and registration of landed property</li>
+        <li>Documentation and title issuance</li>
+        <li>Asset collateralisation for financial leverage</li>
+        <li>Secure digital record-keeping</li>
+        <li>Advisory on property disputes and resolution</li>
+    </ul>
+    <p>Our SLPR system ensures that property owners have undeniable proof of ownership, protecting them from bureaucratic inefficiencies and misuse of power in land disputes.</p>
+</section>
+
+<section id="news">
+    <h2>News & Updates</h2>
+    <p>Stay updated with the latest developments in property rights, legal reforms, and our initiatives.</p>
+    <ul>
+        <li>Recent court precedents affecting property ownership</li>
+        <li>Updates on asset-backed securities and economic initiatives</li>
+        <li>FSTL events and seminars for stakeholders</li>
+    </ul>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
+    <p><strong>Telephone:</strong> +2348035888622</p>
+    <p><strong>Email:</strong> <a href="mailto:Kabiyesi@fstl.com.ng">Kabiyesi@fstl.com.ng</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2025 First Standard Title Limited. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
