@@ -4,51 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Standard Title Limited (FSTL)</title>
-    <link rel="icon" href="favicon.ico">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background-color: #003366; color: white; padding: 20px; text-align: center; }
-        nav { background-color: #f2f2f2; padding: 10px; text-align: center; }
-        nav a { margin: 0 15px; text-decoration: none; color: #003366; font-weight: bold; }
-        main { padding: 20px; line-height: 1.6; }
-        footer { background-color: #003366; color: white; text-align: center; padding: 10px; margin-top: 20px; }
-        .highlight { color: #FF8C00; font-weight: bold; }
-        .news-item { border-left: 4px solid #003366; padding-left: 12px; margin-bottom: 20px; }
-        .news-item h3 { color: #003366; margin: 0 0 5px 0; }
-        .news-item p { margin: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #222;
+        }
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        nav {
+            background-color: #0055a5;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #003366;
+        }
+        section {
+            padding: 20px 10px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h2 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        .news-item {
+            border-left: 3px solid #003366;
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: #003366;
+            color: #fff;
+            padding: 15px 10px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        a.email-link {
+            color: #fff;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>First Standard Title Limited (FSTL)</h1>
-        <p class="highlight">“No country can develop without the collateralisation and securitisation of its landed property assets.”</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <main>
-        <h2>Welcome to FSTL</h2>
-        <p>
-            First Standard Title Limited (FSTL) is Nigeria’s leading authority in secure landed property rights (SLPR). 
-            We specialize in protecting property ownership, preventing disputes, and enabling economic growth through title management.
-        </p>
 
-        <h2>Our Services</h2>
-        <ul>
-            <li>Title Verification and Certification</li>
-            <li>Property Risk Assessment</li>
-            <li>Legal Precedent Guidance and Documentation</li>
-            <li>Asset Collateralisation and Securitisation</li>
-            <li>Private Cadastral Management</li>
-        </ul>
+<header>
+    <h1>“No country can develop or become developed without the collateralisation of its LANDED property assets nor its securitisation of these assets to create capital and an economic boom. OTHERWISE, it’s just wishful thinking.”</h1>
+</header>
 
-        <h2>News & Updates</h2>
-        <div class="news-item">
-            <h3>FSTL Launches Nigeria’s First Private Cadastral System</h3>
-            <p>December 3, 2025 – In a landmark development, FSTL has deployed a secure private cadastral system to protect property assets and mitigate disputes. This initiative sets a new standard for property rights management.</p>
-        </div>
-        <div class="news-item">
-            <h3>Title Verification & Risk Assessment Program</h3>
-            <p>
+<nav>
+    <a href="#about">About</a>
+    <a href="#news">News & Updates</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About First Standard Title Limited (FSTL)</h2>
+    <p>First Standard Title Limited (FSTL) is Nigeria’s pioneer in title insurance, mortgage insurance, and secure landed property rights (SLPR). Our mission is to safeguard property owners, prevent fraudulent claims, and create a reliable system for collateralisation that fuels economic growth. Through rigorous verification, legal guidance, and innovative private cadastral solutions, FSTL sets the standard for secure property asset management.</p>
+</section>
+
+<section id="news">
+    <h2>News & Updates</h2>
+
+    <div class="news-item">
+        <h3>FSTL Launches Nigeria’s First Private Cadastral System</h3>
+        <p>December 3, 2025 – FSTL has deployed a secure private cadastral system to protect property assets and mitigate disputes, setting a new standard for property rights management.</p>
+    </div>
+
+    <div class="news-item">
+        <h3>Title Verification & Risk Assessment Program</h3>
+        <p>November 28, 2025 – FSTL rigorously verifies property titles across key Nigerian states, preventing fraudulent claims and enhancing public confidence in land ownership.</p>
+    </div>
+
+    <div class="news-item">
+        <h3>Legal Precedent Guidance</h3>
+        <p>October 15, 2025 – FSTL provides authoritative legal guidance based on Supreme Court and Court of Appeal decisions, safeguarding clients against bureaucratic abuse and unjust disputes.</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
+    <p><strong>Telephone:</strong> +2348035888622</p>
+    <p><strong>Email:</strong> <a href="mailto:Kabiyesi@fstl.com.ng" class="email-link">Kabiyesi@fstl.com.ng</a></p>
+</section>
+
+<footer>
+    &copy; 2025 First Standard Title Limited (FSTL) | RC 714548 | All rights reserved
+</footer>
+
+</body>
+</html>
