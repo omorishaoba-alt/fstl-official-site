@@ -1,154 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>First Standard Title Limited (FSTL)</title>
-
-  <!-- === EMBEDDED CSS (NO EXTERNAL FILES) === -->
-  <style>
-    :root{
-      --accent:#004080;
-      --muted:#6b7280;
-      --bg:#f5f5f5;
-      --card:#ffffff;
-    }
-    *{box-sizing:border-box}
-    body{font-family: Arial, Helvetica, sans-serif; margin:0; background:var(--bg); color:#111;}
-    .wrap{max-width:1100px; margin:0 auto; padding:18px;}
-    .site-header{background:var(--card); padding:30px 0; border-bottom:4px solid var(--accent)}
-    .brand{margin:0; color:var(--accent); font-size:1.6rem}
-    .tagline{margin:6px 0 0; color:var(--muted)}
-
-    .nav{background:#ffffff; border-bottom:1px solid #e6e6e6}
-    .nav .wrap{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    .nav a{color:var(--accent); text-decoration:none; font-weight:600; padding:10px 6px}
-    .main{padding-top:20px; padding-bottom:40px}
-
-    .card{background:var(--card); border-radius:8px; padding:20px; margin-bottom:18px; box-shadow: 0 1px 4px rgba(16,24,40,0.04)}
-    .hero{display:flex; flex-direction:column; gap:12px; align-items:flex-start}
-    .lead{color:var(--muted); font-size:1.05rem}
-    .btn{display:inline-block; padding:10px 16px; border-radius:6px; text-decoration:none; background:#eee; color:#111; border:1px solid #ddd; font-weight:700}
-    .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
-
-    ol,ul{margin:8px 0 8px 18px}
-    .note{background:#f8fafc; padding:10px; border-left:4px solid var(--accent)}
-
-    .small{font-size:0.95rem}
-    .muted{color:var(--muted)}
-
-    /* responsive */
-    @media (min-width:800px){
-      .hero{flex-direction:row; justify-content:space-between; align-items:center}
-      .hero h2{max-width:70%}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Standard Title Limited (FSTL)</title>
+<style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
+    header { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    nav { background:#f2f2f2; padding:10px; }
+    nav a { display:block; margin:10px 0; color:#004080; text-decoration:none; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
+    .sidebar { flex:1 1 200px; padding:20px; background:#e6e6e6; }
+    .main { flex:3 1 700px; padding:20px; }
+    section { margin-bottom:40px; }
+    h2 { color:#004080; cursor:pointer; }
+    .collapsible-content { display:none; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
+    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    @media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+</style>
 </head>
-
 <body>
 
-  <header class="site-header">
-    <div class="wrap">
-      <h1 class="brand">First Standard Title Limited (FSTL)</h1>
-      <p class="tagline">Securing Nigeria’s Land. Protecting Nigeria’s Future.</p>
-    </div>
-  </header>
+<header>
+    <h1>First Standard Title Limited (FSTL)</h1>
+    <p>Securing Landed Property Rights and Enabling Economic Growth</p>
+</header>
 
-  <nav class="nav">
-    <div class="wrap">
-      <a href="#about">About</a>
-      <a href="#product">Title Guarantee</a>
-      <a href="#ecosystem">Land Industrialisation</a>
-      <a href="#legal">Legal Precedents</a>
-      <a href="#fmbn">FMBN & FHA</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<div class="container">
+    <aside class="sidebar">
+        <nav>
+            <a href="#executive-summary">Executive Summary</a>
+            <a href="#legal-precedent">Legal Precedent</a>
+            <a href="#title-insurance">Title Guarantee & Insurance</a>
+            <a href="#mortgage-abs">Mortgage Insurance & ABS</a>
+            <a href="#land-industrialisation">Land Industrialisation</a>
+            <a href="#governance-risk">Governance & Risk</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </aside>
 
-  <main class="wrap main">
-    <section id="hero" class="card hero">
-      <h2>No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic boom.</h2>
-      <p class="lead">FSTL provides a professional Title Guarantee product that verifies ownership, reduces risk, and makes land finance possible — now.</p>
-      <a href="#product" class="btn primary">Get Title Guarantee (₦50,000)</a>
-    </section>
+    <main class="main">
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="collapsible-content" style="display:block;">
+                <p><strong>Objective:</strong> FSTL safeguards landed property rights in Nigeria, creates collateralisation for economic growth, and develops intellectual property ensuring sustainable competitive advantage.</p>
+                <ul>
+                    <li>Legal framework for property acquisition and dispute resolution.</li>
+                    <li>Financial instruments including Title Guarantee, Mortgage Insurance, and ABS.</li>
+                    <li>Risk mitigation strategies for financial institutions and the public.</li>
+                    <li>Land industrialisation as a catalyst for infrastructure and economic growth.</li>
+                </ul>
+                <p><strong>Key Strategy:</strong></p>
+                <ul>
+                    <li>Integrate Title Guarantee as a backup to bypass bureaucratic delays.</li>
+                    <li>Provide mortgage insurance to reduce lender risk.</li>
+                    <li>Introduce ABS for liquidity and capital formation.</li>
+                    <li>Build a knowledge-based repository of judicial precedents and industry insights.</li>
+                </ul>
+            </div>
+        </section>
 
-    <section id="about" class="card">
-      <h2>About FSTL</h2>
-      <p>FSTL is Nigeria’s pioneering organization for title protection and property risk solutions with over <strong>20 years</strong> of experience. We are committed to restoring legal certainty to land ownership and unlocking the economic value hidden within property assets nationwide.</p>
-      <ul>
-        <li>Professional Title Guarantee services</li>
-        <li>Legal and risk assessments for property</li>
-        <li>Mortgage readiness & securitisation advisory</li>
-      </ul>
-    </section>
+        <section id="legal-precedent">
+            <h2>Legal Precedent</h2>
+            <div class="collapsible-content">
+                <p><strong>Foundational Case:</strong> Joshua Ogunleye v. Babatayo Oni – Established principles for adjudicating property disputes and validating titles.</p>
+                <ul>
+                    <li>Olumide v. Adeyemi (Appellate Court)</li>
+                    <li>Okoro v. Uba (Supreme Court)</li>
+                    <li>Adebayo v. Ogun (Appellate Court)</li>
+                    <li>Emmanuel v. Nwosu (Supreme Court)</li>
+                </ul>
+                <p>Observations: Judiciary inconsistent; bureaucratic delays prevalent. Title Guarantee mitigates these risks.</p>
+            </div>
+        </section>
 
-    <section id="product" class="card">
-      <h2>Title Guarantee — The First Product (₦50,000)</h2>
-      <p><strong>Title Guarantee</strong> is a professional, enforceable certification that confirms the validity and enforceability of a property title. It bypasses bureaucratic delays and provides immediate commercial confidence to buyers, sellers, lenders and investors.</p>
+        <section id="title-insurance">
+            <h2>Title Guarantee & Insurance</h2>
+            <div class="collapsible-content">
+                <p><strong>Definition:</strong> Legally enforceable confirmation of property ownership.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Security for buyers and sellers.</li>
+                    <li>Reduces lender risk.</li>
+                    <li>Enables collateralisation for capital market participation.</li>
+                </ul>
+                <p><strong>Integration with FSTL Products:</strong> Supports first 50K knowledge product and risk management ecosystem.</p>
+            </div>
+        </section>
 
-      <h3>What the ₦50,000 package includes</h3>
-      <ul>
-        <li>Document review and verification</li>
-        <li>Root-of-title lineage check</li>
-        <li>Identification of encumbrances/red flags</li>
-        <li>Written risk report</li>
-        <li>Digital Title Guarantee Certificate</li>
-      </ul>
+        <section id="mortgage-abs">
+            <h2>Mortgage Insurance & Asset-Backed Securities (ABS)</h2>
+            <div class="collapsible-content">
+                <p>Mortgage Insurance reduces lender risk; ABS securitises property assets for liquidity and capital formation.</p>
+                <p>Outcome: Integrated risk management and capital formation ecosystem.</p>
+            </div>
+        </section>
 
-      <h3>How it works</h3>
-      <ol>
-        <li>Send property documents via email or secure upload.</li>
-        <li>Pay ₦50,000 for Title Guarantee.</li>
-        <li>FSTL conducts verification and risk assessment.</li>
-        <li>Receive your risk report and certificate.</li>
-      </ol>
+        <section id="land-industrialisation">
+            <h2>Land Industrialisation & Economic Development</h2>
+            <div class="collapsible-content">
+                <p>Collateralised land fuels infrastructure, industrialisation, and economic growth.</p>
+                <ol>
+                    <li>FSTL as central knowledge repository.</li>
+                    <li>Developers acquire verified land titles.</li>
+                    <li>Financial institutions lend safely.</li>
+                    <li>ABS and capital markets fund projects.</li>
+                    <li>Government benefits from orderly land use.</li>
+                </ol>
+                <p>Timebomb: Poorly planned sand filling and artificial islands create constitutional and environmental risks.</p>
+            </div>
+        </section>
 
-      <p class="note">Use the Title Guarantee Certificate to demonstrate title certainty to banks, PMIs, developers and investors.</p>
+        <section id="governance-risk">
+            <h2>Governance, Risk & Strategic Insights</h2>
+            <div class="collapsible-content">
+                <p>FMBN and FHA inefficiencies undermine housing and industrialisation; statistical review confirms systemic gaps.</p>
+                <p>Capital Market Integration: Municipal Bonds and ABS fund infrastructure projects.</p>
+                <p>Sustainability: Knowledge, legal expertise, and structured products create long-term competitive advantage.</p>
+            </div>
+        </section>
 
-      <a href="mailto:kabiyesi@fstl.com.ng?subject=Title%20Guarantee%20Inquiry" class="btn">Request Title Guarantee</a>
-    </section>
+        <section id="contact">
+            <h2>Contact FSTL</h2>
+            <div class="collapsible-content" style="display:block;">
+                <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
+                <p><strong>Telephone:</strong> +2348035888622</p>
+                <p><strong>Email:</strong> info@fstl.com.ng</p>
+            </div>
+        </section>
+    </main>
+</div>
 
-    <section id="ecosystem" class="card">
-      <h2>Land Industrialisation & The Economic Ecosystem</h2>
-      <p>Land industrialisation is the transformation of land from a static physical asset into a dynamic engine of financial capital through verification, risk mitigation and securitisation.</p>
+<footer>
+    <p>&copy; 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
+</footer>
 
-      <h3>The ecosystem layers</h3>
-      <ol>
-        <li>Title verification & guarantee</li>
-        <li>Credit and mortgage readiness</li>
-        <li>Mortgage-backed securities</li>
-        <li>Municipal bonds & infrastructure finance</li>
-        <li>Urbanisation & industrial development</li>
-      </ol>
-
-      <p>FSTL provides the foundational layer that enables every other layer.</p>
-    </section>
-
-    <section id="legal" class="card">
-      <h2>Legal Precedents</h2>
-      <p>Our process aligns with Nigerian case law and statutory foundations governing land, title and enforceability.</p>
-
-      <ul>
-        <li><strong>Joshua Ogunleye v. Babatayo Oni</strong> — foundational case on root of title.</li>
-        <li>Appeal & Supreme Court decisions reinforcing due diligence & enforceability.</li>
-        <li>Application of Land Use Act, Wills Act and related statutes.</li>
-      </ul>
-    </section>
-
-    <section id="fmbn" class="card">
-      <h2>Institutional Gaps: FMBN & FHA</h2>
-      <p>FMBN and FHA have not delivered scalable mortgage liquidity or mass housing due to structural gaps. FSTL provides the private-sector corrective mechanism needed to restore certainty to land and mortgage markets.</p>
-
-      <ul>
-        <li>PMIs lack reliable refinancing channels.</li>
-        <li>Mortgage penetration remains low.</li>
-        <li>Housing production lags behind demand.</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
-      <p><strong>Mobile:</strong> +2348035888622</p>
-      <p><strong>Email:</strong> <a href="mailto:kabiyesi@fstl.com.ng">kabiyesi@fstl.com.ng</a></p>
-    </
+<script>
+    const headers = document.querySelectorAll('h2');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+</body>
+</html>
