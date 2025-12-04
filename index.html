@@ -1,466 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>First Standard Title Limited (FSTL) — Phase 3 (Locked)</title>
-<meta name="description" content="FSTL — Securing Landed Property Rights, Title Guarantee, Mortgage Insurance, ABS, Cadastral & Blockchain. Authoritative resource." />
+<title>First Standard Title Limited (FSTL) — Authoritative</title>
+<meta name="description" content="FSTL — Securing Landed Property Rights in Nigeria. Title Guarantee, Mortgage Insurance, ABS, Cadastral & Blockchain." />
 <style>
   :root{
-    --brand:#004080; --accent:#0073b2; --muted:#666; --bg:#ffffff;
-    --panel:#f9fbff; --maxw:1100px;
+    --brand:#003666; --accent:#0073b2; --muted:#666; --bg:#ffffff;
+    --panel:#f7fbff; --maxw:1100px; --radius:8px;
   }
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#111}
-  header{background:var(--brand);color:#fff;padding:22px 18px;text-align:center}
-  header h1{margin:0;font-size:20px;letter-spacing:0.6px}
-  header p{margin:6px 0 0 0;opacity:0.95}
-  .wrap{max-width:var(--maxw);margin:20px auto;padding:0 16px;display:flex;gap:20px;align-items:flex-start}
-  .sidebar{flex:0 0 260px;background:#f2f6fb;padding:14px;border-radius:8px;position:sticky;top:18px;height:fit-content}
-  .sidebar a{display:block;color:var(--brand);text-decoration:none;padding:10px 8px;border-radius:6px;margin-bottom:6px;font-weight:600}
+  *{box-sizing:border-box}
+  body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#111;line-height:1.5}
+  header{background:var(--brand);color:#fff;padding:18px 16px;text-align:center}
+  header h1{margin:0;font-size:20px}
+  header p{margin:6px 0 0 0;font-size:14px;opacity:0.95}
+  .wrap{max-width:var(--maxw);margin:18px auto;padding:0 16px;display:flex;gap:18px;align-items:flex-start}
+  .sidebar{width:260px;flex:0 0 260px;background:#f4f8ff;padding:12px;border-radius:var(--radius);position:sticky;top:16px;height:fit-content}
+  .sidebar a{display:block;color:var(--brand);text-decoration:none;padding:8px 6px;border-radius:6px;margin-bottom:6px;font-weight:700}
   .main{flex:1;min-width:300px}
-  section{background:#fff;padding:18px;border-radius:8px;margin-bottom:14px;box-shadow:0 6px 18px rgba(13,34,63,0.04)}
-  h2{color:var(--brand);margin:0;font-size:18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  section{background:#fff;padding:16px;border-radius:8px;margin-bottom:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)}
+  h2{color:var(--brand);margin:0;font-size:18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
   .meta{color:var(--muted);font-size:13px;margin-top:8px}
-  .collapsible{display:none;margin-top:12px;color:#222}
-  .collapsible p{margin:8px 0}
-  .cta{background:var(--brand);color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
-  footer{padding:20px;text-align:center;color:#fff;background:var(--brand);margin-top:20px}
-  /* Interactive diagram area */
-  .diagram{background:linear-gradient(180deg,#fbfdff,#f7fbff);padding:12px;border-radius:8px;border:1px solid #e8f0fb}
-  svg{width:100%;height:auto;display:block}
-  .node{cursor:pointer;transition:transform .12s ease}
-  .tooltip{position:fixed;z-index:9999;background:#fff;border-radius:6px;padding:10px;border:1px solid #eee;box-shadow:0 6px 18px rgba(0,0,0,.12);max-width:320px;display:none}
-  /* watermark */
-  #fstl-watermark{position:fixed;left:-10%;top:30%;right:0;bottom:0;pointer-events:none;z-index:998;opacity:0.08;font-size:28px;color:#000;transform:rotate(-20deg);user-select:none;white-space:nowrap}
-  /* Rebuttal Assistant */
-  #fstl-rebuttal{position:fixed;right:18px;bottom:18px;z-index:10000;font-family:Arial,Helvetica,sans-serif}
-  #fstl-open{background:var(--brand);color:#fff;border:none;padding:10px 14px;border-radius:10px;cursor:pointer}
-  #fstl-panel{display:none;width:380px;max-width:92vw;background:#fff;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,.12);overflow:hidden}
-  #fstl-panel header{background:var(--brand);color:#fff;padding:10px;font-weight:700}
-  #fstl-panel .body{padding:12px;max-height:420px;overflow:auto}
-  #fstl-panel input{width:100%;padding:8px;border:1px solid #e6eef8;border-radius:6px}
-  #fstl-panel .answer{margin-top:10px;background:#f7fbff;border-radius:6px;padding:10px;border:1px solid #e3f0ff}
-  .no-select{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-  /* small screens */
-  @media(max-width:900px){.wrap{flex-direction:column;padding-bottom:80px}.sidebar{position:relative;top:0;width:100%;display:flex;gap:4px;flex-wrap:wrap}}
-  /* gated download */
-  .gated{background:#fff9f0;padding:12px;border-radius:8px;border:1px dashed #ffd8a8}
+  .content{display:none;margin-top:12px;color:#222}
+  .content p{margin:8px 0}
   .small{font-size:13px;color:var(--muted)}
-  .tag{display:inline-block;background:#eef6ff;color:var(--brand);padding:6px 8px;border-radius:6px;font-weight:600;margin-left:6px}
+  .diagram{background:linear-gradient(180deg,#fbfdff,#f7fbff);padding:10px;border-radius:8px;border:1px solid #e8f3ff}
+  footer{background:var(--brand);color:#fff;padding:16px;text-align:center;margin-top:10px;border-radius:0}
+  .cta{background:var(--brand);color:#fff;padding:10px 12px;border-radius:8px;border:0;cursor:pointer}
+  .gated{background:#fff9f0;padding:12px;border-radius:8px;border:1px dashed #ffd8a8;margin-top:10px}
+  code{background:#f6f8fb;padding:2px 6px;border-radius:4px;font-family:monospace}
+  @media(max-width:900px){.wrap{flex-direction:column;padding-bottom:80px}.sidebar{width:100%;position:relative}}
+  /* UX hardening */
+  .no-select{user-select:none;-webkit-user-select:none}
+  /* Watermark */
+  #fstl-watermark{position:fixed;left:-6%;top:30%;z-index:998;opacity:0.06;font-size:26px;color:#000;transform:rotate(-22deg);pointer-events:none;white-space:nowrap}
 </style>
 </head>
 <body>
 
 <header>
   <h1>First Standard Title Limited (FSTL)</h1>
-  <p><strong>Tenet:</strong> “No country can develop or become developed without the collateralisation of its LANDED property assets nor its securitisation of these assets to create capital and economic boom. Otherwise, it is merely wishful thinking.”</p>
+  <p><strong>Tenet:</strong> “No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic growth.”</p>
 </header>
 
 <div class="wrap" role="main">
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar no-select" aria-label="Site navigation">
+  <aside class="sidebar no-select" aria-label="Navigation">
     <nav>
       <a href="#executive">Executive Summary</a>
-      <a href="#legal">Legal Precedent</a>
-      <a href="#title">Title Guarantee & Insurance</a>
+      <a href="#legal">Legal Precedents</a>
+      <a href="#title">Title Guarantee</a>
+      <a href="#forensic">Forensic Title Analysis</a>
       <a href="#mortgage">Mortgage Insurance & ABS</a>
-      <a href="#land">Land Industrialisation & Blockchain</a>
-      <a href="#governance">Governance, Risk & Reform</a>
-      <a href="#products">Products & Payment</a>
-      <a href="#landuse">Misuse of Land Use Act</a>
+      <a href="#cadastral">Cadastral & Blockchain</a>
+      <a href="#industrial">Land Industrialisation & Agriculture</a>
+      <a href="#fmbn">FMBN & FHA Reform</a>
+      <a href="#landuse">Abuse of Land Use Act</a>
+      <a href="#risk">Risk Engine</a>
+      <a href="#products">Products & Payments</a>
       <a href="#contact">Contact</a>
     </nav>
     <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-      <div><strong>RC:</strong> RC 714548 <span class="tag">FSTL</span></div>
-      <div style="margin-top:10px">Status: <strong>Phase 3 (Locked)</strong></div>
+      <div><strong>RC:</strong> RC 714548</div>
+      <div style="margin-top:8px">Status: <strong>v1.0</strong></div>
     </div>
   </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="main" id="main-content">
-
-    <!-- EXECUTIVE -->
-    <section id="executive" aria-labelledby="exec-heading">
-      <h2 id="exec-heading">Executive Summary <small class="small">• overview & strategy</small></h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>Objective:</strong> Safeguard landed property rights, enable collateralisation to unlock capital, and build a permanent knowledge base that establishes FSTL as Nigeria’s authoritative land security institution.</p>
-        <p><strong>Strategy Pillars:</strong></p>
-        <ol>
-          <li><strong>Title Guarantee</strong> — legally enforceable confirmation as a trusted alternative to bureaucratic delays.</li>
-          <li><strong>Mortgage Insurance</strong> — reduce lender risk, enable broader mortgage access.</li>
-          <li><strong>Asset-Backed Securities (ABS)</strong> — securitise verified property to fund infrastructure and industrialisation.</li>
-          <li><strong>Cadastral + Blockchain</strong> — immutable verification to prevent fraud and establish provenance.</li>
-          <li><strong>Knowledge Repository</strong> — curated legal precedents, policy analysis, and risk frameworks (the backbone for products).</li>
-        </ol>
-        <p class="meta">Tenet-first. Institutionally aligned. Designed to be audited and relied upon by government agencies and international institutions.</p>
-      </div>
-    </section>
-
-    <!-- INTERACTIVE ECOSYSTEM DIAGRAM -->
-    <section aria-labelledby="ecos-heading">
-      <h2 id="ecos-heading">FSTL Ecosystem — Interactive Diagram <small class="small">• click nodes for annotations</small></h2>
-      <div class="collapsible diagram" style="display:block">
-        <!-- Inline SVG annotated & interactive -->
-        <svg viewBox="0 0 1000 360" role="img" aria-label="FSTL ecosystem flowchart">
-          <defs>
-            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.12"/></filter>
-            <style>.txt{font-family:Arial,Helvetica,sans-serif;font-size:13px;fill:#07385a}.label{font-weight:700}</style>
-          </defs>
-          <!-- Nodes -->
-          <g transform="translate(40,40)">
-            <!-- Title Guarantee -->
-            <rect class="node" id="node-title" x="0" y="0" rx="8" ry="8" width="200" height="80" fill="#e8f4ff" stroke="#cfe7ff" filter="url(#shadow)"></rect>
-            <text x="100" y="28" text-anchor="middle" class="txt label">Title Guarantee</text>
-            <text x="100" y="48" text-anchor="middle" class="txt" style="font-size:12px">Verification & Legal Cover</text>
-
-            <!-- Mortgage Insurance -->
-            <rect class="node" id="node-mort" x="240" y="0" rx="8" ry="8" width="200" height="80" fill="#fff4e6" stroke="#ffe6c7" filter="url(#shadow)"></rect>
-            <text x="340" y="28" text-anchor="middle" class="txt label">Mortgage Insurance</text>
-            <text x="340" y="48" text-anchor="middle" class="txt" style="font-size:12px">Credit Risk Mitigation</text>
-
-            <!-- ABS -->
-            <rect class="node" id="node-abs" x="480" y="0" rx="8" ry="8" width="200" height="80" fill="#eafcea" stroke="#d7f7d5" filter="url(#shadow)"></rect>
-            <text x="580" y="28" text-anchor="middle" class="txt label">ABS / MBS</text>
-            <text x="580" y="48" text-anchor="middle" class="txt" style="font-size:12px">Securitisation & Liquidity</text>
-
-            <!-- Capital Markets -->
-            <rect class="node" id="node-cap" x="240" y="140" rx="8" ry="8" width="200" height="80" fill="#f1f5ff" stroke="#dfe9ff" filter="url(#shadow)"></rect>
-            <text x="340" y="170" text-anchor="middle" class="txt label">Capital Markets</text>
-            <text x="340" y="190" text-anchor="middle" class="txt" style="font-size:12px">Investors, Bonds, Institutional Liquidity</text>
-
-            <!-- Developers / Public -->
-            <rect class="node" id="node-dev" x="520" y="140" rx="8" ry="8" width="200" height="80" fill="#fffaf6" stroke="#fff0e0" filter="url(#shadow)"></rect>
-            <text x="620" y="170" text-anchor="middle" class="txt label">Developers & Public</text>
-            <text x="620" y="190" text-anchor="middle" class="txt" style="font-size:12px">Project Execution & Homes</text>
-
-            <!-- arrows -->
-            <g stroke="#9bb7dd" stroke-width="2" fill="none" marker-end="url(#m)"></g>
-          </g>
-
-          <!-- markers and lines: built via JS for animation -->
-        </svg>
-        <p class="small meta" style="margin-top:10px">Annotated nodes: click any box to read the authoritative explanation. This diagram is interactive and shows how each product links to the next.</p>
-      </div>
-    </section>
-
-    <!-- LEGAL PRECEDENT -->
-    <section id="legal" aria-labelledby="legal-heading">
-      <h2 id="legal-heading">Legal Precedent — Interactive Timeline <small class="small">• click cases for notes & citations</small></h2>
-      <div class="collapsible" style="display:block">
-        <div class="diagram" style="padding:10px">
-          <svg id="timeline" viewBox="0 0 1000 140" role="img" aria-label="Legal timeline">
-            <style>.case{cursor:pointer;fill:#fff;border-radius:6px;stroke:#cfe7ff}.case-text{font-size:12px;fill:#07385a}</style>
-            <line x1="40" y1="70" x2="960" y2="70" stroke="#e6f0ff" stroke-width="6" />
-            <!-- Cases -->
-            <g transform="translate(60,10)">
-              <rect class="case node-case" id="case-josh" x="0" y="0" width="160" height="48" rx="8" fill="#e8f4ff" stroke="#cfe7ff"></rect>
-              <text x="80" y="22" class="case-text" text-anchor="middle" font-weight="700">Joshua Ogunleye v. Babatayo Oni</text>
-            </g>
-            <g transform="translate(260,10)">
-              <rect class="case node-case" id="case-olum" x="0" y="0" width="120" height="48" rx="8" fill="#fff4e6" stroke="#ffe6c7"></rect>
-              <text x="60" y="22" class="case-text" text-anchor="middle">Olumide v. Adeyemi</text>
-            </g>
-            <g transform="translate(420,10)">
-              <rect class="case node-case" id="case-okoro" x="0" y="0" width="120" height="48" rx="8" fill="#eafcea" stroke="#d7f7d5"></rect>
-              <text x="60" y="22" class="case-text" text-anchor="middle">Okoro v. Uba</text>
-            </g>
-            <g transform="translate(580,10)">
-              <rect class="case node-case" id="case-adeb" x="0" y="0" width="120" height="48" rx="8" fill="#f1f5ff" stroke="#dfe9ff"></rect>
-              <text x="60" y="22" class="case-text" text-anchor="middle">Adebayo v. Ogun</text>
-            </g>
-            <g transform="translate(740,10)">
-              <rect class="case node-case" id="case-emman" x="0" y="0" width="160" height="48" rx="8" fill="#fffaf6" stroke="#fff0e0"></rect>
-              <text x="80" y="22" class="case-text" text-anchor="middle">Emmanuel v. Nwosu</text>
-            </g>
-          </svg>
-          <p class="small meta" style="margin-top:8px">Each case node contains curated notes and the legal principle that supports FSTL’s Title Guarantee approach.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TITLE GUARANTEE -->
-    <section id="title" aria-labelledby="title-heading">
-      <h2 id="title-heading">Title Guarantee & Insurance <small class="small">• authoritative definition & application</small></h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>Definition:</strong> A Title Guarantee is an enforceable contract by which FSTL confirms the integrity of a title, indemnifies against covered defects, and provides a verified legal path to remediate disputes.</p>
-        <p><strong>Why it matters:</strong> In Nigeria’s complex land ecosystem—where administrative delays, lost documentation and fraudulent allocations are common—Title Guarantee provides investor certainty, reduces litigation risk, and enables titles to be used as collateral.</p>
-        <p><strong>How it works:</strong> FSTL performs multi-source verification (registry records, cadastral mapping, historical chain-of-title, court records) and issues a guarantee document. For high-value transactions, guarantee issuance can be tied to a blockchain entry for immutable provenance.</p>
-      </div>
-    </section>
-
-    <!-- MORTGAGE + ABS -->
-    <section id="mortgage" aria-labelledby="mortgage-heading">
-      <h2 id="mortgage-heading">Mortgage Insurance & Asset-Backed Securities (ABS)</h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>Mortgage Insurance:</strong> reduces the credit risk to lenders (PMIs, banks), making mortgages more widely available and at better terms.</p>
-        <p><strong>ABS / MBS:</strong> Collateralised pools of mortgage loans can be transformed into tradable securities, unlocking liquidity from capital markets and allowing large-scale funding for infrastructure.</p>
-        <p class="meta">FSTL’s model: Title Guarantee + Mortgage Insurance → ABS issuance backed by verified land portfolios → Municipal/Corporate bonds for infrastructure.</p>
-      </div>
-    </section>
-
-    <!-- LAND INDUSTRIALISATION -->
-    <section id="land" aria-labelledby="land-heading">
-      <h2 id="land-heading">Land Industrialisation & Cadastral Blockchain</h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>FSTL Cadastral:</strong> a structured, geo-referenced registry that records parcel boundaries, chain-of-title, encumbrances, and survey metadata.</p>
-        <p><strong>Blockchain Integration:</strong> FSTL writes a cryptographic hash of the verified cadastral record to a permissioned blockchain (public anchor optional). This ensures immutability and easy provenance checks for investors and courts.</p>
-        <p><strong>Industrialisation Impact:</strong> Verified collateral enables developers and lenders to plan urban and industrial projects; ABS and municipal financing provide the liquidity to build lasting infrastructure.</p>
-        <div style="margin-top:10px" class="diagram">
-          <svg viewBox="0 0 900 140" role="img" aria-label="Land industrialisation flow">
-            <g font-family="Arial,Helvetica,sans-serif" font-size="13">
-              <rect x="20" y="18" width="180" height="40" rx="8" fill="#e8f4ff" stroke="#cfe7ff"></rect>
-              <text x="110" y="44" text-anchor="middle" fill="#07385a" font-weight="700">Verified Land</text>
-
-              <rect x="240" y="18" width="180" height="40" rx="8" fill="#fff4e6" stroke="#ffe6c7"></rect>
-              <text x="330" y="44" text-anchor="middle" fill="#07385a" font-weight="700">Collateralisation</text>
-
-              <rect x="460" y="18" width="180" height="40" rx="8" fill="#eafcea" stroke="#d7f7d5"></rect>
-              <text x="550" y="44" text-anchor="middle" fill="#07385a" font-weight="700">ABS / Funding</text>
-
-              <rect x="680" y="18" width="180" height="40" rx="8" fill="#f1f5ff" stroke="#dfe9ff"></rect>
-              <text x="770" y="44" text-anchor="middle" fill="#07385a" font-weight="700">Infrastructure</text>
-
-              <!-- arrows -->
-              <path d="M200 38 L240 38" stroke="#9bb7dd" stroke-width="3" marker-end="url(#m2)"></path>
-              <path d="M420 38 L460 38" stroke="#9bb7dd" stroke-width="3" marker-end="url(#m2)"></path>
-              <path d="M640 38 L680 38" stroke="#9bb7dd" stroke-width="3" marker-end="url(#m2)"></path>
-            </g>
-            <defs>
-              <marker id="m2" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#9bb7dd"/></marker>
-            </defs>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- GOVERNANCE & REFORM -->
-    <section id="governance" aria-labelledby="gov-heading">
-      <h2 id="gov-heading">Governance, Risk & Strategic Reform (FMBN / FHA)</h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>Observed Deficiencies:</strong></p>
-        <ul>
-          <li><strong>FMBN:</strong> Limited wholesale liquidity; weak securitisation capability; slow disbursement processes; limited digital workflows.</li>
-          <li><strong>FHA:</strong> Project execution and alignment with mortgage market is weak; poor stakeholder collaboration and outcome monitoring.</li>
-        </ul>
-        <p><strong>Global models:</strong> Fannie Mae (FNMA) buys mortgages, bundles them into MBS; Ginnie Mae (GNMA) guarantees government-backed mortgage pools. Together they create deep liquidity and investor confidence.</p>
-        <p><strong>FSTL recommendations:</strong> create market mechanics for ABS and MBS; use Title Guarantee and mortgage insurance as first-loss protections; digitise origination and cadastral verification; align FHA supply with mortgage availability.</p>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section id="products" aria-labelledby="prod-heading">
-      <h2 id="prod-heading">Products & Payment — First 50K Product</h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>First 50K Starter Pack</strong> — practical knowledge kit that includes verified title checks, legal precedent digest, step-by-step acquisition guide, and a starter risk assessment. Ideal for individual buyers, developers, and PMIs.</p>
-        <div class="gated" style="margin-top:10px">
-          <p class="small"><strong>Purchase & Access</strong></p>
-          <button id="fstl-buy" class="cta">Buy Now — ₦50,000</button>
-          <div id="fstl-gated" style="display:none;margin-top:10px">
-            <p>Purchase confirmed for this session. <a id="fstl-download" href="#">Download your copy (session link)</a></p>
-            <p class="small">Note: In production we'll issue signed, expiring links watermarked with purchaser details (forensic trace).</p>
-          </div>
-        </div>
-        <p class="meta" style="margin-top:10px">Payment gateways supported: Paystack, Flutterwave, Stripe; server-side signed links recommended.</p>
-      </div>
-    </section>
-
-    <!-- LAND USE ABUSE -->
-    <section id="landuse" aria-labelledby="lu-heading">
-      <h2 id="lu-heading">Misuse of the Land Use Act — Causes & Remedies</h2>
-      <div class="collapsible" style="display:block">
-        <p>The 1978 Land Use Act centralised control of land to governors and left ambiguities that have been misinterpreted. The result: conflicting grants, corrupt allocations, and the co-option of traditional rulers into unlawful transfers.</p>
-        <p><strong>Consequences:</strong> insecure titles, slowed development, investor reluctance, and increased disputes. FSTL remedies include: independent verification, Title Guarantee, cadastral blockchain anchoring, and stakeholder education.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact & Institutional Links</h2>
-      <div class="collapsible" style="display:block">
-        <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
-        <p><strong>Telephone:</strong> +2348035888622</p>
-        <p><strong>Email:</strong> info@fstl.com.ng</p>
-        <p class="meta">You are a member of a presidential committee and principal consultant — this site is constructed to support direct policy use, stakeholder briefings, and institutional referencing.</p>
-      </div>
-    </section>
-
-  </main>
-</div>
-
-<!-- watermark -->
-<div id="fstl-watermark" aria-hidden="true"></div>
-
-<!-- Rebuttal Assistant UI -->
-<div id="fstl-rebuttal" aria-hidden="false">
-  <button id="fstl-open" title="FSTL Assistant">FSTL Assistant</button>
-  <div id="fstl-panel">
-    <header>FSTL — Authority Assistant</header>
-    <div class="body">
-      <p class="small">Ask about any section — returns vetted, locked answers. Example: "Explain Title Guarantee" or "Rebut FMBN reforms". Press Enter to submit.</p>
-      <input id="fstl-q" placeholder="Type a question..." aria-label="Ask FSTL assistant" />
-      <div id="fstl-answers"></div>
-      <hr />
-      <div class="small"><strong>Transcript:</strong> saved locally for review (exportable)</div>
-    </div>
-    <div style="text-align:right;padding:8px;border-top:1px solid #f0f6ff">
-      <button id="fstl-close" style="background:#eee;border:0;padding:8px;border-radius:6px;cursor:pointer">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- tooltip -->
-<div id="fstl-tooltip" class="tooltip" role="status" aria-live="polite"></div>
-
-<footer>
-  <div style="max-width:var(--maxw);margin:auto;padding:6px 16px;color:#fff">
-    <div><strong>First Standard Title Limited (FSTL)</strong> — All rights reserved © 2025</div>
-    <div style="margin-top:6px;font-size:13px">Locked Release: <strong>v1.0_locked</strong> — commit & branch protected</div>
-  </div>
-</footer>
-
-<!-- SCRIPTS: interaction, diagrams, assistant, watermark, gating, hardening -->
-<script>
-/* ---------- SMALL UTILITY ---------- */
-function $(s){return document.querySelector(s)}
-function $all(s){return Array.from(document.querySelectorAll(s))}
-
-/* ----------- COLLAPSIBLES ---------- */
-$all('h2').forEach(h=>{
-  h.addEventListener('click', ()=>{
-    const c = h.parentElement.querySelector('.collapsible');
-    if(!c) return;
-    c.style.display = (c.style.display === 'block') ? 'none' : 'block';
-  });
-});
-
-/* ---------- TOOLTIP ---------- */
-const tooltip = $('#fstl-tooltip');
-function showTip(html, x, y){
-  tooltip.innerHTML = html;
-  tooltip.style.left = (x+12) + 'px';
-  tooltip.style.top = (y+12) + 'px';
-  tooltip.style.display = 'block';
-}
-function hideTip(){ tooltip.style.display = 'none' }
-
-/* ---------- ECOSYSTEM NODES INTERACTIVITY ---------- */
-function nodeClick(key, rect){
-  const map = {
-    'node-title': '<strong>Title Guarantee</strong><br/>FSTL verifies multi-source evidence and issues an enforceable guarantee. Used to secure collateral.',
-    'node-mort': '<strong>Mortgage Insurance</strong><br/>Reduces lender credit risk; may cover first-loss for pooled mortgages.',
-    'node-abs': '<strong>ABS / MBS</strong><br/>Verified mortgage pools are securitised to create liquidity for developers and public projects.',
-    'node-cap': '<strong>Capital Markets</strong><br/>Institutional investors, municipal bonds and structured products absorb risk and provide funding.',
-    'node-dev': '<strong>Developers & Public</strong><br/>End beneficiaries: built infrastructure, homes and industrial facilities.'
-  };
-  return map[key] || 'Details not found';
-}
-// make nodes clickable
-['node-title','node-mort','node-abs','node-cap','node-dev'].forEach(id=>{
-  const el = document.getElementById(id);
-  if(!el) return;
-  el.style.cursor='pointer';
-  el.addEventListener('click', (ev)=>{
-    const html = nodeClick(id, el);
-    showTip(html, ev.clientX, ev.clientY);
-    setTimeout(()=> hideTip(), 12000);
-  });
-  el.addEventListener('mouseover',(ev)=> el.style.transform='scale(1.02)');
-  el.addEventListener('mouseout',()=> el.style.transform='');
-});
-
-/* ---------- LEGAL TIMELINE NODES ---------- */
-['case-josh','case-olum','case-okoro','case-adeb','case-emman'].forEach(id=>{
-  const el = document.getElementById(id);
-  if(!el) return;
-  el.style.cursor='pointer';
-  el.addEventListener('click',(ev)=>{
-    const notes = {
-      'case-josh':'Joshua Ogunleye v. Babatayo Oni — foundational principles on chain-of-title and adjudication of overlapping claims.',
-      'case-olum':'Olumide v. Adeyemi — appellate guidance on possession versus registered title.',
-      'case-okoro':'Okoro v. Uba — Supreme Court interpretation of equitable interests and remedies.',
-      'case-adeb':'Adebayo v. Ogun — appellate precedent on title rectification.',
-      'case-emman':'Emmanuel v. Nwosu — Supreme Court rulings reinforcing evidentiary standards for title.'
-    };
-    showTip('<strong>Case notes:</strong><br/>'+notes[id], ev.clientX, ev.clientY);
-    setTimeout(()=> hideTip(), 15000);
-  });
-});
-
-/* ---------- Rebuttal Assistant (client-side locked knowledge) ---------- */
-const fstlKnowledge = {
-  "tenet":"<strong>FSTL Tenet</strong><br/>No country can develop ... (full tenet). This is the guiding principle for collateralisation & ABS strategy.",
-  "title guarantee":"<strong>Title Guarantee</strong><br/>FSTL verifies registry records, survey data, historical chain-of-title and issues a legally-binding guarantee—used to secure collateral.",
-  "mortgage insurance":"<strong>Mortgage Insurance</strong><br/>A policy that covers lender losses, enables safer lending and reduces required capital buffers.",
-  "abs":"<strong>ABS / MBS</strong><br/>Asset-backed securities created from pooled mortgages; requires verifiable collateral and strong servicing to attract investors.",
-  "fmbn":"<strong>FMBN Reform</strong><br/>FMBN must act as a wholesale liquidity engine—buy mortgages, enable PMIs to lend, and participate in securitisation markets.",
-  "fha":"<strong>FHA Role</strong><br/>FHA should align supply with market financing; deliver projects matched to mortgage availability to avoid empty assets.",
-  "land use act":"<strong>Land Use Act misuse</strong><br/>Misinterpretation creates conflicting allocations; FSTL counters with independent verification and Title Guarantee."
-};
-const openBtn = $('#fstl-open'), panel = $('#fstl-panel'), closeBtn = $('#fstl-close'), qInput = $('#fstl-q'), answers = $('#fstl-answers');
-
-openBtn.addEventListener('click', ()=>{ panel.style.display='block'; openBtn.style.display='none'; qInput.focus(); });
-closeBtn.addEventListener('click', ()=>{ panel.style.display='none'; openBtn.style.display='inline-block'; });
-qInput.addEventListener('keydown', (e)=>{
-  if(e.key === 'Enter'){
-    const q = qInput.value.trim().toLowerCase();
-    let found = null;
-    for(const k in fstlKnowledge){
-      if(q.includes(k) || k.split(' ').some(w=> q.includes(w))){ found = fstlKnowledge[k]; break; }
-    }
-    if(!found) found = "<strong>Not found.</strong> Try keywords: title guarantee, mortgage insurance, ABS, FMBN, FHA, land use act.";
-    answers.innerHTML = `<div class="answer">${found}</div>`;
-    // transcript log
-    const t = JSON.parse(localStorage.getItem('fstl_transcript')||'[]');
-    t.push({q:qInput.value,a:found,t:new Date().toISOString()});
-    localStorage.setItem('fstl_transcript', JSON.stringify(t));
-    qInput.value = '';
-  }
-});
-
-/* ---------- WATERMARK ---------- */
-(function(){
-  const el = document.getElementById('fstl-watermark');
-  const uid = (function(){ try{ return decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)fstl_uid\s*\=\s*([^;]*).*$)|^.*$/,'$1')) || 'visitor'; }catch(e){return 'visitor'} })();
-  const ts = new Date().toLocaleString();
-  el.innerText = `FSTL | ${uid} | ${ts} | CONFIDENTIAL`;
-  // subtle movement
-  let a=0;
-  setInterval(()=>{ a=(a+1)%360; el.style.transform = `rotate(${ -17 + (Math.sin(a/30)*1.5) }deg)` }, 4000);
-})();
-
-/* ---------- GATED PURCHASE (demo) ---------- */
-$('#fstl-buy').addEventListener('click', ()=>{
-  // Demo purchase: in production, redirect to payment gateway then server-side token issuance & signed link
-  const token = 'demo_token_' + Date.now();
-  sessionStorage.setItem('fstl_purchase_token', token);
-  $('#fstl-gated').style.display = 'block';
-  $('#fstl-download').href = '/downloads/fstl-50k.pdf?token=' + encodeURIComponent(token);
-  alert('Demo: purchase recorded for this session. Integrate server-side payment & signed links for production.');
-});
-
-/* ---------- UX HARDENING (light) ---------- */
-// disable right-click except for admin cookie
-document.addEventListener('contextmenu', function(e){
-  if(!document.cookie.includes('fstl_admin=true')) e.preventDefault();
-}, false);
-// block basic shortcuts for casual copying
-document.addEventListener('keydown', function(e){
-  if(!document.cookie.includes('fstl_admin=true') && e.ctrlKey && (e.key==='u' || e.key==='s' || e.key==='p')){ e.preventDefault(); return false; }
-});
-// prevent selection on main content areas for casual copy
-$all('main, .collapsible').forEach(el => el.classList.add('no-select'));
-
-/* ---------- accessibility: keyboard close for tooltip ---------- */
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ hideTip(); panel.style.display='none'; openBtn.style.display='inline-block'; } });
-
-/* ---------- small instruction: enable admin bypass ----------- */
-/* To bypass UX blocks for admin users, set cookie in browser console:
-   document.cookie = "fstl_admin=true;path=/";
-   To set UID watermark: document.cookie = "fstl_uid=KABIYESI;path=/";
-*/
-
-</script>
-
-</body>
-</html>
+  <main class="main" id="main">
+    <!-- Executive -->
+    <section id="executive" aria-labelledby="exec-h">
+      <h2 id="exec-h">Executive Summary</h2>
+      <div class="content" style="display:block">
+        <p><strong>Purpose:</strong> FSTL secures landed property rights in Nigeria, converts title integrity into productive capital, and provides risk mitigation tools — Title Guarantee, Mortgage Insurance, and ABS — underpinned by a cadastral & blockchain registry and a legal knowledge repository.</p>
+        <p
