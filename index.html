@@ -1,75 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>First Standard Title Limited (FSTL) — Authoritative</title>
-<meta name="description" content="FSTL — Securing Landed Property Rights in Nigeria. Title Guarantee, Mortgage Insurance, ABS, Cadastral & Blockchain." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Standard Title Limited (FSTL)</title>
 <style>
-  :root{
-    --brand:#003666; --accent:#0073b2; --muted:#666; --bg:#ffffff;
-    --panel:#f7fbff; --maxw:1100px; --radius:8px;
-  }
-  *{box-sizing:border-box}
-  body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:var(--bg);color:#111;line-height:1.5}
-  header{background:var(--brand);color:#fff;padding:18px 16px;text-align:center}
-  header h1{margin:0;font-size:20px}
-  header p{margin:6px 0 0 0;font-size:14px;opacity:0.95}
-  .wrap{max-width:var(--maxw);margin:18px auto;padding:0 16px;display:flex;gap:18px;align-items:flex-start}
-  .sidebar{width:260px;flex:0 0 260px;background:#f4f8ff;padding:12px;border-radius:var(--radius);position:sticky;top:16px;height:fit-content}
-  .sidebar a{display:block;color:var(--brand);text-decoration:none;padding:8px 6px;border-radius:6px;margin-bottom:6px;font-weight:700}
-  .main{flex:1;min-width:300px}
-  section{background:#fff;padding:16px;border-radius:8px;margin-bottom:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)}
-  h2{color:var(--brand);margin:0;font-size:18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
-  .meta{color:var(--muted);font-size:13px;margin-top:8px}
-  .content{display:none;margin-top:12px;color:#222}
-  .content p{margin:8px 0}
-  .small{font-size:13px;color:var(--muted)}
-  .diagram{background:linear-gradient(180deg,#fbfdff,#f7fbff);padding:10px;border-radius:8px;border:1px solid #e8f3ff}
-  footer{background:var(--brand);color:#fff;padding:16px;text-align:center;margin-top:10px;border-radius:0}
-  .cta{background:var(--brand);color:#fff;padding:10px 12px;border-radius:8px;border:0;cursor:pointer}
-  .gated{background:#fff9f0;padding:12px;border-radius:8px;border:1px dashed #ffd8a8;margin-top:10px}
-  code{background:#f6f8fb;padding:2px 6px;border-radius:4px;font-family:monospace}
-  @media(max-width:900px){.wrap{flex-direction:column;padding-bottom:80px}.sidebar{width:100%;position:relative}}
-  /* UX hardening */
-  .no-select{user-select:none;-webkit-user-select:none}
-  /* Watermark */
-  #fstl-watermark{position:fixed;left:-6%;top:30%;z-index:998;opacity:0.06;font-size:26px;color:#000;transform:rotate(-22deg);pointer-events:none;white-space:nowrap}
+    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
+    header { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    nav { background:#f2f2f2; padding:10px; }
+    nav a { display:block; margin:10px 0; color:#004080; text-decoration:none; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
+    .sidebar { flex:1 1 250px; padding:20px; background:#e6e6e6; }
+    .main { flex:3 1 700px; padding:20px; }
+    section { margin-bottom:40px; }
+    h2 { color:#004080; cursor:pointer; margin-bottom:10px; }
+    .collapsible-content { display:none; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
+    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    @media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+    ul, ol { margin-left:20px; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>First Standard Title Limited (FSTL)</h1>
-  <p><strong>Tenet:</strong> “No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic growth.”</p>
+    <h1>First Standard Title Limited (FSTL)</h1>
+    <p>No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic boom. Otherwise, it's just wishful thinking.</p>
 </header>
 
-<div class="wrap" role="main">
-  <aside class="sidebar no-select" aria-label="Navigation">
-    <nav>
-      <a href="#executive">Executive Summary</a>
-      <a href="#legal">Legal Precedents</a>
-      <a href="#title">Title Guarantee</a>
-      <a href="#forensic">Forensic Title Analysis</a>
-      <a href="#mortgage">Mortgage Insurance & ABS</a>
-      <a href="#cadastral">Cadastral & Blockchain</a>
-      <a href="#industrial">Land Industrialisation & Agriculture</a>
-      <a href="#fmbn">FMBN & FHA Reform</a>
-      <a href="#landuse">Abuse of Land Use Act</a>
-      <a href="#risk">Risk Engine</a>
-      <a href="#products">Products & Payments</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-      <div><strong>RC:</strong> RC 714548</div>
-      <div style="margin-top:8px">Status: <strong>v1.0</strong></div>
-    </div>
-  </aside>
+<div class="container">
+    <aside class="sidebar">
+        <nav>
+            <a href="#executive-summary">Executive Summary</a>
+            <a href="#legal-precedent">Legal Precedent</a>
+            <a href="#title-insurance">Title Guarantee & Insurance</a>
+            <a href="#mortgage-abs">Mortgage Insurance & ABS</a>
+            <a href="#land-industrialisation">Land Industrialisation</a>
+            <a href="#governance-risk">Governance & Risk</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </aside>
 
-  <main class="main" id="main">
-    <!-- Executive -->
-    <section id="executive" aria-labelledby="exec-h">
-      <h2 id="exec-h">Executive Summary</h2>
-      <div class="content" style="display:block">
-        <p><strong>Purpose:</strong> FSTL secures landed property rights in Nigeria, converts title integrity into productive capital, and provides risk mitigation tools — Title Guarantee, Mortgage Insurance, and ABS — underpinned by a cadastral & blockchain registry and a legal knowledge repository.</p>
-        <p
+    <main class="main">
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="collapsible-content" style="display:block;">
+                <p><strong>Objective:</strong> FSTL safeguards landed property rights, creates collateralisation for economic growth, and develops intellectual property ensuring sustainable competitive advantage.</p>
+                <ul>
+                    <li>Legal framework for property acquisition and dispute resolution.</li>
+                    <li>Financial instruments including Title Guarantee, Mortgage Insurance, and ABS.</li>
+                    <li>Risk mitigation strategies for financial institutions and the public.</li>
+                    <li>Land industrialisation as a catalyst for infrastructure and economic growth.</li>
+                </ul>
+                <p><strong>Key Strategy:</strong></p>
+                <ul>
+                    <li>Integrate Title Guarantee to bypass bureaucratic delays.</li>
+                    <li>Provide mortgage insurance to reduce lender risk.</li>
+                    <li>Introduce ABS for liquidity and capital formation.</li>
+                    <li>Build a knowledge-based repository of judicial precedents and industry insights.</li>
+                    <li>Use cadastral systems and blockchain for secure property records.</li>
+                    <li>Leverage capital markets and municipal bonds to fund infrastructure.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="legal-precedent">
+            <h2>Legal Precedent</h2>
+            <div class="collapsible-content">
+                <p><strong>Foundational Case:</strong> Joshua Ogunleye v. Babatayo Oni – Established principles for adjudicating property disputes and validating titles.</p>
+                <ul>
+                    <li>Olumide v. Adeyemi (Appellate Court)</li>
+                    <li>Okoro v. Uba (Supreme Court)</li>
+                    <li>Adebayo v. Ogun (Appellate Court)</li>
+                    <li>Emmanuel v. Nwosu (Supreme Court)</li>
+                </ul>
+                <p>Observations: Judiciary inconsistencies and bureaucratic delays necessitate Title Guarantee as mitigation.</p>
+            </div>
+        </section>
+
+        <section id="title-insurance">
+            <h2>Title Guarantee & Insurance</h2>
+            <div class="collapsible-content">
+                <p><strong>Definition:</strong> Legally enforceable confirmation of property ownership.</p>
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Security for buyers, sellers, and developers.</li>
+                    <li>Reduces credit risk for lenders and financial institutions.</li>
+                    <li>Enables collateralisation for
