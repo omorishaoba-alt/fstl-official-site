@@ -141,4 +141,15 @@
     <p>&copy; 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
 </footer>
 
-<script
+<script>
+    const headers = document.querySelectorAll('h2');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
