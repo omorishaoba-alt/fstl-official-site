@@ -1,136 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Standard Title Limited (FSTL)</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header, nav, section, footer {
-            padding: 20px;
-            margin: 10px auto;
-            max-width: 1000px;
-            background-color: #fff;
-            border-radius: 8px;
-        }
-        header h1 {
-            font-size: 1.8em;
-            color: #004080;
-        }
-        h2 {
-            color: #004080;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        footer {
-            text-align: center;
-            font-size: 0.9em;
-            color: #777;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>First Standard Title Limited (FSTL)</title>
+
+  <!-- === EMBEDDED CSS (NO EXTERNAL FILES) === -->
+  <style>
+    :root{
+      --accent:#004080;
+      --muted:#6b7280;
+      --bg:#f5f5f5;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{font-family: Arial, Helvetica, sans-serif; margin:0; background:var(--bg); color:#111;}
+    .wrap{max-width:1100px; margin:0 auto; padding:18px;}
+    .site-header{background:var(--card); padding:30px 0; border-bottom:4px solid var(--accent)}
+    .brand{margin:0; color:var(--accent); font-size:1.6rem}
+    .tagline{margin:6px 0 0; color:var(--muted)}
+
+    .nav{background:#ffffff; border-bottom:1px solid #e6e6e6}
+    .nav .wrap{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .nav a{color:var(--accent); text-decoration:none; font-weight:600; padding:10px 6px}
+    .main{padding-top:20px; padding-bottom:40px}
+
+    .card{background:var(--card); border-radius:8px; padding:20px; margin-bottom:18px; box-shadow: 0 1px 4px rgba(16,24,40,0.04)}
+    .hero{display:flex; flex-direction:column; gap:12px; align-items:flex-start}
+    .lead{color:var(--muted); font-size:1.05rem}
+    .btn{display:inline-block; padding:10px 16px; border-radius:6px; text-decoration:none; background:#eee; color:#111; border:1px solid #ddd; font-weight:700}
+    .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
+
+    ol,ul{margin:8px 0 8px 18px}
+    .note{background:#f8fafc; padding:10px; border-left:4px solid var(--accent)}
+
+    .small{font-size:0.95rem}
+    .muted{color:var(--muted)}
+
+    /* responsive */
+    @media (min-width:800px){
+      .hero{flex-direction:row; justify-content:space-between; align-items:center}
+      .hero h2{max-width:70%}
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <h1>No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic boom. Otherwise, it’s just wishful thinking.</h1>
-</header>
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="brand">First Standard Title Limited (FSTL)</h1>
+      <p class="tagline">Securing Nigeria’s Land. Protecting Nigeria’s Future.</p>
+    </div>
+  </header>
 
-<section id="about">
-    <h2>About FSTL</h2>
-    <p>FSTL is Nigeria’s pioneering title insurance and mortgage insurance firm, with over <strong>20 years of experience</strong> safeguarding landed property rights and enabling property-backed financial solutions.</p>
-    <p>We provide comprehensive services to ensure properties are <strong>legally verified, risk-assessed, and fully usable for financial purposes</strong>. Our expertise allows both individuals and institutions to <strong>harness the true economic potential of landed assets</strong>, reducing bureaucratic friction and litigation risk.</p>
-</section>
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#about">About</a>
+      <a href="#product">Title Guarantee</a>
+      <a href="#ecosystem">Land Industrialisation</a>
+      <a href="#legal">Legal Precedents</a>
+      <a href="#fmbn">FMBN & FHA</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<section id="mission">
-    <h2>Our Mission</h2>
-    <ul>
-        <li>Secure and guarantee legitimate property ownership for clients.</li>
-        <li>Reduce financial and legal risk in property transactions.</li>
-        <li>Enable property collateralisation and securitisation to drive economic development.</li>
-        <li>Provide authoritative guidance on <strong>Title Guarantee, Mortgage Insurance, and Asset-Backed Securities (ABS)</strong>.</li>
-    </ul>
-</section>
+  <main class="wrap main">
+    <section id="hero" class="card hero">
+      <h2>No country can develop or become developed without the collateralisation of its landed property assets nor its securitisation of these assets to create capital and economic boom.</h2>
+      <p class="lead">FSTL provides a professional Title Guarantee product that verifies ownership, reduces risk, and makes land finance possible — now.</p>
+      <a href="#product" class="btn primary">Get Title Guarantee (₦50,000)</a>
+    </section>
 
-<section id="products">
-    <h2>Products & Services</h2>
-    <h3>1. Title Guarantee</h3>
-    <ul>
-        <li>Full verification of property ownership.</li>
-        <li>Issuance of <strong>Title Guarantee Certificate</strong> as authoritative legal assurance.</li>
-        <li>Protection against fraudulent claims, disputes, and bureaucratic delays.</li>
-    </ul>
+    <section id="about" class="card">
+      <h2>About FSTL</h2>
+      <p>FSTL is Nigeria’s pioneering organization for title protection and property risk solutions with over <strong>20 years</strong> of experience. We are committed to restoring legal certainty to land ownership and unlocking the economic value hidden within property assets nationwide.</p>
+      <ul>
+        <li>Professional Title Guarantee services</li>
+        <li>Legal and risk assessments for property</li>
+        <li>Mortgage readiness & securitisation advisory</li>
+      </ul>
+    </section>
 
-    <h3>2. Mortgage Insurance Readiness</h3>
-    <ul>
-        <li>Evaluation of properties for <strong>mortgage-backed loans</strong>.</li>
-        <li>Reduction of exposure for banks, PMIs, and financial institutions.</li>
-        <li>Prepares properties for financial leveraging in compliance with Nigerian law.</li>
-    </ul>
+    <section id="product" class="card">
+      <h2>Title Guarantee — The First Product (₦50,000)</h2>
+      <p><strong>Title Guarantee</strong> is a professional, enforceable certification that confirms the validity and enforceability of a property title. It bypasses bureaucratic delays and provides immediate commercial confidence to buyers, sellers, lenders and investors.</p>
 
-    <h3>3. Asset-Backed Securities (ABS) & Mortgage-Backed Securities (MBS)</h3>
-    <ul>
-        <li>Assessment of properties for inclusion in ABS/MBS structures.</li>
-        <li>Conversion of property into liquidity for investment, development, and economic expansion.</li>
-        <li>Alignment with Nigeria’s capital market standards to enhance transparency and investor confidence.</li>
-    </ul>
+      <h3>What the ₦50,000 package includes</h3>
+      <ul>
+        <li>Document review and verification</li>
+        <li>Root-of-title lineage check</li>
+        <li>Identification of encumbrances/red flags</li>
+        <li>Written risk report</li>
+        <li>Digital Title Guarantee Certificate</li>
+      </ul>
 
-    <h3>4. Financial Risk Assessment</h3>
-    <ul>
-        <li>Comprehensive reports on <strong>credit risk</strong> associated with property transactions.</li>
-        <li>Assessment of risk to developers, financial institutions, PMIs, FMBN, and government stakeholders.</li>
-        <li>Supports informed decisions in property acquisition, lending, and development.</li>
-    </ul>
-</section>
+      <h3>How it works</h3>
+      <ol>
+        <li>Send property documents via email or secure upload.</li>
+        <li>Pay ₦50,000 for Title Guarantee.</li>
+        <li>FSTL conducts verification and risk assessment.</li>
+        <li>Receive your risk report and certificate.</li>
+      </ol>
 
-<section id="legal-precedents">
-    <h2>Legal Precedents</h2>
-    <p>FSTL relies on established Nigerian legal precedents to safeguard client interests. Key cases include:</p>
-    <ul>
-        <li><strong>Joshua Ogunleye v. Babatayo Oni</strong> – foundational property dispute resolution.</li>
-        <li>Other Appeal Court & Supreme Court precedents – enforceability of title guarantees, risk mitigation, and protection against fraudulent claims.</li>
-    </ul>
-</section>
+      <p class="note">Use the Title Guarantee Certificate to demonstrate title certainty to banks, PMIs, developers and investors.</p>
 
-<section id="land-industrialisation">
-    <h2>Land Industrialisation & Economic Growth</h2>
-    <p>Properly secured and collateralised property assets are central to <strong>economic expansion</strong>. Title Guarantee enables:</p>
-    <ul>
-        <li>Real estate-backed capital formation</li>
-        <li>Municipal bonds and infrastructure financing</li>
-        <li>Identification of risks associated with unverified or artificially created land (sand filling, dredging, and make-believe islands)</li>
-    </ul>
-</section>
+      <a href="mailto:kabiyesi@fstl.com.ng?subject=Title%20Guarantee%20Inquiry" class="btn">Request Title Guarantee</a>
+    </section>
 
-<section id="ecosystem">
-    <h2>Stakeholder Ecosystem</h2>
-    <p>FSTL services benefit:</p>
-    <ul>
-        <li><strong>Public property owners</strong> – legal recognition and financial usability</li>
-        <li><strong>Financial institutions & PMIs</strong> – reduced credit exposure, enhanced mortgage viability</li>
-        <li><strong>Government & regulatory agencies</strong> – transparency and economic growth</li>
-        <li><strong>Developers & investors</strong> – actionable intelligence for property-backed investments</li>
-    </ul>
-</section>
+    <section id="ecosystem" class="card">
+      <h2>Land Industrialisation & The Economic Ecosystem</h2>
+      <p>Land industrialisation is the transformation of land from a static physical asset into a dynamic engine of financial capital through verification, risk mitigation and securitisation.</p>
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
-    <p><strong>Telephone:</strong> +2348035888622</p>
-    <p><strong>Email:</strong> <a href="mailto:youremail@fstl.com.ng">youremail@fstl.com.ng</a></p>
-</section>
+      <h3>The ecosystem layers</h3>
+      <ol>
+        <li>Title verification & guarantee</li>
+        <li>Credit and mortgage readiness</li>
+        <li>Mortgage-backed securities</li>
+        <li>Municipal bonds & infrastructure finance</li>
+        <li>Urbanisation & industrial development</li>
+      </ol>
 
-<footer>
-    <p>© 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
-</footer>
+      <p>FSTL provides the foundational layer that enables every other layer.</p>
+    </section>
 
-</body>
-</html>
+    <section id="legal" class="card">
+      <h2>Legal Precedents</h2>
+      <p>Our process aligns with Nigerian case law and statutory foundations governing land, title and enforceability.</p>
+
+      <ul>
+        <li><strong>Joshua Ogunleye v. Babatayo Oni</strong> — foundational case on root of title.</li>
+        <li>Appeal & Supreme Court decisions reinforcing due diligence & enforceability.</li>
+        <li>Application of Land Use Act, Wills Act and related statutes.</li>
+      </ul>
+    </section>
+
+    <section id="fmbn" class="card">
+      <h2>Institutional Gaps: FMBN & FHA</h2>
+      <p>FMBN and FHA have not delivered scalable mortgage liquidity or mass housing due to structural gaps. FSTL provides the private-sector corrective mechanism needed to restore certainty to land and mortgage markets.</p>
+
+      <ul>
+        <li>PMIs lack reliable refinancing channels.</li>
+        <li>Mortgage penetration remains low.</li>
+        <li>Housing production lags behind demand.</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
+      <p><strong>Mobile:</strong> +2348035888622</p>
+      <p><strong>Email:</strong> <a href="mailto:kabiyesi@fstl.com.ng">kabiyesi@fstl.com.ng</a></p>
+    </
