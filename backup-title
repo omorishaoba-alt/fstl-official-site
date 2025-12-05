@@ -3,57 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Back-Up Title Guarantee - FSTL</title>
-<style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
-    header { background:#004080; color:white; text-align:center; padding:20px 10px; }
-    nav a { display:inline-block; margin:10px; color:white; text-decoration:none; font-weight:bold; }
-    .container { padding:20px; max-width:900px; margin:auto; }
-    h2 { color:#004080; cursor:pointer; }
-    .collapsible-content { display:block; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
-    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
-</style>
+<title>Backup Title Insurance – FSTL</title>
 </head>
 <body>
 
-<header>
-    <h1>Back-Up Title Guarantee</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="primary-title.html">Primary Title Guarantee</a>
-        <a href="land-verification.html">50K Land Verification</a>
-    </nav>
-</header>
+<h1>Back-Up Title Guarantee</h1>
 
-<div class="container">
-    <section>
-        <h2>Overview</h2>
-        <div class="collapsible-content">
-            <p>The Back-Up Title Guarantee covers titles that are pending verification, incomplete, or have minor encumbrances. This allows transactions to proceed while protecting both buyer and lender against risks associated with imperfect titles.</p>
-            <ul>
-                <li>Coverage for pending or imperfect titles.</li>
-                <li>Fraud and forgery protection.</li>
-                <li>Secondary indemnity in case of title defect.</li>
-                <li>Ensures continuity of transactions while verification is in process.</li>
-            </ul>
-        </div>
-    </section>
+<p>This guarantees properties that are imperfect, pending documentation, or in transition.</p>
 
-    <section>
-        <h2>Purchase & Payment</h2>
-        <div class="collapsible-content">
-            <ul>
-                <li>Bank Transfer / Deposit</li>
-                <li>USSD / Mobile Payment</li>
-                <li>WhatsApp Payment Confirmation: +2348035888622</li>
-            </ul>
-        </div>
-    </section>
-</div>
+<ul>
+    <li>Protection for incomplete titles</li>
+    <li>Governor’s Consent pending</li>
+    <li>Regularisation support</li>
+    <li>Encumbrance clean-up assistance</li>
+</ul>
 
-<footer>
-    <p>© 2025 First Standard Title Limited (FSTL). All rights reserved.</p>
-</footer>
+<p><strong>Contact:</strong> +2348035888622</p>
 
 </body>
 </html>
