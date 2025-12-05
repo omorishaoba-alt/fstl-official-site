@@ -3,91 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FSTL Back-Up Title Guarantee (Secondary)</title>
+<title>Land Verification (Full Service) - FSTL</title>
 <style>
     body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
     header { background:#004080; color:white; text-align:center; padding:20px 10px; }
-    nav { background:#f2f2f2; padding:10px; }
-    nav a { display:block; margin:10px 0; color:#004080; text-decoration:none; font-weight:bold; }
-    .container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
-    .sidebar { flex:1 1 200px; padding:20px; background:#e6e6e6; }
-    .main { flex:3 1 700px; padding:20px; }
-    section { margin-bottom:40px; }
-    h2 { color:#004080; cursor:pointer; }
-    .collapsible-content { display:block; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
-    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
-    @media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+    main { max-width:900px; margin:auto; padding:20px; }
+    h1, h2 { color:#004080; }
+    ul { margin-left:20px; }
+    .payment { margin-top:30px; padding:20px; border:2px solid #004080; border-radius:8px; }
+    .btn-pay { display:inline-block; background:#004080; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; margin-top:10px; }
+    a.btn-pay:hover { background:#00264d; }
 </style>
 </head>
 <body>
 
 <header>
-    <h1>First Standard Title Limited (FSTL)</h1>
-    <p>Back-Up Title Guarantee (Secondary) & Payment Options</p>
+    <h1>Full Land Verification Service</h1>
+    <p>Complete verification of your land ownership and property rights with FSTL</p>
 </header>
 
-<div class="container">
-    <aside class="sidebar">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="title-guarantee.html">Title Guarantee (Primary)</a>
-            <a href="#backup-title">Back-Up Title Guarantee</a>
-            <a href="#payment-methods">Payment Methods</a>
-        </nav>
-    </aside>
+<main>
+    <section>
+        <h2>Service Details</h2>
+        <ul>
+            <li>Verification of land title and ownership documentation</li>
+            <li>Encumbrance and lien checks</li>
+            <li>Verification of Governor’s Consent and other statutory approvals</li>
+            <li>Blockchain-backed registration confirmation</li>
+            <li>Official verification report delivered digitally</li>
+        </ul>
+    </section>
 
-    <main class="main">
+    <section class="payment">
+        <h2>Payment Method</h2>
+        <p>Secure your Land Verification Service using one of the options below:</p>
+        <ul>
+            <li>Bank Transfer: Account details provided upon request</li>
+            <li>WhatsApp: <strong>+2348035888622</strong> (send "Full Land Verification")</li>
+            <li>Online Payment Gateway: <a href="#" class="btn-pay">Pay Now</a></li>
+        </ul>
+    </section>
 
-        <!-- BACK-UP TITLE GUARANTEE -->
-        <section id="backup-title">
-            <h2>Back-Up Title Guarantee (Secondary)</h2>
-            <div class="collapsible-content">
-                <p><strong>Product Overview:</strong> FSTL’s Back-Up Title Guarantee protects buyers, lenders, and investors in cases where the primary title is incomplete, pending registration, or partially defective.</p>
-                <ul>
-                    <li><strong>Coverage:</strong> Defective, unregistered, or disputed titles.</li>
-                    <li><strong>Eligibility:</strong> Titles under verification or with minor documentation gaps.</li>
-                    <li><strong>Benefits:</strong>
-                        <ul>
-                            <li>Legal and financial indemnity in case of title issues.</li>
-                            <li>Facilitates investment and financing on pending titles.</li>
-                            <li>Enhances lender and investor confidence in uncertain title conditions.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Activation:</strong> Purchase via secure FSTL Payment Methods.</li>
-                </ul>
-                <p><em>The Back-Up Title Guarantee ensures continuity, trust, and flexibility in property transactions, complementing the Primary Title Guarantee.</em></p>
-            </div>
-        </section>
+    <section>
+        <h2>Next Steps</h2>
+        <ol>
+            <li>Complete payment via one of the options above</li>
+            <li>Send proof of payment to WhatsApp or email</li>
+            <li>Receive your verified Land Report within 24–48 hours</li>
+        </ol>
+    </section>
+</main>
 
-        <!-- PAYMENT METHODS -->
-        <section id="payment-methods">
-            <h2>Payment Methods</h2>
-            <div class="collapsible-content">
-                <ul>
-                    <li>Bank Transfer – Direct deposit into FSTL’s verified accounts.</li>
-                    <li>Mobile Money – Pay via M-Pesa, Paga, or Flutterwave.</li>
-                    <li>Online Gateway – Cards, USSD, or QR code.</li>
-                    <li>Cheque / Bank Draft – For corporate/bulk payments.</li>
-                    <li>Standing Order / Subscription – For recurring product packages.</li>
-                </ul>
-            </div>
-        </section>
-
-    </main>
-</div>
-
-<footer>
+<footer style="background:#004080; color:white; text-align:center; padding:20px;">
     <p>© 2025 First Standard Title Limited (FSTL). All rights reserved.</p>
 </footer>
-
-<script>
-    document.querySelectorAll("h2").forEach(h2 => {
-        h2.addEventListener("click", () => {
-            const content = h2.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
-        });
-    });
-</script>
 
 </body>
 </html>
