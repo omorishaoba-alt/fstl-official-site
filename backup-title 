@@ -1,1 +1,103 @@
-cd backup-title
+cd <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back-Up Title Guarantee - FSTL</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
+header { background:#004080; color:white; text-align:center; padding:20px 10px; }
+aside.sidebar { flex:1 1 200px; padding:20px; background:#e6e6e6; }
+aside.sidebar a { display:block; margin:10px 0; color:#004080; text-decoration:none; font-weight:bold; }
+.container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
+.main { flex:3 1 700px; padding:20px; }
+h2 { color:#004080; cursor:pointer; }
+.collapsible-content { display:none; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
+footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
+@media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Back-Up Title Guarantee</h1>
+<p>Securing Landed Property Rights and Enabling Economic Growth</p>
+</header>
+
+<div class="container">
+<aside class="sidebar">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="primary-title.html">Primary Title Guarantee</a>
+        <a href="backup-title.html">Back-Up Title Guarantee</a>
+        <a href="land-verification.html">50K Land Verification</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</aside>
+
+<main class="main">
+
+<section id="overview">
+<h2>Overview</h2>
+<div class="collapsible-content" style="display:block;">
+<p>The Back-Up Title Guarantee covers titles that are pending verification, incomplete, or have minor encumbrances. This allows transactions to proceed while protecting both buyer and lender against risks associated with imperfect titles.</p>
+<ul>
+<li>Coverage for pending or imperfect titles.</li>
+<li>Fraud and forgery protection.</li>
+<li>Secondary indemnity in case of title defect.</li>
+<li>Ensures continuity of transactions while verification is in process.</li>
+</ul>
+</div>
+</section>
+
+<section id="purchase">
+<h2>Purchase & Payment</h2>
+<div class="collapsible-content" style="display:block;">
+<ul>
+<li>Bank Transfer / Deposit</li>
+<li>USSD / Mobile Payment</li>
+<li>WhatsApp Payment Confirmation: +2348035888622</li>
+</ul>
+</div>
+</section>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="collapsible-content" style="display:block;">
+<p><strong>Q1: How do I make payment?</strong></p>
+<p>A: Payment can be made via Bank Transfer, USSD/Mobile payment, or WhatsApp confirmation at +2348035888622.</p>
+
+<p><strong>Q2: How long does verification take?</strong></p>
+<p>A: Standard verification report is delivered within 48 hours.</p>
+
+<p><strong>Q3: Is the verification legally recognized?</strong></p>
+<p>A: Yes, all reports are based on official cadastral records and legal title verification.</p>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="collapsible-content" style="display:block;">
+<p>Email: info@fstl.ng</p>
+<p>Phone: +2348035888622</p>
+</div>
+</section>
+
+</main>
+</div>
+
+<footer>
+<p>© 2025 First Standard Title Limited (FSTL). All rights reserved.</p>
+</footer>
+
+<script>
+document.querySelectorAll("h2").forEach(h2 => {
+    h2.addEventListener("click", () => {
+        const content = h2.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+
+</body>
+</html>
