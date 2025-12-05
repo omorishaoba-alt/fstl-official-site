@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL Title Guarantee (Primary)</title>
+<style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; line-height:1.6; }
+    header { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    nav { background:#f2f2f2; padding:10px; }
+    nav a { display:block; margin:10px 0; color:#004080; text-decoration:none; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
+    .sidebar { flex:1 1 200px; padding:20px; background:#e6e6e6; }
+    .main { flex:3 1 700px; padding:20px; }
+    section { margin-bottom:40px; }
+    h2 { color:#004080; cursor:pointer; }
+    .collapsible-content { display:block; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
+    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    @media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>First Standard Title Limited (FSTL)</h1>
+    <p>Title Guarantee (Primary) & Payment Options</p>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#primary-title">Title Guarantee (Primary)</a>
+            <a href="#payment-methods">Payment Methods</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+
+        <!-- PRIMARY TITLE GUARANTEE -->
+        <section id="primary-title">
+            <h2>Title Guarantee (Primary)</h2>
+            <div class="collapsible-content">
+                <p><strong>Product Overview:</strong> FSTL’s Primary Title Guarantee ensures that buyers, lenders, and investors can transact with full confidence on properly documented and registered land titles.</p>
+                <ul>
+                    <li><strong>Coverage:</strong> Fully registered and verified titles.</li>
+                    <li><strong>Eligibility:</strong> Any property with clear title documentation.</li>
+                    <li><strong>Benefits:</strong>
+                        <ul>
+                            <li>Legal and financial indemnity in case of title defects.</li>
+                            <li>Fraud and forgery protection.</li>
+                            <li>Enables financing and mortgage access with confidence.</li>
+                            <li>Increases marketability and value of the property.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Activation:</strong> Purchase via secure FSTL Payment Methods.</li>
+                </ul>
+                <p><em>The Primary Title Guarantee is the cornerstone of FSTL’s title protection and land securitisation framework.</em></p>
+            </div>
+        </section>
+
+        <!-- PAYMENT METHODS -->
+        <section id="payment-methods">
+            <h2>Payment Methods</h2>
+            <div class="collapsible-content">
+                <ul>
+                    <li>Bank Transfer – Direct deposit into FSTL’s verified accounts.</li>
+                    <li>Mobile Money – Pay via M-Pesa, Paga, or Flutterwave.</li>
+                    <li>Online Gateway – Cards, USSD, or QR code.</li>
+                    <li>Cheque / Bank Draft – For corporate/bulk payments.</li>
+                    <li>Standing Order / Subscription – For recurring product packages.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<footer>
+    <p>© 2025 First Standard Title Limited (FSTL). All rights reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll("h2").forEach(h2 => {
+        h2.addEventListener("click", () => {
+            const content = h2.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        });
+    });
+</script>
+
+</body>
+</html>
