@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://yourdomain.com/index.html</loc>
-   </url>
-   <url>
-      <loc>https://yourdomain.com/50k-verification.html</loc>
-   </url>
-   <url>
-      <loc>https://yourdomain.com/land-verification.html</loc>
-   </url>
-   <url>
-      <loc>https://yourdomain.com/payment-method.html</loc>
-   </url>
-   <url>
-      <loc>https://yourdomain.com/public-launch.html</loc>
-   </url>
-   <url>
-      <loc>https://yourdomain.com/verify.html</loc>
-   </url>
+  <url><loc>https://fstl.ng/index.html</loc></url>
+  <url><loc>https://fstl.ng/public-launch.html</loc></url>
+  <url><loc>https://fstl.ng/50k-verification.html</loc></url>
+  <url><loc>https://fstl.ng/land-verification.html</loc></url>
+  <url><loc>https://fstl.ng/title-guarantee.html</loc></url>
+  <url><loc>https://fstl.ng/mortgage-insurance.html</loc></url>
+  <url><loc>https://fstl.ng/verify.html</loc></url>
 </urlset>
