@@ -1,38 +1,53 @@
-// Smooth Scroll & Active Sidebar Highlight
+// Smooth scroll & active sidebar highlight
 document.addEventListener("DOMContentLoaded", function() {
     const sidebarLinks = document.querySelectorAll(".sidebar nav a");
-    const sections = document.querySelectorAll(".main section");
+    const sections = Array.from(document.querySelectorAll(".main section"));
+    const offset = 20;
 
-    // Smooth scroll for sidebar links
+    // Smooth scroll
     sidebarLinks.forEach(link => {
         link.addEventListener("click", function(e) {
+            const href = link.getAttribute("href");
+            if (!href || !href.startsWith("#")) return; // ignore external links
             e.preventDefault();
-            const targetId = link.getAttribute("href").substring(1);
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
+            const targetId = href.replace(/.*#/, "");
+            const target = document.getElementById(targetId);
+            if (target) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 20,
+                    top: target.getBoundingClientRect().top + window.pageYOffset - 18,
                     behavior: "smooth"
                 });
             }
         });
     });
 
-    // Update active link on scroll
+    // Active link on scroll (throttled)
+    let ticking = false;
     window.addEventListener("scroll", function() {
-        let currentSection = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 30;
-            if (pageYOffset >= sectionTop) {
-                currentSection = section.getAttribute("id");
-            }
-        });
-
-        sidebarLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").substring(1) === currentSection) {
-                link.classList.add("active");
-            }
-        });
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                updateActiveLink();
+                ticking = false;
+            });
+            ticking = true;
+        }
     });
+
+    function updateActiveLink() {
+        const scrollPos = window.pageYOffset;
+        let currentId = null;
+        for (let i = 0; i < sections.length; i++) {
+            const s = sections[i];
+            const top = s.getBoundingClientRect().top + window.pageYOffset - 100;
+            if (scrollPos >= top) currentId = s.id;
+        }
+        sidebarLinks.forEach(l => l.classList.remove("active"));
+        if (currentId) {
+            const active = document.querySelector('.sidebar nav a[href$="#' + currentId + '"]');
+            if (active) active.classList.add("active");
+        }
+    }
+
+    // Initialize active link
+    updateActiveLink();
 });
