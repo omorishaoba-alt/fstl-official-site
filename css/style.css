@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; }
+header { background:#004080; color:white; text-align:center; padding:20px; }
+.container { display:flex; }
+.sidebar { width:220px; background:#f2f2f2; padding:20px; }
+.sidebar a { display:block; padding:10px; margin-bottom:10px; text-decoration:none; font-weight:bold; color:#004080; }
+.main { padding:20px; flex:1; }
+footer { background:#004080; color:white; text-align:center; padding:15px; margin-top:20px; }
+.pay-btn { display:inline-block
