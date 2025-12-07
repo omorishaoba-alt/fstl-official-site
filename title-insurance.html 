@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Title Insurance – FSTL</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<header>
+    <h1>Title Insurance</h1>
+    <p>Protecting property ownership and investment with certainty</p>
+</header>
+<div class="container">
+    <aside class="sidebar">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="legal-precedent.html">Legal Precedent</a>
+            <a href="fstl-experience.html">FSTL 20-Year Experience</a>
+            <a href="fha-fmbn-reforms.html">FHA & FMBN Reforms</a>
+            <a href="mortgage-market.html">Mortgage Market Structure</a>
+            <a href="municipal-bonds.html">Municipal Bonds</a>
+            <a href="title-insurance.html">Title Insurance</a>
+            <a href="mortgage-insurance.html">Mortgage Insurance</a>
+            <a href="hire-purchase.html">Hire-Purchase Credit</a>
+            <a href="housing-deficit.html">Nigeria Housing Deficit</a>
+            <a href="global-benchmarks.html">Global Mortgage Benchmarks</a>
+            <a href="fannie-ginnie.html">Fannie Mae & Ginnie Mae Models</a>
+            <a href="cadastral-blockchain.html">Cadastral & Blockchain</a>
+            <a href="infrastructure-bonds.html">Infrastructure Bond Adoption</a>
+        </nav>
+    </aside>
+    <main class="main">
+        <section>
+            <h2>Overview</h2>
+            <p>Title insurance protects property owners and lenders against financial loss arising from defects in property titles. FSTL has 20 years of experience in ensuring secure and verifiable property ownership in Nigeria.</p>
+        </section>
+        <section>
+            <h2>Why Title Insurance Matters</h2>
+            <ul>
+                <li>Mitigates risks from fraud, forgery, or conflicting claims.</li>
+                <li>Ensures legal recognition of property ownership.</li>
+                <li>Supports mortgage and investment confidence.</li>
+                <li>Critical in secondary market financing and bond-backed property initiatives.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>FSTL Approach</h2>
+            <ul>
+                <li>Rigorous verification of ownership documents, C of O, Gazette, and survey plans.</li>
+                <li>Encumbrance and litigation searches to ensure clean title.</li>
+                <li>Integration with mortgage insurance and municipal bond programs.</li>
+                <li>Provision of risk assessment and coverage for high-value transactions.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Impact on Nigeria’s Property Market</h2>
+            <ul>
+                <li>Reduces litigation and dispute risks.</li>
+                <li>Supports mortgage lending and hire-purchase financing.</li>
+                <li>Facilitates foreign and local investment in housing and infrastructure.</li>
+                <li>Enhances confidence in land industrialisation and property mechanisation.</li>
+            </ul>
+        </section>
+    </main>
+</div>
+<footer>
+    <p>Contact us: +2348035888622</p>
+</footer>
+<script src="./js/script.js"></script>
+</body>
+</html>
