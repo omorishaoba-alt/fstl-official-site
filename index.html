@@ -1,89 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>First Standard Title Limited (FSTL) — Secure Titles, Enable Credit</title>
-  <meta name="description" content="FSTL — 20 years of title verification, title guarantee, mortgage insurance, municipal bonds, and land industrialisation solutions for Nigeria." />
-  <meta name="author" content="First Standard Title Limited (FSTL)" />
-  <style>
-    /* ---------- Reset & base ---------- */
-    :root{
-      --fstl-blue:#003865;
-      --fstl-gold:#d4af37;
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --muted:#666;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>First Standard Title Limited (FSTL)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f5f7;
+        display: flex;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:#111}
-    a{color:var(--fstl-blue);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* ---------- layout ---------- */
-    .wrap{max-width:1200px;margin:0 auto;padding:18px}
-    .layout{display:flex;gap:20px}
-    .sidebar{
-      width:280px;position:sticky;top:18px;height:calc(100vh - 36px);background:linear-gradient(180deg,var(--fstl-blue),#002d54);color:#fff;border-radius:10px;padding:18px;overflow:auto;
-      box-shadow:0 10px 30px rgba(2,10,40,0.12);
+    /* Sidebar */
+    .sidebar {
+        width: 320px;
+        height: 100vh;
+        background: #14213d;
+        color: white;
+        overflow-y: auto;
+        position: fixed;
+        padding: 20px;
     }
-    .sidebar h2{margin:0 0 8px;font-size:18px;color:var(--fstl-gold)}
-    .sidebar nav a{display:block;padding:10px 8px;border-radius:6px;margin:6px 0;color:#fff;font-weight:600}
-    .sidebar nav a:hover{background:rgba(255,255,255,0.05)}
-    .main{flex:1;min-width:0}
-    header.site{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
-    header.site h1{margin:0;color:var(--fstl-blue);font-size:22px}
-    header.site p{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-    /* ---------- sections ---------- */
-    section.card{background:var(--card);padding:20px;border-radius:10px;margin-bottom:16px;box-shadow:0 8px 28px rgba(6,20,40,0.04)}
-    section.card h2{margin-top:0;color:var(--fstl-blue)}
-    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
-    .muted{color:var(--muted)}
-    ul{margin:8px 0 0 18px}
-    ol{margin:8px 0 0 18px}
-    footer{margin-top:18px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
-
-    /* ---------- CTA & buttons ---------- */
-    .cta{display:inline-block;background:var(--fstl-blue);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700}
-    .cta.outline{background:transparent;color:var(--fstl-blue);border:2px solid var(--fstl-blue);padding:8px 12px}
-
-    /* ---------- responsive ---------- */
-    @media (max-width:980px){
-      .layout{flex-direction:column}
-      .sidebar{position:relative;height:auto;width:100%;order:2}
-      .main{order:1}
-      .two-col{grid-template-columns:1fr}
+    .sidebar h2 {
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #fff3;
+        padding-bottom: 8px;
     }
-  </style>
+    .sidebar a {
+        display: block;
+        padding: 10px;
+        font-size: 15px;
+        color: #f4f5f7;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-bottom: 4px;
+    }
+    .sidebar a:hover {
+        background: #1f2a48;
+    }
+    /* Content */
+    .content {
+        margin-left: 340px;
+        padding: 40px;
+        max-width: 1000px;
+    }
+    .section {
+        background: white;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .section h1, .section h2 {
+        color: #14213d;
+    }
+</style>
 </head>
 <body>
 
-<div class="wrap">
-  <div class="layout">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="Main navigation">
-      <h2>FSTL Knowledge Base</h2>
-      <nav>
-        <a href="#tenet">The Tenet</a>
-        <a href="#experience">FSTL — 20 Years Experience</a>
-        <a href="#housing-deficit">Nigeria Housing Deficit (Stats)</a>
-        <a href="#ecosystem">National Housing Ecosystem</a>
-        <a href="#fha-fmbn">FHA & FMBN Reforms</a>
-        <a href="#fannie-ginnie">Fannie / Ginnie Models</a>
-        <a href="#mortgage-structure">Mortgage Market Structure</a>
-        <a href="#title-guarantee">Title Guarantee & Insurance</a>
-        <a href="#mortgage-insurance">Mortgage Insurance</a>
-        <a href="#hire-purchase">Hire-Purchase Credit</a>
-        <a href="#municipal-bonds">Municipal & Infrastructure Bonds</a>
-        <a href="#cadastral-blockchain">Cadastral & Blockchain</a>
-        <a href="#infrastructure-bonds">Infrastructure Bond Adoption</a>
-        <a href="#legal-precedent">Legal Precedents (Cases)</a>
-        <a href="#global-benchmarks">Global Mortgage Benchmarks</a>
-        <a href="#products">Products & Services</a>
-        <a href="#contact">Contact & Next Steps</a>
-      </nav>
-      <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06)">
-        <p style="margin:0;font-weight:700">Call / WhatsApp</p>
-        <p style="margin:6px 0 0;font-size:14px">+2348035888622</p>
-        <p style="margin:10px 0 0;font-size:13px;color:#f0f6ff">Email: info@fstl.ng</p>
+<div class="sidebar">
+    <h2>Website Sections</h2>
+    <a href="#tenet">The FSTL Tenet</a>
+    <a href="#experience20">FSTL 20-Year Experience</a>
+    <a href="#fha_fmbn">FHA & FMBN Reforms</a>
+    <a href="#mortgage_market">Mortgage Market Structure</a>
+    <a href="#municipal_bonds">Municipal Bonds</a>
+    <a href="#title_insurance">Title Insurance</a>
+    <a href="#mortgage_insurance">Mortgage Insurance</a>
+    <a href="#hire_purchase">Hire Purchase Credit System</a>
+    <a href="#legal_precedents">Legal Precedents</a>
+    <a href="#housing_deficit">Nigeria Housing Deficit</a>
+    <a href="#global_benchmarks">Global Mortgage Benchmarks</a>
+    <a href="#fannie_mae">Fannie Mae Model</a>
+    <a href="#ginnie_mae">Ginnie Mae Model</a>
+    <a href="#cadastral_blockchain">Cadastral System & Blockchain</a>
+    <a href="#infrastructure_bonds">Infrastructure Bond Adoption</a>
+    <a href="#conclusion">Conclusion</a>
+</div>
+
+<div class="content">
+
+<div class="section" id="tenet">
+<h1>The FSTL Tenet</h1>
+<p>
+FSTL was founded on one sacred mission: **to protect property rights and unlock
+the wealth trapped inside Nigeria’s land market**.  
+For 20 years, FSTL has been the quiet but foundational force behind mortgage
+security,
