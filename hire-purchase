@@ -4,88 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire-Purchase Credit – FSTL</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
 <header>
     <h1>Hire-Purchase Credit</h1>
-    <p>Structured credit solutions to expand home ownership and economic growth</p>
+    <p>Flexible financing for property acquisition and development</p>
 </header>
-
 <div class="container">
     <aside class="sidebar">
         <nav>
             <a href="index.html">Home</a>
-            <a href="title-guarantee.html">Title Guarantee & Insurance</a>
+            <a href="legal-precedent.html">Legal Precedent</a>
+            <a href="fstl-experience.html">FSTL 20-Year Experience</a>
+            <a href="fha-fmbn-reforms.html">FHA & FMBN Reforms</a>
+            <a href="mortgage-market.html">Mortgage Market Structure</a>
+            <a href="municipal-bonds.html">Municipal Bonds</a>
+            <a href="title-insurance.html">Title Insurance</a>
             <a href="mortgage-insurance.html">Mortgage Insurance</a>
             <a href="hire-purchase.html">Hire-Purchase Credit</a>
-            <a href="fha-fmbn.html">FHA & FMBN Reforms</a>
-            <a href="municipal-bonds.html">Municipal Bonds</a>
-            <a href="legal-precedent.html">Legal Precedents</a>
-            <a href="nigeria-housing.html">Nigeria Housing Deficit</a>
+            <a href="housing-deficit.html">Nigeria Housing Deficit</a>
+            <a href="global-benchmarks.html">Global Mortgage Benchmarks</a>
+            <a href="fannie-ginnie.html">Fannie Mae & Ginnie Mae Models</a>
             <a href="cadastral-blockchain.html">Cadastral & Blockchain</a>
             <a href="infrastructure-bonds.html">Infrastructure Bond Adoption</a>
-            <a href="global-benchmarks.html">Global Mortgage Benchmarks</a>
         </nav>
     </aside>
-
     <main class="main">
         <section>
             <h2>Overview</h2>
-            <p>Hire-Purchase Credit allows buyers to acquire property through structured periodic payments while gaining immediate use of the asset. FSTL ensures credit agreements are secure, legally verified, and enforceable.</p>
+            <p>Hire-purchase credit allows individuals and businesses to acquire property through structured, periodic payments, while ownership transfers after the final payment. FSTL has facilitated hire-purchase schemes for over two decades, enabling real estate access to low- and middle-income Nigerians.</p>
         </section>
-
         <section>
-            <h2>Why Hire-Purchase Credit Matters in Nigeria</h2>
+            <h2>Key Benefits</h2>
             <ul>
-                <li>Facilitates home ownership for low and middle-income families</li>
-                <li>Addresses the Nigeria housing deficit, currently over 17 million units</li>
-                <li>Encourages banks and financial institutions to participate in long-term lending</li>
-                <li>Supports the growth of a robust mortgage and property finance culture</li>
+                <li>Enables property acquisition without requiring full upfront payment.</li>
+                <li>Supports the development of middle-class housing and SME real estate projects.</li>
+                <li>Encourages disciplined repayment culture, strengthening the overall credit system.</li>
+                <li>Reduces risks for lenders while maintaining borrower flexibility.</li>
             </ul>
         </section>
-
         <section>
-            <h2>FSTL Methodology</h2>
-            <ol>
-                <li>Due diligence on property and borrower documentation</li>
-                <li>Structured repayment schedules to match borrower capacity</li>
-                <li>Integration with Title Guarantee and Mortgage Insurance</li>
-                <li>Blockchain-based verification for transparency and trust</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Benefits to Stakeholders</h2>
+            <h2>FSTL Approach</h2>
             <ul>
-                <li>Borrowers: Access to legally secure, affordable home finance</li>
-                <li>Lenders: Reduced risk through insurance and verified property titles</li>
-                <li>Investors: Confidence in securitized instruments backed by hire-purchase agreements</li>
-                <li>Government: Promotes affordable housing and financial inclusion</li>
+                <li>Property verification and title checks integrated with hire-purchase agreements.</li>
+                <li>Customised payment plans for diverse income levels and property types.</li>
+                <li>Linkage with mortgage insurance and title guarantee for complete risk management.</li>
+                <li>Guidance for financial institutions on structuring hire-purchase portfolios.</li>
             </ul>
         </section>
-
         <section>
-            <h2>Integration with FSTL Ecosystem</h2>
+            <h2>Economic Impact</h2>
             <ul>
-                <li>Title Guarantee – ensures legal ownership and documentation</li>
-                <li>Mortgage Insurance – mitigates default risk for lenders</li>
-                <li>Municipal Bonds & Infrastructure Bonds – financing housing supply</li>
-                <li>Cadastral & Blockchain – immutable verification of property records</li>
+                <li>Increases housing affordability and access for middle-income earners.</li>
+                <li>Strengthens credit culture and formal financial engagement.</li>
+                <li>Facilitates property market expansion and liquidity for lenders.</li>
+                <li>Supports national housing deficit reduction targets and land industrialisation.</li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Contact FSTL</h2>
-            <p>Learn more or apply: <strong>+2348035888622</strong></p>
         </section>
     </main>
 </div>
-
 <footer>
-    <p>© 2025 First Standard Title Limited (FSTL). All rights reserved.</p>
+    <p>Contact us: +2348035888622</p>
 </footer>
-
+<script src="./js/script.js"></script>
 </body>
 </html>
