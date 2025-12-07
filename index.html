@@ -1,132 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Standard Title Limited (FSTL)</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>First Standard Title Limited (FSTL) — Secure Titles, Enable Credit</title>
+  <meta name="description" content="FSTL — 20 years of title verification, title guarantee, mortgage insurance, municipal bonds, and land industrialisation solutions for Nigeria." />
+  <meta name="author" content="First Standard Title Limited (FSTL)" />
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --fstl-blue:#003865;
+      --fstl-gold:#d4af37;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#666;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:#111}
+    a{color:var(--fstl-blue);text-decoration:none}
+    a:hover{text-decoration:underline}
 
+    /* ---------- layout ---------- */
+    .wrap{max-width:1200px;margin:0 auto;padding:18px}
+    .layout{display:flex;gap:20px}
+    .sidebar{
+      width:280px;position:sticky;top:18px;height:calc(100vh - 36px);background:linear-gradient(180deg,var(--fstl-blue),#002d54);color:#fff;border-radius:10px;padding:18px;overflow:auto;
+      box-shadow:0 10px 30px rgba(2,10,40,0.12);
+    }
+    .sidebar h2{margin:0 0 8px;font-size:18px;color:var(--fstl-gold)}
+    .sidebar nav a{display:block;padding:10px 8px;border-radius:6px;margin:6px 0;color:#fff;font-weight:600}
+    .sidebar nav a:hover{background:rgba(255,255,255,0.05)}
+    .main{flex:1;min-width:0}
+    header.site{background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 18px rgba(10,20,40,0.06)}
+    header.site h1{margin:0;color:var(--fstl-blue);font-size:22px}
+    header.site p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    /* ---------- sections ---------- */
+    section.card{background:var(--card);padding:20px;border-radius:10px;margin-bottom:16px;box-shadow:0 8px 28px rgba(6,20,40,0.04)}
+    section.card h2{margin-top:0;color:var(--fstl-blue)}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    ol{margin:8px 0 0 18px}
+    footer{margin-top:18px;padding:20px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* ---------- CTA & buttons ---------- */
+    .cta{display:inline-block;background:var(--fstl-blue);color:#fff;padding:10px 14px;border-radius:8px;font-weight:700}
+    .cta.outline{background:transparent;color:var(--fstl-blue);border:2px solid var(--fstl-blue);padding:8px 12px}
+
+    /* ---------- responsive ---------- */
+    @media (max-width:980px){
+      .layout{flex-direction:column}
+      .sidebar{position:relative;height:auto;width:100%;order:2}
+      .main{order:1}
+      .two-col{grid-template-columns:1fr}
+    }
+  </style>
+</head>
 <body>
 
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar">
-    <h2>FSTL</h2>
-    <ul>
-
-        <li><a href="#tenet">The Tenet</a></li>
-        <li><a href="#experience">20-Year Experience</a></li>
-        <li><a href="#reforms">FHA & FMBN Reforms</a></li>
-        <li><a href="#market">Mortgage Market Structure</a></li>
-        <li><a href="#bonds">Municipal Bonds</a></li>
-        <li><a href="#title-ins">Title Insurance</a></li>
-        <li><a href="#mortgage-ins">Mortgage Insurance</a></li>
-        <li><a href="#hire">Hire-Purchase Credit</a></li>
-        <li><a href="#precedents">Legal Precedents</a></li>
-        <li><a href="#deficit">Housing Deficit (Nigeria)</a></li>
-        <li><a href="#benchmarks">Global Mortgage Benchmarks</a></li>
-        <li><a href="#fannie">Fannie Mae Model</a></li>
-        <li><a href="#ginnie">Ginnie Mae Model</a></li>
-        <li><a href="#cadastral">Cadastral & Blockchain</a></li>
-        <li><a href="#infra">Infrastructure Bonds</a></li>
-
-    </ul>
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="content">
-
-    <header>
-        <button id="toggle-btn"><i class="fas fa-bars"></i></button>
-        <h1>First Standard Title Limited (FSTL)</h1>
-        <h3>Securing Property Rights | Enabling Economic Growth</h3>
-    </header>
-
-    <section id="tenet">
-        <h2>The Tenet</h2>
-        <p>Your full Tenet content goes here…</p>
-    </section>
-
-    <section id="experience">
-        <h2>20-Year Professional Experience</h2>
-        <p>Insert full detailed content…</p>
-    </section>
-
-    <section id="reforms">
-        <h2>FHA & FMBN Reforms</h2>
-        <p>Insert reforms content…</p>
-    </section>
-
-    <section id="market">
-        <h2>The Mortgage Market Structure</h2>
-        <p>Insert full detailed content…</p>
-    </section>
-
-    <section id="bonds">
-        <h2>Municipal Bonds</h2>
-        <p>Full municipal bond content…</p>
-    </section>
-
-    <section id="title-ins">
-        <h2>Title Insurance</h2>
-        <p>Full title insurance explanation…</p>
-    </section>
-
-    <section id="mortgage-ins">
-        <h2>Mortgage Insurance</h2>
-        <p>Full MI content…</p>
-    </section>
-
-    <section id="hire">
-        <h2>Hire-Purchase Credit</h2>
-        <p>Full hire-purchase content…</p>
-    </section>
-
-    <section id="precedents">
-        <h2>Legal Precedents</h2>
-        <p>Insert all legal precedents you approved…</p>
-    </section>
-
-    <section id="deficit">
-        <h2>Nigeria Housing Deficit</h2>
-        <p>Full deficit analysis…</p>
-    </section>
-
-    <section id="benchmarks">
-        <h2>Global Mortgage Benchmarks</h2>
-        <p>International standards content…</p>
-    </section>
-
-    <section id="fannie">
-        <h2>The Fannie Mae Model</h2>
-        <p>Details…</p>
-    </section>
-
-    <section id="ginnie">
-        <h2>The Ginnie Mae Model</h2>
-        <p>Details…</p>
-    </section>
-
-    <section id="cadastral">
-        <h2>Cadastral & Blockchain System</h2>
-        <p>Your full text…</p>
-    </section>
-
-    <section id="infra">
-        <h2>Infrastructure Bond Adoption</h2>
-        <p>Full infrastructure bond work…</p>
-    </section>
-
-    <footer>
-        <p>© 2025 First Standard Title Limited</p>
-    </footer>
-
-</div>
-
-<script src="sidebar.js"></script>
-<script src="main.js"></script>
-
-</body>
-</html>
+<div class="wrap">
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Main navigation">
+      <h2>FSTL Knowledge Base</h2>
+      <nav>
+        <a href="#tenet">The Tenet</a>
+        <a href="#experience">FSTL — 20 Years Experience</a>
+        <a href="#housing-deficit">Nigeria Housing Deficit (Stats)</a>
+        <a href="#ecosystem">National Housing Ecosystem</a>
+        <a href="#fha-fmbn">FHA & FMBN Reforms</a>
+        <a href="#fannie-ginnie">Fannie / Ginnie Models</a>
+        <a href="#mortgage-structure">Mortgage Market Structure</a>
+        <a href="#title-guarantee">Title Guarantee & Insurance</a>
+        <a href="#mortgage-insurance">Mortgage Insurance</a>
+        <a href="#hire-purchase">Hire-Purchase Credit</a>
+        <a href="#municipal-bonds">Municipal & Infrastructure Bonds</a>
+        <a href="#cadastral-blockchain">Cadastral & Blockchain</a>
+        <a href="#infrastructure-bonds">Infrastructure Bond Adoption</a>
+        <a href="#legal-precedent">Legal Precedents (Cases)</a>
+        <a href="#global-benchmarks">Global Mortgage Benchmarks</a>
+        <a href="#products">Products & Services</a>
+        <a href="#contact">Contact & Next Steps</a>
+      </nav>
+      <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06)">
+        <p style="margin:0;font-weight:700">Call / WhatsApp</p>
+        <p style="margin:6px 0 0;font-size:14px">+2348035888622</p>
+        <p style="margin:10px 0 0;font-size:13px;color:#f0f6ff">Email: info@fstl.ng</p>
