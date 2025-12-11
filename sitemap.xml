@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://www.your-live-domain.com/</loc>
-      <lastmod>2025-12-11</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <!-- Add other important pages here -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/about.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/products.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/contact.html</loc>
+    <priority>0.6</priority>
+  </url>
 </urlset>
