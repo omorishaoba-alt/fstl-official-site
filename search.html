@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FSTL MASTER DOCUMENT Search</title>
+<title>FSTL MASTER DOCUMENT - Searchable</title>
 <style>
-body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; color: #333; }
+body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; color: #333; }
 h1, h2 { text-align: center; }
-input { width: 100%; padding: 12px; font-size: 16px; margin: 20px 0; border-radius: 5px; border: 1px solid #ccc; }
+#searchInput { width: 100%; padding: 12px; font-size: 16px; margin: 20px 0; border-radius: 5px; border: 1px solid #ccc; }
 .result { background: #fff; border-radius: 5px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
 .result-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; }
 .result-content { white-space: pre-wrap; line-height: 1.5; }
-.chart { margin: 20px 0; text-align: center; }
+.chart { margin: 20px 0; padding: 15px; background: #eaeaea; border-radius: 5px; text-align: center; font-size: 14px; }
 </style>
 </head>
 <body>
@@ -23,17 +23,44 @@ input { width: 100%; padding: 12px; font-size: 16px; margin: 20px 0; border-radi
 <div id="results"></div>
 
 <script>
-// Full FSTL MASTER DOCUMENT content with charts and statistics inline
+// All FSTL MASTER DOCUMENT content
 const sections = [
-{title:"Tenet", content:"No Country can develop sustainably without a secured landed property system. Secured Landed Property Rights (SLPR) are the foundation of national development, social cohesion, and investment security."},
-{title:"Executive Summary", content:"FSTL provides title insurance, mortgage insurance, land verification, and generational planning services. Our model creates a land industrialisation ecosystem, supporting economic growth, housing, probate planning, and reducing property disputes."},
-{title:"Legal Precedents", content:"Supreme Court precedents such as Ogunleye v Oni illustrate the importance of title security. Certificate of Occupancy alone is not proof of ownership; government provides no guarantee. Title insurance protects against fraud, disputes, and probate challenges."},
-{title:"ABS & MBS", content:"Asset-Backed Securities (ABS) and Mortgage-Backed Securities (MBS) allow FSTL to securitize property portfolios, deepen capital markets, increase liquidity, and support housing industrialisation. They provide investors with safe, structured returns."},
-{title:"PMI, FHA & FMBN", content:"Primary Mortgage Institutions (PMI), Federal Housing Authority (FHA), and Federal Mortgage Bank of Nigeria (FMBN) have limitations in funding, reach, and capital market integration. Unlike Fannie Mae and Ginnie Mae in the US, they are less efficient. FSTL bridges these gaps by providing scalable title and mortgage insurance."},
-{title:"Products & Services", content:"Title Insurance, Mortgage Insurance, Land Verification, Generational Planning, Probate Assistance, and Investment Security Services."},
-{title:"NATICON & FG Partnership", content:"FSTL proposes a Joint Venture Company/Special Purpose Vehicle (JVC/SPV) – the National Title Insurance Company of Nigeria (NATICON). Ownership: FSTL 51%, Federal Government & Stakeholders 49%. Ensures sustainability and nationwide property security."},
-{title:"Economic Impact", content:"Land industrialisation drives sustainable economic growth, social cohesion, crime reduction, and creates a sovereign wealth platform. It reduces dependency on oil and gas revenues and transforms national development priorities."},
-{title:"Statistics & Sources", content:"Nigeria has over 60 million land parcels; only 10% properly documented (National Bureau of Statistics, 2023). Mortgage delinquency rate is 12% (FMBN, 2023). FSTL ensures secure documentation, facilitates transactions, and generates revenue. Charts illustrate property coverage vs undocumented land:\n\nChart 1: Secured vs Undocumented Land\nSecured: 10%\nUndocumented: 90%"} 
+  {
+    title: "Tenet",
+    content: "No Country can develop sustainably without secured landed property rights (SLPR). SLPR is the foundation for national development, investment security, social cohesion, and generational planning."
+  },
+  {
+    title: "Executive Summary",
+    content: "FSTL provides title insurance, mortgage insurance, land verification, generational planning services, and probate assistance. Our model creates a land industrialisation ecosystem supporting economic growth, housing industrialisation, and reducing property disputes."
+  },
+  {
+    title: "Legal Precedents",
+    content: "Supreme Court cases like Ogunleye v Oni show the importance of title security. Certificate of Occupancy alone is not proof of ownership; government provides no guarantees. Title insurance protects against fraud, disputes, and probate issues."
+  },
+  {
+    title: "ABS & MBS",
+    content: "Asset-Backed Securities (ABS) and Mortgage-Backed Securities (MBS) allow FSTL to securitize property portfolios, deepen capital markets, increase liquidity, and support housing industrialisation. Investors get safe, structured returns."
+  },
+  {
+    title: "PMI, FHA & FMBN",
+    content: "Primary Mortgage Institutions (PMI), Federal Housing Authority (FHA), and Federal Mortgage Bank of Nigeria (FMBN) have deficiencies in funding, reach, and capital market integration. Fannie Mae and Ginnie Mae in the US operate more efficiently. FSTL bridges these gaps."
+  },
+  {
+    title: "Products & Services",
+    content: "Title Insurance, Mortgage Insurance, Land Verification, Generational Planning, Probate Assistance, Investment Security Services."
+  },
+  {
+    title: "NATICON & FG Partnership",
+    content: "FSTL proposes a JVC/SPV – the National Title Insurance Company of Nigeria (NATICON). Ownership: FSTL 51%, Federal Government & other stakeholders 49%. Ensures sustainability and nationwide property security."
+  },
+  {
+    title: "Economic Impact",
+    content: "Land industrialisation drives sustainable economic growth, social cohesion, crime reduction, and creates a sovereign wealth platform. Reduces dependency on oil and gas revenues and transforms national development priorities."
+  },
+  {
+    title: "Statistics & Sources",
+    content: "Nigeria has over 60 million land parcels; only 10% properly documented (National Bureau of Statistics, 2023). Mortgage delinquency rate is 12% (FMBN, 2023). FSTL ensures secure documentation, facilitates transactions, and generates revenue.\n\nChart: Secured vs Undocumented Land\nSecured: 10%\nUndocumented: 90%"
+  }
 ];
 
 // Search functionality
