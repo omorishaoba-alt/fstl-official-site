@@ -4,146 +4,221 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>First Standard Title Limited (FSTL)</title>
-<link rel="stylesheet" href="./css/style.css">
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; color:#333; }
+    header { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    nav { background:#f2f2f2; padding:10px; position:sticky; top:0; }
+    nav a { display:block; margin:8px 0; color:#004080; text-decoration:none; font-weight:bold; }
+    .container { display:flex; flex-wrap:wrap; max-width:1200px; margin:auto; }
+    .sidebar { flex:1 1 200px; padding:20px; background:#e6e6e6; }
+    .main { flex:3 1 700px; padding:20px; }
+    section { margin-bottom:40px; }
+    h2 { color:#004080; cursor:pointer; }
+    .collapsible-content { display:none; padding-left:10px; border-left:3px solid #004080; margin-top:10px; }
+    footer { background:#004080; color:white; text-align:center; padding:20px 10px; }
+    .chart-container { width:100%; height:300px; }
+    @media (max-width:768px){ .container { flex-direction:column; } .sidebar { margin-bottom:20px; } }
+</style>
+
 </head>
 <body>
 
 <header>
     <h1>First Standard Title Limited (FSTL)</h1>
-    <p>Securing Landed Property Rights and Enabling Economic Growth</p>
+    <p>Securing Landed Property Rights and Enabling Economic Growth in Nigeria</p>
 </header>
 
 <div class="container">
-
-    <!-- Sidebar -->
     <aside class="sidebar">
         <nav>
-            <a href="#tenet">Tenet</a>
+            <a href="#executive-summary">Executive Summary</a>
             <a href="#legal-precedent">Legal Precedent</a>
-            <a href="#experience">FSTL 20-Year Experience</a>
-            <a href="#housing-deficit">Nigeria Housing Deficit</a>
-            <a href="#fha-fmbn">FHA & FMBN Reforms</a>
-            <a href="#mortgage-structure">Mortgage Market Structure</a>
-            <a href="#municipal-bonds">Municipal & Infrastructure Bonds</a>
-            <a href="#cadastral">Cadastral & Blockchain</a>
-            <a href="#global-benchmarks">Global Mortgage Benchmarks</a>
-            <a href="#land-industrialisation">Agriculture & Land Industrialisation</a>
-            <a href="product-50k.html">FSTL Products</a>
-            <a href="backup-title.html">Back-Up Title Insurance</a>
-            <a href="payment-methods.html">Payment Options</a>
+            <a href="#title-insurance">Title Guarantee & Insurance</a>
+            <a href="#mortgage-abs">Mortgage Insurance & ABS/MBS</a>
+            <a href="#land-industrialisation">Land Industrialisation</a>
+            <a href="#statistics">Statistics & Charts</a>
+            <a href="#pmi-fmbn-fha">PMI/FMBN/FHA</a>
+            <a href="#government-policy">Government Policy</a>
+            <a href="#contact">Contact</a>
         </nav>
     </aside>
 
-    <!-- Main content -->
     <main class="main">
 
-        <!-- Tenet -->
-        <section id="tenet">
-            <h2>Tenet</h2>
-            <p>No country can develop without secure land ownership, clear property rights, and reliable title verification. FSTL ensures these foundational elements are in place, providing economic certainty for individuals and institutions alike.</p>
+        <section id="executive-summary">
+            <h2>Executive Summary</h2>
+            <div class="collapsible-content" style="display:block;">
+                <p><strong>Objective:</strong> FSTL secures property rights, provides legal certainty, and enables capital mobilisation for economic growth in Nigeria.</p>
+                <p>We achieve this through:</p>
+                <ul>
+                    <li>Title Guarantee & Insurance</li>
+                    <li>Mortgage Insurance and Asset-Backed/Mortgage-Backed Securities</li>
+                    <li>Knowledge base of legal precedents and market data</li>
+                    <li>Land industrialisation ecosystem</li>
+                </ul>
+            </div>
         </section>
 
-        <!-- Legal Precedent -->
         <section id="legal-precedent">
-            <h2>Legal Precedent</h2>
-            <ul>
-                <li><strong>Ogunleye v Oni (Supreme Court, 2015)</strong> – Established priority of registered titles in Lagos State.</li>
-                <li><strong>Okonkwo v Federal Ministry of Lands (Court of Appeal, 2018)</strong> – Confirmed validity of electronic cadastral records for property disputes.</li>
-                <li><strong>Aliyu v Bank of Industry (Supreme Court, 2020)</strong> – Affirmed mortgage insurance guarantees as enforceable security instruments.</li>
-                <li><strong>FMBN v Omotayo (Court of Appeal, 2021)</strong> – Reinforced FMBN’s role as a secondary market liquidity provider.</li>
-            </ul>
+            <h2>Legal Precedent (Client‑Focused)</h2>
+            <div class="collapsible-content">
+                <p><strong>Joshua Ogunleye v. Babatayo Oni:</strong> Confirms that Certificates of Occupancy alone do not guarantee absolute ownership. Disputes can still arise; proper title verification is essential.</p>
+                <p><strong>Okoro v. Uba (Supreme Court):</strong> C of O is recognized as prima facie evidence but must be validated, reinforcing the need for Title Guarantee.</p>
+                <p><strong>Other Cases:</strong> Highlight the importance of documented, verified title before buying, selling, or using property as collateral.</p>
+            </div>
         </section>
 
-        <!-- FSTL Experience -->
-        <section id="experience">
-            <h2>FSTL 20-Year Experience</h2>
-            <p>FSTL has spent over two decades providing secure property verification, title insurance, and risk assessment for private, corporate, and government stakeholders across Nigeria. We have: </p>
-            <ul>
-                <li>Verified over 50,000 properties.</li>
-                <li>Provided mortgage insurance covering ₦120 billion in assets.</li>
-                <li>Partnered with international financial institutions for title guarantee programs.</li>
-            </ul>
+        <section id="title-insurance">
+            <h2>Title Guarantee & Insurance</h2>
+            <div class="collapsible-content">
+                <p>Title Guarantee provides enforceable protection of ownership beyond government-issued documents. It secures buyers against fraud, disputes, and latent claims.</p>
+                <p>For lenders, it makes mortgage issuance safer. For investors, it unlocks the use of property in capital markets.</p>
+            </div>
         </section>
 
-        <!-- Nigeria Housing Deficit -->
-        <section id="housing-deficit">
-            <h2>Nigeria Housing Deficit</h2>
-            <p>Nigeria currently has an estimated <strong>17 million housing unit deficit</strong>, with <strong>70% of urban dwellers living in informal settlements</strong>. FSTL’s verification and title programs aim to facilitate secure mortgage lending and investment in formal housing development.</p>
+        <section id="mortgage-abs">
+            <h2>Mortgage Insurance & ABS/MBS</h2>
+            <div class="collapsible-content">
+                <p><strong>Mortgage Insurance:</strong> Protects lenders if borrowers default, encouraging increased lending.</p>
+                <p><strong>ABS (Asset-Backed Securities):</strong> Converts property cash flows into marketable securities, increasing liquidity.</p>
+                <p><strong>MBS (Mortgage-Backed Securities):</strong> Bundles mortgages, enabling institutional investment.</p>
+            </div>
         </section>
 
-        <!-- FHA & FMBN Reforms -->
-        <section id="fha-fmbn">
-            <h2>FHA & FMBN Reforms</h2>
-            <p>FSTL recommends adopting global best practices:</p>
-            <ul>
-                <li><strong>Fannie Mae & Ginnie Mae Model:</strong> FMBN to operate purely as a secondary market liquidity provider.</li>
-                <li><strong>FHA Focus:</strong> Target low-income housing financing, supported by structured mortgage guarantees.</li>
-                <li>Banking institutions should integrate title insurance, mortgage insurance, and hire-purchase credit to strengthen credit culture and expand the Nigerian economy.</li>
-            </ul>
-        </section>
-
-        <!-- Mortgage Market Structure -->
-        <section id="mortgage-structure">
-            <h2>Mortgage Market Structure</h2>
-            <p>We distinguish between:</p>
-            <ul>
-                <li><strong>Title Guarantee:</strong> Ensures the property is legally sound for mortgage.</li>
-                <li><strong>Mortgage Insurance:</strong> Protects the lender against default risk.</li>
-                <li><strong>Hire-Purchase Lending:</strong> Enables incremental property acquisition with credit-backed security.</li>
-            </ul>
-        </section>
-
-        <!-- Municipal & Infrastructure Bonds -->
-        <section id="municipal-bonds">
-            <h2>Municipal & Infrastructure Bonds</h2>
-            <p>FSTL advocates local municipal bonds as a superior alternative to foreign government borrowing:</p>
-            <ul>
-                <li>Provides local infrastructure funding without foreign debt dependence.</li>
-                <li>Engages domestic capital markets and institutional investors.</li>
-                <li>Encourages transparency and accountability at municipal levels.</li>
-            </ul>
-        </section>
-
-        <!-- Cadastral & Blockchain -->
-        <section id="cadastral">
-            <h2>Cadastral & Blockchain</h2>
-            <p>FSTL has implemented a secure blockchain-based cadastral system to:</p>
-            <ul>
-                <li>Ensure tamper-proof property records.</li>
-                <li>Reduce disputes and fraud.</li>
-                <li>Enable instant verification for lenders and buyers.</li>
-            </ul>
-        </section>
-
-        <!-- Global Mortgage Benchmarks -->
-        <section id="global-benchmarks">
-            <h2>Global Mortgage Benchmarks</h2>
-            <p>We benchmark Nigeria against G7 and emerging markets:</p>
-            <ul>
-                <li>Property rights registration: Nigeria 50% vs G7 95%</li>
-                <li>Mortgage penetration: Nigeria 1.5% of GDP vs US 16%</li>
-                <li>Title insurance adoption: Nigeria 0.5% vs US 90%</li>
-            </ul>
-        </section>
-
-        <!-- Agriculture & Land Industrialisation -->
         <section id="land-industrialisation">
-            <h2>Agriculture & Land Industrialisation</h2>
-            <p>FSTL promotes land industrialisation as a driver for economic development:</p>
-            <ul>
-                <li>Secure land title enables agricultural investment and mechanisation.</li>
-                <li>Industrialisation increases rural employment and productivity.</li>
-                <li>Supports municipal bond–funded infrastructure like irrigation and transport.</li>
-            </ul>
+            <h2>Land Industrialisation & Economic Growth</h2>
+            <div class="collapsible-content">
+                <p>Structured land use enables housing, infrastructure, industrial parks, and agricultural estates. Verified titles accelerate private investment and reduce disputes.</p>
+                <p>Examples:</p>
+                <ul>
+                    <li>USA: Mortgage market and title systems catalysed suburban expansion.</li>
+                    <li>UK: Formal land registry underpins property finance.</li>
+                    <li>Germany: Cadastral systems ensure clear titles for industrial development.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="statistics">
+            <h2>Statistics & Charts</h2>
+            <div class="collapsible-content">
+                <p>Below are key charts illustrating Nigeria’s current property landscape.</p>
+
+                <div class="chart-container">
+                    <canvas id="housingDeficitChart"></canvas>
+                    <p><small>Source: National Bureau of Statistics & UN-HABITAT</small></p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="mortgagePenetrationChart"></canvas>
+                    <p><small>Source: World Bank & Central Bank of Nigeria</small></p>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="absMbsMarketChart"></canvas>
+                    <p><small>Source: CoinLaw & DataIntelo</small></p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="pmi-fmbn-fha">
+            <h2>PMI, FMBN & FHA Explained</h2>
+            <div class="collapsible-content">
+                <p><strong>Primary Mortgage Institutions (PMIs):</strong> Licensed to provide mortgage loans but often lack liquidity and capital, limiting their reach.</p>
+
+                <p><strong>Federal Mortgage Bank of Nigeria (FMBN):</strong> Should provide liquidity support to PMIs and engage capital markets. Currently underutilised.</p>
+
+                <p><strong>Federal Housing Authority (FHA):</strong> Intended to build affordable housing but has limited output relative to demand.</p>
+
+                <p><strong>Deficiencies:</strong> Lack of risk mitigation products, weak integration with capital markets, and slow delivery of housing.</p>
+            </div>
+        </section>
+
+        <section id="government-policy">
+            <h2>Why Government Should Mandate Title & Mortgage Insurance</h2>
+            <div class="collapsible-content">
+                <p>Mandatory Title & Mortgage Insurance protects buyers, lenders, and investors. It reduces disputes and unlocks capital for housing and infrastructure.</p>
+                <p>Benefits for Government:</p>
+                <ul>
+                    <li>Higher tax compliance from formal property markets</li>
+                    <li>Reduced litigation costs</li>
+                    <li>Greater foreign and domestic investment</li>
+                    <li>Improved urban planning outcomes</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact FSTL</h2>
+            <div class="collapsible-content" style="display:block;">
+                <p><strong>Address:</strong> No. 19 Egbor Avenue, off Benoni Hospital Road, GRA, Benin City</p>
+                <p><strong>Telephone:</strong> +2348035888622</p>
+                <p><strong>Email:</strong> info@fstl.com.ng</p>
+            </div>
         </section>
 
     </main>
 </div>
 
 <footer>
-    <p>Contact us: +2348035888622</p>
+    <p>&copy; 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
 </footer>
 
-<script src="./js/script.js"></script>
+<script>
+    // Collapsible behavior
+    document.querySelectorAll('h2').forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    // Chart.js data and config
+    const housingDeficitCtx = document.getElementById('housingDeficitChart').getContext('2d');
+    const mortgagePenetrationCtx = document.getElementById('mortgagePenetrationChart').getContext('2d');
+    const absMbsMarketCtx = document.getElementById('absMbsMarketChart').getContext('2d');
+
+    new Chart(housingDeficitCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Nigeria Housing Deficit'],
+            datasets: [{
+                label: 'Units (Million)',
+                data: [17],
+                backgroundColor: ['#004080']
+            }]
+        },
+        options: { scales: { y: { beginAtZero: true }}}
+    });
+
+    new Chart(mortgagePenetrationCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Mortgage Penetration', 'No Mortgage'],
+            datasets: [{
+                label: 'Mortgage Access',
+                data: [1, 99],
+                backgroundColor: ['#004080', '#e6e6e6']
+            }]
+        }
+    });
+
+    new Chart(absMbsMarketCtx, {
+        type: 'line',
+        data: {
+            labels: ['2023','2024','2025'],
+            datasets: [
+                { label: 'ABS Market ($ Trillion)', data: [2.1, 2.3, 2.34], borderColor: '#004080', fill: false },
+                { label: 'MBS Market ($ Trillion)', data: [7.2, 7.5, 7.8], borderColor: '#007bff', fill: false }
+            ]
+        },
+        options: { scales: { y: { beginAtZero: false }}}
+    });
+</script>
+
 </body>
 </html>
