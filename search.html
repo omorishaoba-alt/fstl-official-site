@@ -1,48 +1,68 @@
-<!-- FSTL Search Helper -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>FSTL Search</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
-
-    <style>
-        body { font-family: Arial, sans-serif; padding:20px; background:#f9f9f9; }
-        input[type=text] { width:100%; padding:10px; margin-bottom:10px; }
-        ul { padding-left:20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL MASTER DOCUMENT Search</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; color: #333; }
+h1, h2 { text-align: center; }
+input { width: 100%; padding: 12px; font-size: 16px; margin: 20px 0; border-radius: 5px; border: 1px solid #ccc; }
+.result { background: #fff; border-radius: 5px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.result-title { font-weight: bold; font-size: 18px; margin-bottom: 5px; }
+.result-content { white-space: pre-wrap; line-height: 1.5; }
+.chart { margin: 20px 0; text-align: center; }
+</style>
 </head>
 <body>
-    <h1>Search FSTL Content</h1>
-    <input type="text" id="siteSearch" placeholder="Type keywords..." onkeyup="searchContent()">
-    <ul id="searchResults"></ul>
 
-    <script>
-        // Minimal internal search engine
-        const contentSections = [
-            {title:"Tenet", content:"No Country can develop sustainably without a secured landed property system."},
-            {title:"Executive Summary", content:"FSTL provides title insurance and mortgage insurance in Nigeria, creating a land industrialisation ecosystem."},
-            {title:"Legal Precedents", content:"Certificate of Occupancy, Ogunleye v Oni, and other cases demonstrate the necessity of secured property rights."},
-            {title:"Products & Services", content:"Title Insurance, Mortgage Insurance, Land Verification, Consultancy, Generational Planning & Probate Assistance."}
-            // Add more sections here as needed
-        ];
+<h1>FSTL MASTER DOCUMENT</h1>
+<h2>Search All Sections</h2>
 
-        function searchContent() {
-            const query = document.getElementById('siteSearch').value.toLowerCase();
-            const results = document.getElementById('searchResults');
-            results.innerHTML = '';
-            if(query === '') return;
-            contentSections.forEach(sec => {
-                if(sec.title.toLowerCase().includes(query) || sec.content.toLowerCase().includes(query)) {
-                    const li = document.createElement('li');
-                    li.textContent = sec.title + ": " + sec.content;
-                    results.appendChild(li);
-                }
-            });
-        }
-    </script>
+<input type="text" id="searchInput" placeholder="Type a keyword to search...">
+<div id="results"></div>
+
+<script>
+// Full FSTL MASTER DOCUMENT content with charts and statistics inline
+const sections = [
+{title:"Tenet", content:"No Country can develop sustainably without a secured landed property system. Secured Landed Property Rights (SLPR) are the foundation of national development, social cohesion, and investment security."},
+{title:"Executive Summary", content:"FSTL provides title insurance, mortgage insurance, land verification, and generational planning services. Our model creates a land industrialisation ecosystem, supporting economic growth, housing, probate planning, and reducing property disputes."},
+{title:"Legal Precedents", content:"Supreme Court precedents such as Ogunleye v Oni illustrate the importance of title security. Certificate of Occupancy alone is not proof of ownership; government provides no guarantee. Title insurance protects against fraud, disputes, and probate challenges."},
+{title:"ABS & MBS", content:"Asset-Backed Securities (ABS) and Mortgage-Backed Securities (MBS) allow FSTL to securitize property portfolios, deepen capital markets, increase liquidity, and support housing industrialisation. They provide investors with safe, structured returns."},
+{title:"PMI, FHA & FMBN", content:"Primary Mortgage Institutions (PMI), Federal Housing Authority (FHA), and Federal Mortgage Bank of Nigeria (FMBN) have limitations in funding, reach, and capital market integration. Unlike Fannie Mae and Ginnie Mae in the US, they are less efficient. FSTL bridges these gaps by providing scalable title and mortgage insurance."},
+{title:"Products & Services", content:"Title Insurance, Mortgage Insurance, Land Verification, Generational Planning, Probate Assistance, and Investment Security Services."},
+{title:"NATICON & FG Partnership", content:"FSTL proposes a Joint Venture Company/Special Purpose Vehicle (JVC/SPV) – the National Title Insurance Company of Nigeria (NATICON). Ownership: FSTL 51%, Federal Government & Stakeholders 49%. Ensures sustainability and nationwide property security."},
+{title:"Economic Impact", content:"Land industrialisation drives sustainable economic growth, social cohesion, crime reduction, and creates a sovereign wealth platform. It reduces dependency on oil and gas revenues and transforms national development priorities."},
+{title:"Statistics & Sources", content:"Nigeria has over 60 million land parcels; only 10% properly documented (National Bureau of Statistics, 2023). Mortgage delinquency rate is 12% (FMBN, 2023). FSTL ensures secure documentation, facilitates transactions, and generates revenue. Charts illustrate property coverage vs undocumented land:\n\nChart 1: Secured vs Undocumented Land\nSecured: 10%\nUndocumented: 90%"} 
+];
+
+// Search functionality
+const input = document.getElementById('searchInput');
+const resultsDiv = document.getElementById('results');
+
+input.addEventListener('input', () => {
+  const query = input.value.toLowerCase();
+  resultsDiv.innerHTML = "";
+  if(!query) return;
+
+  const filtered = sections.filter(sec => 
+    sec.title.toLowerCase().includes(query) ||
+    sec.content.toLowerCase().includes(query)
+  );
+
+  filtered.forEach(sec => {
+    const div = document.createElement('div');
+    div.className = 'result';
+    div.innerHTML = `<div class="result-title">${sec.title}</div>
+                     <div class="result-content">${sec.content}</div>`;
+    resultsDiv.appendChild(div);
+  });
+
+  if(filtered.length === 0) {
+    resultsDiv.innerHTML = "<p>No results found.</p>";
+  }
+});
+</script>
+
 </body>
 </html>
