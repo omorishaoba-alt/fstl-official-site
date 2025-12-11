@@ -1,0 +1,48 @@
+<!-- FSTL Search Helper -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FSTL Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE">
+
+    <style>
+        body { font-family: Arial, sans-serif; padding:20px; background:#f9f9f9; }
+        input[type=text] { width:100%; padding:10px; margin-bottom:10px; }
+        ul { padding-left:20px; }
+    </style>
+</head>
+<body>
+    <h1>Search FSTL Content</h1>
+    <input type="text" id="siteSearch" placeholder="Type keywords..." onkeyup="searchContent()">
+    <ul id="searchResults"></ul>
+
+    <script>
+        // Minimal internal search engine
+        const contentSections = [
+            {title:"Tenet", content:"No Country can develop sustainably without a secured landed property system."},
+            {title:"Executive Summary", content:"FSTL provides title insurance and mortgage insurance in Nigeria, creating a land industrialisation ecosystem."},
+            {title:"Legal Precedents", content:"Certificate of Occupancy, Ogunleye v Oni, and other cases demonstrate the necessity of secured property rights."},
+            {title:"Products & Services", content:"Title Insurance, Mortgage Insurance, Land Verification, Consultancy, Generational Planning & Probate Assistance."}
+            // Add more sections here as needed
+        ];
+
+        function searchContent() {
+            const query = document.getElementById('siteSearch').value.toLowerCase();
+            const results = document.getElementById('searchResults');
+            results.innerHTML = '';
+            if(query === '') return;
+            contentSections.forEach(sec => {
+                if(sec.title.toLowerCase().includes(query) || sec.content.toLowerCase().includes(query)) {
+                    const li = document.createElement('li');
+                    li.textContent = sec.title + ": " + sec.content;
+                    results.appendChild(li);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
