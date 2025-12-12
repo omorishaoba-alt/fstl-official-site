@@ -4,16 +4,4 @@
     <loc>https://omorishaoba-alt.github.io/fstl-official-site/</loc>
     <priority>1.0</priority>
   </url>
-  <url>
-    <loc>https://omorishaoba-alt.github.io/fstl-official-site/about.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://omorishaoba-alt.github.io/fstl-official-site/products.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://omorishaoba-alt.github.io/fstl-official-site/contact.html</loc>
-    <priority>0.6</priority>
-  </url>
 </urlset>
