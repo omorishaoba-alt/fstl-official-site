@@ -1,3 +1,4 @@
 User-agent: *
-Disallow:
-Sitemap: https://www.your-live-domain.com/sitemap.xml
+Allow: /
+
+Sitemap: https://omorishaoba-alt.github.io/fstl-official-site/sitemap.xml
