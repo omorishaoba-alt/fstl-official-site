@@ -1,27 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("fstl-form");
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
+    const formData = new FormData(form);
 
-    const formData = Object.fromEntries(new FormData(form).entries());
+    // Replace with your Google Form or Airtable URL
+    const googleFormURL = "YOUR_GOOGLE_FORM_URL_HERE";
 
-    try {
-      const response = await fetch("/submit-form", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert("Registration submitted successfully. Our team will contact you shortly.");
+    fetch(googleFormURL, { method: "POST", body: formData })
+      .then(() => {
+        alert("Registration submitted successfully. FSTL will contact you shortly.");
         form.reset();
-      } else {
+      })
+      .catch(() => {
         alert("Error submitting form. Please try again.");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      alert("Error submitting form. Check your connection.");
-    }
+      });
   });
 });
