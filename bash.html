@@ -1,11 +1,21 @@
-cd /path/to/fstl-official-site && \
-git add . && \
-git commit -m "Reloaded all files and committed latest stable version" && \
-git push origin main
-npm init -y
-npm install express nodemailer body-parser
+# 1. Clone repository locally (replace YOUR_USERNAME and REPO_NAME)
+git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
+cd REPO_NAME
 
-node server.js
-npm init -y
-npm install express nodemailer body-parser
-node server.js
+# 2. Restore main website from the last good commit
+# Replace abc1234 with the commit ID of your last main site commit
+git checkout abc1234 -- .
+
+# 3. Create folder for Phase 2
+mkdir activation
+
+# 4. Move Phase 2 files into activation folder
+# Adjust file names if different
+mv index.html fstl-services.html css js assets activation/
+
+# 5. Stage and commit changes
+git add .
+git commit -m "Restore main website and move Phase 2 to activation folder"
+
+# 6. Push to GitHub
+git push origin main
