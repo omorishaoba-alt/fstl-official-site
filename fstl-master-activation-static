@@ -1,0 +1,9 @@
+fstl-master-activation-static/
+│
+├── index.html
+├── fstl-services.html
+├── css/
+│   └── style.css
+├── js/
+│   └── form-handler.js
+└── assets/  (optional: images or documents)
