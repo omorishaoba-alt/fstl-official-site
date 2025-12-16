@@ -1,50 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FSTL - Contact</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL – Contact</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="FSTL Logo" style="height:50px;">
-            </a>
-        </div>
-        <nav>
-            <ul class="nav-links" style="list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; align-items: center;">
-                <li><a href="index.html" style="text-decoration: none; color: #0000EE;">Home</a></li>
-                <li><a href="about.html" style="text-decoration: none; color: #0000EE;">About Us</a></li>
-                <li><a href="services.html" style="text-decoration: none; color: #0000EE;">Services</a></li>
-                <li><a href="products.html" style="text-decoration: none; color: #0000EE;">Products</a></li>
-                <li><a href="projects.html" style="text-decoration: none; color: #0000EE;">Projects</a></li>
-                <li><a href="contact.html" style="text-decoration: none; color: #0000EE; font-weight: bold;">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
-    <main>
-        <section>
-            <h1>Contact Us</h1>
-            <p>We would love to hear from you. Reach out to FSTL using any of the following methods:</p>
-            <ul>
-                <li><strong>Email:</strong> info@fstl.com.ng</li>
-                <li><strong>Phone:</strong> +234 123 456 7890</li>
-                <li><strong>Office Address:</strong> 123 FSTL Avenue, Lagos, Nigeria</li>
-            </ul>
-            <p>You can also use our contact form to send us a message directly from our website.</p>
-        </section>
-    </main>
+<header>
+<nav>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="services.html">Services</a> |
+<a href="products.html">Products</a> |
+<a href="projects.html">Projects</a> |
+<a href="architecture.html">Architecture</a> |
+<strong>Contact</strong>
+</nav>
+</header>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 First Standard Title Limited. All Rights Reserved.</p>
-    </footer>
+<main style="padding:20px;">
+<h1>Contact First Standard Title Limited</h1>
 
-    <script src="js/main.js"></script>
+<p>Email: info@fstl.com.ng</p>
+<p>Phone: +234 800 FSTL NIG</p>
+<p>Address: 123 Financial District, Lagos, Nigeria</p>
+
+<p>Use the above details to reach us for inquiries, consultations, and partnership discussions.</p>
+
+</main>
+
+<footer>
+<p>&copy; 2025 First Standard Title Limited</p>
+</footer>
+
 </body>
 </html>
