@@ -1,0 +1,6 @@
+<svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="400" fill="#0a3d62"/>
+  <text x="600" y="200" font-size="48" font-family="Segoe UI" fill="#ffdd59" text-anchor="middle">
+    Our Projects
+  </text>
+</svg>
