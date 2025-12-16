@@ -1,105 +1,28 @@
-/* ===== Base ===== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #222;
-    background-color: #ffffff;
-    line-height: 1.6;
 }
 
-/* ===== Header & Navigation ===== */
 header {
     background-color: #0a3d62;
-    padding: 15px 20px;
+    padding: 10px;
 }
 
 header nav a {
-    color: #ffffff;
+    color: #ffd32a;
+    margin: 0 10px;
     text-decoration: none;
-    margin-right: 15px;
-    font-weight: 500;
-    transition: color 0.3s ease;
 }
 
 header nav a:hover {
-    color: #ffdd59;
+    text-decoration: underline;
 }
 
-header nav strong {
-    color: #ffd32a;
-}
-
-/* ===== Main Content ===== */
 main {
-    padding: 30px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
+    padding: 20px;
 }
 
-main h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    color: #0a3d62;
-}
-
-main h2 {
-    font-size: 1.6rem;
-    margin-top: 25px;
-    color: #222;
-}
-
-main p, main li {
-    font-size: 1rem;
-    color: #444;
-}
-
-main ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-/* ===== Images & Banners ===== */
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 15px 0;
-    border-radius: 5px;
-}
-
-/* ===== Iframe for PDFs ===== */
-iframe {
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* ===== Footer ===== */
-footer {
-    background-color: #0a3d62;
-    color: #ffffff;
-    text-align: center;
-    padding: 15px 20px;
-    margin-top: 40px;
-    font-size: 0.9rem;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    header nav a {
-        display: block;
-        margin: 5px 0;
-    }
-
-    main {
-        padding: 20px 10px;
-    }
-
-    main h1 {
-        font-size: 1.8rem;
-    }
-
-    main h2 {
-        font-size: 1.4rem;
-    }
+.logo {
+    height: 50px;
 }
