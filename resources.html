@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL Research & Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 font-['Roboto']">
+
+<!-- Header -->
+<section class="py-20 text-center max-w-6xl mx-auto px-6">
+  <h1 class="text-4xl font-bold mb-6">FSTL Research & Insights</h1>
+  <p class="mb-6 max-w-2xl mx-auto">
+    Detailed statistics, reports, and case studies showcasing FSTL’s impact on Nigeria’s real estate and mortgage ecosystem.
+  </p>
+  <a href="index.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Return to Homepage</a>
+</section>
+
+<!-- Statistics Charts Section -->
+<section class="py-20 max-w-6xl mx-auto px-6">
+  <h2 class="text-3xl font-bold mb-8 text-center">Key Metrics & Growth</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Properties Secured Chart -->
+    <div class="bg-white p-6 rounded-2xl shadow">
+      <h3 class="text-xl font-semibold mb-4">Properties Secured Over Time</h3>
+      <canvas id="propertiesChart"></canvas>
+    </div>
+    <!-- Coverage Chart -->
+    <div class="bg-white p-6 rounded-2xl shadow">
+      <h3 class="text-xl font-semibold mb-4">Title Insurance Coverage (₦)</h3>
+      <canvas id="coverageChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- Downloadable Reports Section -->
+<section class="py-20 max-w-6xl mx-auto px-6 text-center">
+  <h2 class="text-3xl font-bold mb-8">Downloadable Reports</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold mb-2">Annual Impact Report 2025</h3>
+      <p class="mb-4">Detailed report of FSTL’s operations, coverage, and growth metrics for the year.</p>
+      <a href="pdfs/Annual_Impact_Report_2025.pdf" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Download PDF</a>
+    </div>
+    <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold mb-2">Mortgage Insurance Case Studies</h3>
+      <p class="mb-4">Real examples of clients protected and successful claims processed.</p>
+      <a href="pdfs/Mortgage_Case_Studies.pdf" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Download PDF</a>
+    </div>
+    <div class="bg-gray-100 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold mb-2">Title Insurance Market Analysis</h3>
+      <p class="mb-4">In-depth statistics and analysis of Nigeria’s property insurance landscape.</p>
+      <a href="pdfs/Market_Analysis.pdf" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Download PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 bg-gray-800 text-white text-center">
+  <p>&copy; 2025 FSTL – First Standard Title Limited. All rights reserved.</p>
+</footer>
+
+<!-- Charts Script -->
+<script>
+  // Properties Secured Chart
+  const ctxProperties = document.getElementById('propertiesChart').getContext('2d');
+  const propertiesChart = new Chart(ctxProperties, {
+    type: 'line',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+      datasets: [{
+        label: 'Properties Secured',
+        data: [5000, 12000, 20000, 30000, 40000, 45000, 50000],
+        borderColor: '#1D4ED8',
+        backgroundColor: 'rgba(29,78,216,0.2)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // Title Insurance Coverage Chart
+  const ctxCoverage = document.getElementById('coverageChart').getContext('2d');
+  const coverageChart = new Chart(ctxCoverage, {
+    type: 'bar',
+    data: {
+      labels: ['2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+      datasets: [{
+        label: 'Coverage (₦)',
+        data: [200000000, 400000000, 600000000, 750000000, 900000000, 950000000, 1000000000],
+        backgroundColor: '#1D4ED8'
+      }]
+    },
+    options: { responsive: true }
+  });
+</script>
+
+</body>
+</html>
