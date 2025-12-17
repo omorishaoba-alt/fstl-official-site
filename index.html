@@ -10,7 +10,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   body { font-family: 'Roboto', sans-serif; }
-  .hero-bg { background: url('https://example.com/hero-image.jpg') center/cover no-repeat; }
+  .hero-bg { background: url('images/hero-image.jpg') center/cover no-repeat; }
   .stat-number { font-size: 2.5rem; font-weight: 700; color: #1D4ED8; }
 </style>
 </head>
@@ -24,7 +24,7 @@
   </p>
   <div class="flex gap-4">
     <a href="#about" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Learn More About Us</a>
-    <a href="/FSTL_MASTER_DOCUMENT.pdf" class="bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold">Download MASTER Document</a>
+    <a href="pdfs/FSTL_MASTER_DOCUMENT.pdf" class="bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold">Download MASTER Document</a>
   </div>
 </section>
 
@@ -33,19 +33,19 @@
   <h2 class="text-4xl font-bold mb-12">Our Impact in Numbers</h2>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
     <div>
-      <p class="stat-number">₦XXB</p>
-      <p class="mt-2 text-gray-600">Title Insurance Coverage</p>
+      <p class="stat-number" data-target="1000000000">0</p>
+      <p class="mt-2 text-gray-600">Title Insurance Coverage (₦)</p>
     </div>
     <div>
-      <p class="stat-number">XX,XXX</p>
+      <p class="stat-number" data-target="50000">0</p>
       <p class="mt-2 text-gray-600">Properties Secured</p>
     </div>
     <div>
-      <p class="stat-number">100%</p>
-      <p class="mt-2 text-gray-600">Regulatory Compliance</p>
+      <p class="stat-number" data-target="100">0</p>
+      <p class="mt-2 text-gray-600">Regulatory Compliance (%)</p>
     </div>
     <div>
-      <p class="stat-number">X,XXX</p>
+      <p class="stat-number" data-target="3000">0</p>
       <p class="mt-2 text-gray-600">Clients Served</p>
     </div>
   </div>
@@ -54,7 +54,7 @@
 <!-- About Section -->
 <section id="about" class="py-20 bg-gray-50">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
-    <img src="https://example.com/hrh-portrait.jpg" alt="HRH Portrait" class="rounded-2xl shadow-lg w-full md:w-1/2">
+    <img src="images/hrh-portrait.jpg" alt="HRH Portrait" class="rounded-2xl shadow-lg w-full md:w-1/2">
     <div>
       <h2 class="text-4xl font-bold mb-4">Our Story & Vision</h2>
       <p class="mb-4">Founded as Nigeria’s first specialized title insurance company, FSTL mitigates risk, secures property rights, and innovates mortgage solutions.</p>
@@ -92,7 +92,7 @@
   <div class="max-w-6xl mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold mb-6">Expert Legal Assurance</h2>
     <p class="mb-4">Comprehensive explanation of warranty deeds, legal precedents, and FSTL’s compliance framework to protect property and investments.</p>
-    <a href="/legal-resources.html" class="mt-4 inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Learn More</a>
+    <a href="resources/legal-resources.html" class="mt-4 inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Learn More</a>
   </div>
 </section>
 
@@ -100,7 +100,7 @@
 <section class="py-20 bg-white text-center">
   <h2 class="text-4xl font-bold mb-12">Data-Driven Decisions</h2>
   <p class="max-w-3xl mx-auto mb-6">Statistics, reports, and case studies showcasing FSTL’s impact and expertise in the Nigerian real estate ecosystem.</p>
-  <a href="/resources.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Explore Reports</a>
+  <a href="resources/resources.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Explore Reports</a>
 </section>
 
 <!-- Contact Section -->
@@ -114,6 +114,9 @@
       <textarea placeholder="Message" class="p-3 rounded-xl border border-gray-300 w-full h-32"></textarea>
       <button class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Send Message</button>
     </form>
+    <div class="mt-6">
+      <a href="portal.html" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-xl font-semibold">Stakeholder Portal</a>
+    </div>
   </div>
 </section>
 
@@ -121,6 +124,39 @@
 <footer class="py-12 bg-gray-800 text-white text-center">
   <p>&copy; 2025 FSTL – First Standard Title Limited. All rights reserved.</p>
 </footer>
+
+<!-- Scripts -->
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Animated stats
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.stat-number');
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const increment = target / 200;
+      if(count < target){
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCounter, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCounter();
+  });
+});
+</script>
 
 </body>
 </html>
