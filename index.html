@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Standard Title Limited (FSTL)</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>FIRST STANDARD TITLE LIMITED - White Paper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #003366;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        embed {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .download-btn {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 12px 25px;
+            background-color: #003366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .download-btn:hover {
+            background-color: #0055aa;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">FSTL</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="section7.html">Section 7 Insights</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+        <h1>FIRST STANDARD TITLE LIMITED</h1>
+        <p>White Paper</p>
     </header>
-
-    <main class="container mt-5">
-        <h1>Welcome to First Standard Title Limited (FSTL)</h1>
-        <p>Your trusted partner in Title and Mortgage Insurance, pioneering innovative solutions in Nigeria.</p>
-        <a href="projects.html" class="btn btn-primary">Explore Our Projects</a>
+    <main>
+        <p>View the White Paper below:</p>
+        <!-- Embed the PDF directly -->
+        <embed src="FSTL_Whitepaper.pdf" type="application/pdf" width="90%" height="800px" />
+        <p>
+            <a href="FSTL_Whitepaper.pdf" download class="download-btn">Download the PDF</a>
+        </p>
     </main>
-
-    <footer class="bg-light text-center mt-5 p-3">
-        &copy; 2025 First Standard Title Limited. All rights reserved.
-    </footer>
-
-    <script src="bootstrap/bootstrap.bundle.min.js"></script>
-    <script src="js/scripts.js"></script>
 </body>
 </html>
