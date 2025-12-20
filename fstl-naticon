@@ -1,0 +1,5 @@
+fstl-naticon/
+├── index.html          ← The full website HTML I just provided
+├── README.md           ← Short description (optional)
+├── assets/             ← Optional folder for logos/images
+│    └── logo.png       ← Placeholder
