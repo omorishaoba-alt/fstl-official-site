@@ -2,89 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FSTL Official Website</title>
   <style>
-    /* Reset & basic styles */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-    body { line-height:1.6; color:#333; scroll-behavior: smooth; }
-    a { text-decoration:none; color:inherit; }
-    img { max-width:100%; height:auto; }
+    * {margin:0; padding:0; box-sizing:border-box; font-family: Arial,sans-serif;}
+    body {line-height:1.6; color:#333; scroll-behavior:smooth;}
+    a {text-decoration:none; color:inherit;}
+    img {max-width:100%; height:auto;}
 
     /* Header */
-    header {
-      width:100%;
-      background:#fff;
-      position: fixed;
-      top:0; left:0;
-      z-index:1000;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    }
-    .container { width:90%; max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:1rem 0; }
-    .logo { font-size:1.5rem; font-weight:bold; color:#1a1a1a; cursor:pointer; }
-    nav { display:flex; gap:1rem; position:relative; }
-    nav ul { display:flex; list-style:none; gap:1rem; }
-    nav ul li { position:relative; }
-    nav ul li a { padding:0.5rem 0.75rem; font-weight:500; display:block; }
-    nav ul li ul { position:absolute; top:100%; left:0; background:#fff; display:none; flex-direction:column; min-width:180px; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
-    nav ul li:hover ul { display:flex; }
-    nav ul li ul li { padding:0; }
-    nav ul li ul li a { padding:0.5rem 1rem; }
+    header {width:100%; background:#fff; position:fixed; top:0; left:0; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    .container {width:90%; max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:1rem 0;}
+    .logo {font-size:1.5rem; font-weight:bold; color:#1a1a1a; cursor:pointer;}
+    nav ul {display:flex; list-style:none; gap:1rem;}
+    nav ul li {position:relative;}
+    nav ul li a {padding:0.5rem 0.75rem; font-weight:500; display:block;}
+    nav ul li ul {position:absolute; top:100%; left:0; background:#fff; display:none; flex-direction:column; min-width:180px; box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+    nav ul li:hover ul {display:flex;}
+    nav ul li ul li a {padding:0.5rem 1rem;}
+    .hamburger {display:none; flex-direction:column; cursor:pointer;}
+    .hamburger div {width:25px; height:3px; background:#333; margin:4px 0; transition:0.3s;}
 
-    .hamburger { display:none; flex-direction:column; cursor:pointer; }
-    .hamburger div { width:25px; height:3px; background:#333; margin:4px 0; transition:0.3s; }
-
-    /* Hero Section */
-    .hero { margin-top:80px; text-align:center; padding:5rem 1rem; background:url('https://via.placeholder.com/1920x600') no-repeat center/cover; color:#fff; position:relative; }
-    .hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); }
-    .hero-content { position:relative; z-index:1; }
-    .hero h1 { font-size:3rem; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; margin-bottom:2rem; }
-    .hero button { background:#ff6600; color:#fff; border:none; padding:0.75rem 1.5rem; cursor:pointer; font-size:1rem; border-radius:5px; transition:background 0.3s; }
-    .hero button:hover { background:#e65c00; }
+    /* Hero */
+    .hero {margin-top:80px; text-align:center; padding:5rem 1rem; background:url('https://via.placeholder.com/1920x600') no-repeat center/cover; color:#fff; position:relative;}
+    .hero::after {content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);}
+    .hero-content {position:relative; z-index:1;}
+    .hero h1 {font-size:3rem; margin-bottom:1rem;}
+    .hero p {font-size:1.2rem; margin-bottom:2rem;}
+    .hero button {background:#ff6600; color:#fff; border:none; padding:0.75rem 1.5rem; cursor:pointer; font-size:1rem; border-radius:5px; transition:background 0.3s;}
+    .hero button:hover {background:#e65c00;}
 
     /* Sections */
-    section { padding:4rem 1rem; }
-    h2 { text-align:center; margin-bottom:2rem; font-size:2rem; }
-    .cards { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
-    .card {
-      background:#f9f9f9;
-      padding:2rem;
-      border-radius:8px;
-      width:300px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor:pointer;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    section {padding:4rem 1rem;}
+    h2 {text-align:center; margin-bottom:2rem; font-size:2rem;}
+    .cards {display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;}
+    .card {background:#f9f9f9; padding:2rem; border-radius:8px; width:300px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; cursor:pointer;}
+    .card:hover {transform: translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,0.2);}
 
     /* PDF Embed */
-    .pdf-container { display:flex; justify-content:center; margin-bottom:1rem; }
-    .pdf-container iframe { width:90%; height:600px; border:none; }
+    .pdf-container {display:flex; justify-content:center; margin-bottom:1rem;}
+    .pdf-container iframe {width:90%; height:600px; border:none;}
 
-    /* Contact Popup */
-    .popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:2000; }
-    .popup-content { background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative; }
-    .popup-content h3 { margin-bottom:1rem; }
-    .popup-content input, .popup-content textarea { width:100%; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px; }
-    .popup-content button { background:#ff6600; color:#fff; border:none; padding:0.75rem 1.5rem; cursor:pointer; border-radius:5px; }
-    .popup-content button:hover { background:#e65c00; }
-    .popup-close { position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer; }
+    /* Popup */
+    .popup {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:2000;}
+    .popup-content {background:#fff; padding:2rem; border-radius:8px; width:90%; max-width:500px; position:relative;}
+    .popup-content h3 {margin-bottom:1rem;}
+    .popup-content input, .popup-content textarea {width:100%; padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:5px;}
+    .popup-content button {background:#ff6600; color:#fff; border:none; padding:0.75rem 1.5rem; cursor:pointer; border-radius:5px;}
+    .popup-content button:hover {background:#e65c00;}
+    .popup-close {position:absolute; top:10px; right:15px; font-size:1.5rem; cursor:pointer;}
 
-    /* Footer */
-    footer { background:#1a1a1a; color:#fff; padding:2rem 1rem; text-align:center; }
-    footer a { color:#ff6600; }
+    footer {background:#1a1a1a; color:#fff; padding:2rem 1rem; text-align:center;}
+    footer a {color:#ff6600;}
 
-    /* Responsive */
     @media(max-width:768px){
-      nav { display:none; flex-direction:column; background:#fff; position:absolute; top:80px; right:0; width:200px; padding:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
-      nav.active { display:flex; }
-      .hamburger { display:flex; }
-      .cards { flex-direction:column; align-items:center; }
+      nav {display:none; flex-direction:column; background:#fff; position:absolute; top:80px; right:0; width:200px; padding:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+      nav.active {display:flex;}
+      .hamburger {display:flex;}
+      .cards {flex-direction:column; align-items:center;}
     }
   </style>
 </head>
@@ -96,27 +71,13 @@
       <div class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'})">FSTL</div>
       <nav id="menu">
         <ul>
-          <li><a href="#services">Services</a>
-            <ul>
-              <li><a href="#title-insurance">Title Insurance</a></li>
-              <li><a href="#mortgage-insurance">Mortgage Insurance</a></li>
-              <li><a href="#consultancy">Consultancy</a></li>
-            </ul>
-          </li>
-          <li><a href="#projects">Projects</a>
-            <ul>
-              <li><a href="#naticon">NATICON</a></li>
-            </ul>
-          </li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#whitepaper">White Paper</a></li>
-          <li><a href="#contact" onclick="openPopup()">Contact</a></li>
+          <li><a href="#" onclick="openPopup()">Contact</a></li>
         </ul>
       </nav>
-      <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
     </div>
   </header>
 
@@ -133,21 +94,9 @@
   <section id="services">
     <h2>Our Services</h2>
     <div class="cards">
-      <div class="card" id="title-insurance">
-        <h3>Title Insurance</h3>
-        <p>Protect your property and investment with our comprehensive title insurance coverage.</p>
-        <button onclick="openPopup()">Request Info</button>
-      </div>
-      <div class="card" id="mortgage-insurance">
-        <h3>Mortgage Insurance</h3>
-        <p>Secure your mortgage with our trusted insurance solutions tailored to your needs.</p>
-        <button onclick="openPopup()">Request Info</button>
-      </div>
-      <div class="card" id="consultancy">
-        <h3>Consultancy</h3>
-        <p>Expert advice for navigating property transactions, legal frameworks, and risk management.</p>
-        <button onclick="openPopup()">Request Consultation</button>
-      </div>
+      <div class="card"><h3>Title Insurance</h3><p>Comprehensive property protection for your investment.</p></div>
+      <div class="card"><h3>Mortgage Insurance</h3><p>Secure mortgages with trusted insurance solutions.</p></div>
+      <div class="card"><h3>Consultancy</h3><p>Expert advice on property transactions and risk management.</p></div>
     </div>
   </section>
 
@@ -155,29 +104,21 @@
   <section id="projects">
     <h2>Highlighted Projects</h2>
     <div class="cards">
-      <div class="card" id="naticon">
-        <h3>NATICON</h3>
-        <p>The National Title Insurance Company initiative enhances FSTL's mission to secure property rights nationwide.</p>
-        <button onclick="openPopup()">Learn More</button>
-      </div>
+      <div class="card"><h3>NATICON</h3><p>National Title Insurance Company initiative strengthening FSTL’s mission.</p></div>
     </div>
   </section>
 
-  <!-- White Paper / PDF -->
+  <!-- White Paper -->
   <section id="whitepaper">
     <h2>FSTL White Paper</h2>
-    <p style="text-align:center; max-width:800px; margin:auto; margin-bottom:1rem;">
-      Explore our detailed white paper for insights into title insurance, mortgage security, and how FSTL is revolutionizing property protection in Nigeria.
-    </p>
+    <p style="text-align:center; max-width:800px; margin:auto; margin-bottom:1rem;">Detailed insights into title insurance and property protection.</p>
     <div style="text-align:center; margin-bottom:1rem;">
-      <a href="https://example.com/fstl-whitepaper.pdf" download style="background:#ff6600;color:#fff;padding:0.75rem 1.5rem;border-radius:5px;text-decoration:none;">Download PDF</a>
+      <a href="https://example.com/fstl-whitepaper.pdf" download style="background:#ff6600;color:#fff;padding:0.75rem 1.5rem;border-radius:5px;">Download PDF</a>
     </div>
-    <div class="pdf-container">
-      <iframe src="https://example.com/fstl-whitepaper.pdf"></iframe>
-    </div>
+    <div class="pdf-container"><iframe src="https://example.com/fstl-whitepaper.pdf"></iframe></div>
   </section>
 
-  <!-- Contact Popup -->
+  <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <span class="popup-close" onclick="closePopup()">&times;</span>
@@ -196,14 +137,10 @@
   </footer>
 
   <script>
-    // Hamburger menu toggle
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
+    hamburger.addEventListener('click', () => menu.classList.toggle('active'));
 
-    // Popup functions
     const popup = document.getElementById('popup');
     function openPopup() { popup.style.display = 'flex'; }
     function closePopup() { popup.style.display = 'none'; }
@@ -212,180 +149,12 @@
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
-
-      if(!name || !email || !message) { alert('Please fill all fields'); return; }
-
-      alert('Thank you for contacting FSTL. We will respond shortly.');
+      if(!name || !email || !message){ alert('Fill all fields'); return;}
+      alert('Thank you! We will contact you soon.');
       closePopup();
-
-      // Optional: send data to backend or email via server-side code
-      console.log({name, email, message});
+      console.log({name,email,message});
     }
   </script>
+
 </body>
-</html>, initial-scale=1.0">
-  <title>FSTL Official Website</title>
-  <style>
-    /* Reset & basic styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-    body { line-height: 1.6; color: #333; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; height: auto; }
-
-    /* Header */
-    header {
-      width: 100%;
-      background: #fff;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .container { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
-    .logo { font-size: 1.5rem; font-weight: bold; color: #1a1a1a; }
-    nav { display: flex; gap: 1.5rem; }
-    nav a { font-weight: 500; transition: color 0.3s; }
-    nav a:hover { color: #ff6600; }
-    .hamburger { display: none; flex-direction: column; cursor: pointer; }
-    .hamburger div { width: 25px; height: 3px; background: #333; margin: 4px 0; transition: 0.3s; }
-
-    /* Hero Section */
-    .hero {
-      margin-top: 80px;
-      text-align: center;
-      padding: 5rem 1rem;
-      background: url('https://via.placeholder.com/1920x600') no-repeat center/cover;
-      color: #fff;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.5);
-    }
-    .hero-content { position: relative; z-index: 1; }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-    .hero button {
-      background: #ff6600; color: #fff; border: none; padding: 0.75rem 1.5rem; cursor: pointer; font-size: 1rem;
-      border-radius: 5px; transition: background 0.3s;
-    }
-    .hero button:hover { background: #e65c00; }
-
-    /* Sections */
-    section { padding: 4rem 1rem; }
-    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
-    .cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-    .card {
-      background: #f9f9f9;
-      padding: 2rem;
-      border-radius: 8px;
-      width: 300px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    .card a { color: #ff6600; display: inline-block; margin-top: 0.5rem; }
-
-    /* PDF Embed */
-    .pdf-container { display: flex; justify-content: center; flex-direction: column; align-items: center; }
-    .pdf-container iframe { width: 90%; height: 600px; border: none; margin-bottom: 1rem; }
-
-    /* Footer */
-    footer { background: #1a1a1a; color: #fff; padding: 2rem 1rem; text-align: center; }
-    footer a { color: #ff6600; margin: 0 0.5rem; }
-
-    /* Responsive */
-    @media(max-width:768px){
-      nav { display: none; flex-direction: column; background: #fff; position: absolute; top: 80px; right: 0; width: 200px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-      nav.active { display: flex; }
-      .hamburger { display: flex; }
-      .cards { flex-direction: column; align-items: center; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo">FSTL</div>
-      <nav id="menu">
-        <a href="#services">Services</a>
-        <a href="#projects">Projects</a>
-        <a href="#whitepaper">White Paper</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>First Standard Title Limited (FSTL)</h1>
-      <p>Your trusted partner for title insurance and mortgage security solutions.</p>
-      <button onclick="document.getElementById('whitepaper').scrollIntoView({behavior:'smooth'})">View White Paper</button>
-      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="margin-left:1rem;">Contact Us</button>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Title Insurance</h3>
-        <p>Protect your property and investment with our comprehensive title insurance coverage.</p>
-        <a href="#whitepaper">Learn More</a>
-      </div>
-      <div class="card">
-        <h3>Mortgage Insurance</h3>
-        <p>Secure your mortgage with our trusted insurance solutions tailored to your needs.</p>
-        <a href="#whitepaper">Learn More</a>
-      </div>
-      <div class="card">
-        <h3>Consultancy</h3>
-        <p>Expert advice for navigating property transactions, legal frameworks, and risk management.</p>
-        <a href="#contact">Get Advice</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <h2>Highlighted Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>NATICON</h3>
-        <p>The National Title Insurance Company initiative enhances FSTL's mission to secure property rights nationwide.</p>
-        <a href="#contact">Contact for NATICON</a>
-      </div>
-      <!-- Add more project cards here -->
-    </div>
-  </section>
-
-  <!-- White Paper / PDF -->
-  <section id="whitepaper">
-    <h2>FSTL White Paper</h2>
-    <div class="pdf-container">
-      <iframe src="https://yourdomain.com/fstl-whitepaper.pdf"></iframe>
-      <a href="https://yourdomain.com/fstl-whitepaper.pdf" download>
-        <button style="background:#ff6600; color:#fff; padding:0.75rem 1.5rem; border:none; border-radius:5px; cursor:pointer;">
-          Download White Paper
-        </button>
-      </a>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p style="text-align:center;">Email: info@fstl.com | Phone
+</html>
