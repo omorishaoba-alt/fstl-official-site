@@ -2,195 +2,231 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>First Standard Title Limited | Institutional Title Insurance Infrastructure</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Standard Title Limited (FSTL)</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --primary:#0a2540;
-  --secondary:#0057ff;
-  --light:#f4f7fb;
-  --text:#1a1a1a;
+--navy:#0b1c2d;
+--blue:#0057ff;
+--silver:#f2f4f8;
+--dark:#111;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:Inter, sans-serif;
-  color:var(--text);
-  background:#fff;
+font-family:Inter,sans-serif;
+color:#111;
+background:#fff;
+overflow-x:hidden;
 }
 
 /* HEADER */
 header{
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
-  position:sticky;
-  top:0;
-  z-index:1000;
+background:#fff;
+border-bottom:1px solid #e6e9ef;
+position:sticky;
+top:0;
+z-index:1000;
 }
-.navbar{
-  max-width:1300px;
-  margin:auto;
-  padding:18px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.nav{
+max-width:1400px;
+margin:auto;
+padding:18px 32px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 .logo{
-  font-size:22px;
-  font-weight:700;
-  color:var(--primary);
+font-weight:800;
+font-size:22px;
+color:var(--navy);
 }
 nav ul{
-  list-style:none;
-  display:flex;
-  gap:24px;
+list-style:none;
+display:flex;
+gap:28px;
 }
 nav ul li{
-  position:relative;
+position:relative;
 }
 nav ul li a{
-  text-decoration:none;
-  color:#333;
-  font-weight:500;
+text-decoration:none;
+color:#222;
+font-weight:500;
 }
-nav ul li:hover > ul{
-  display:block;
+nav ul li:hover ul{
+display:block;
 }
 
 /* DROPDOWN */
 nav ul li ul{
-  display:none;
-  position:absolute;
-  top:30px;
-  background:#fff;
-  border:1px solid #ddd;
-  min-width:200px;
+display:none;
+position:absolute;
+top:35px;
+left:0;
+background:#fff;
+border:1px solid #ddd;
+min-width:260px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 nav ul li ul li{
-  padding:12px 16px;
-}
-nav ul li ul li a{
-  color:#333;
+padding:14px 18px;
 }
 
 /* HERO */
 .hero{
-  padding:100px 24px;
-  background:linear-gradient(120deg,#f4f7fb,#ffffff);
+position:relative;
+padding:120px 32px;
+background:linear-gradient(120deg,#f4f7fb,#ffffff);
+overflow:hidden;
+}
+.hero::before{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,var(--blue),transparent 60%);
+opacity:.08;
+top:-200px;
+right:-200px;
+animation:float 12s infinite ease-in-out;
+}
+@keyframes float{
+50%{transform:translateY(40px)}
 }
 .hero-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:60px;
+max-width:1300px;
+margin:auto;
 }
 .hero h1{
-  font-size:44px;
-  font-weight:700;
-  color:var(--primary);
+font-size:52px;
+font-weight:800;
+color:var(--navy);
+max-width:900px;
 }
 .hero p{
-  margin:20px 0;
-  font-size:18px;
-  max-width:600px;
+font-size:20px;
+margin:24px 0;
+max-width:720px;
 }
 .cta{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 26px;
-  background:var(--secondary);
-  color:#fff;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:600;
+display:inline-block;
+padding:16px 34px;
+background:var(--blue);
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-weight:700;
+margin-top:10px;
+}
+
+/* LAYOUT */
+.container{
+max-width:1400px;
+margin:auto;
+padding:90px 32px;
+display:grid;
+grid-template-columns:300px 1fr;
+gap:60px;
 }
 
 /* SIDEBAR */
-.wrapper{
-  max-width:1300px;
-  margin:auto;
-  padding:80px 24px;
-  display:grid;
-  grid-template-columns:260px 1fr;
-  gap:50px;
-}
 .sidebar{
-  position:sticky;
-  top:120px;
+position:sticky;
+top:120px;
+border-right:1px solid #e6e9ef;
+padding-right:20px;
 }
 .sidebar h3{
-  margin-bottom:12px;
+margin-bottom:14px;
 }
-.sidebar ul{
-  list-style:none;
-}
-.sidebar ul li{
-  margin-bottom:10px;
-}
-.sidebar ul li a{
-  text-decoration:none;
-  color:#0057ff;
+.sidebar a{
+display:block;
+margin-bottom:10px;
+color:var(--blue);
+text-decoration:none;
+font-weight:500;
 }
 
 /* SECTIONS */
 section{
-  margin-bottom:80px;
+margin-bottom:100px;
 }
 section h2{
-  font-size:32px;
-  margin-bottom:20px;
-  color:var(--primary);
+font-size:38px;
+margin-bottom:24px;
+color:var(--navy);
 }
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:32px;
 }
 .card{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  padding:30px;
-  border-radius:12px;
+border:1px solid #e6e9ef;
+padding:36px;
+border-radius:18px;
+transition:.3s;
+background:#fff;
 }
-.card h3{
-  margin-bottom:10px;
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
 
 /* PROJECT */
-.highlight{
-  background:var(--light);
-  padding:50px;
-  border-radius:16px;
+.project{
+background:var(--silver);
+padding:50px;
+border-radius:22px;
+}
+
+/* PDF */
+.embed{
+border:1px solid #ddd;
+border-radius:12px;
+overflow:hidden;
+margin-top:20px;
+height:520px;
+}
+
+/* CHATGPT */
+.badge{
+display:inline-block;
+margin-top:14px;
+padding:10px 18px;
+border:1px solid #ddd;
+border-radius:50px;
+font-weight:600;
 }
 
 /* FOOTER */
 footer{
-  background:#0a2540;
-  color:#fff;
-  padding:60px 24px;
+background:var(--navy);
+color:#fff;
+padding:70px 32px;
 }
-.footer-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:40px;
+.footer{
+max-width:1300px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:40px;
 }
 footer a{
-  color:#fff;
-  text-decoration:none;
-  display:block;
-  margin-bottom:8px;
+color:#fff;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
 }
 small{
-  display:block;
-  margin-top:40px;
-  opacity:.7;
-  text-align:center;
+display:block;
+margin-top:40px;
+text-align:center;
+opacity:.6;
 }
 </style>
 </head>
@@ -198,123 +234,122 @@ small{
 <body>
 
 <header>
-  <div class="navbar">
-    <div class="logo">FSTL</div>
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a>
-          <ul>
-            <li><a href="#">Title Insurance</a></li>
-            <li><a href="#">Mortgage Insurance</a></li>
-            <li><a href="#">Risk & Due Diligence</a></li>
-          </ul>
-        </li>
-        <li><a href="#projects">Projects</a>
-          <ul>
-            <li><a href="#naticon">NATICON</a></li>
-          </ul>
-        </li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+<div class="nav">
+<div class="logo">FSTL</div>
+<nav>
+<ul>
+<li><a href="#">Services</a>
+<ul>
+<li>Title Insurance</li>
+<li>Mortgage Insurance</li>
+<li>Risk & Due Diligence</li>
+</ul>
+</li>
+<li><a href="#">Projects</a>
+<ul>
+<li>NATICON</li>
+</ul>
+</li>
+<li><a href="#">Resources</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+</div>
 </header>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>First Standard Title Limited</h1>
-      <p>
-        Nigeria’s pioneer Title Insurance & Mortgage Risk Infrastructure.
-        A private-sector solution engineered for capital markets, institutional trust, and scalable national adoption.
-      </p>
-      <a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Download White Paper</a>
-    </div>
-  </div>
+<div class="hero-inner">
+<h1>First Standard Title Limited</h1>
+<p>
+Nigeria’s institutional title insurance and mortgage-risk infrastructure — engineered for capital markets,
+private enterprise, and scalable national adoption.
+</p>
+<a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Download White Paper</a>
+<div class="badge">CHATGPT INSIDE · Institutional Intelligence Layer</div>
+</div>
 </section>
 
-<div class="wrapper">
+<div class="container">
 
-  <aside class="sidebar">
-    <h3>Navigate</h3>
-    <ul>
-      <li><a href="#services">Core Services</a></li>
-      <li><a href="#projects">Strategic Projects</a></li>
-      <li><a href="#resources">White Paper</a></li>
-      <li><a href="#contact">Engage FSTL</a></li>
-    </ul>
-  </aside>
+<aside class="sidebar">
+<h3>Navigate</h3>
+<a href="#services">Core Services</a>
+<a href="#projects">Strategic Projects</a>
+<a href="#agents">Commission Agents</a>
+<a href="#whitepaper">White Paper</a>
+</aside>
 
-  <main>
+<main>
 
-    <section id="services">
-      <h2>Core Services</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Title Insurance</h3>
-          <p>Protecting property ownership, lenders, and investors from title defects.</p>
-        </div>
-        <div class="card">
-          <h3>Mortgage Insurance</h3>
-          <p>Risk mitigation framework enabling long-term housing finance.</p>
-        </div>
-        <div class="card">
-          <h3>Institutional Due Diligence</h3>
-          <p>Legal, land registry, and transactional intelligence at scale.</p>
-        </div>
-      </div>
-    </section>
+<section id="services">
+<h2>Core Services</h2>
+<div class="cards">
+<div class="card">
+<h3>Title Insurance</h3>
+<p>Protection against ownership defects, fraud, and registry failures.</p>
+</div>
+<div class="card">
+<h3>Mortgage Insurance</h3>
+<p>Risk framework enabling long-term housing finance.</p>
+</div>
+<div class="card">
+<h3>Institutional Due Diligence</h3>
+<p>Transaction intelligence for lenders, investors, and governments.</p>
+</div>
+</div>
+</section>
 
-    <section id="projects">
-      <h2>Strategic Projects</h2>
-      <div class="highlight" id="naticon">
-        <h3>NATICON</h3>
-        <p>
-          National Title Insurance & Conveyancing Network — a market-wide infrastructure
-          designed to formalize property transactions and unlock capital markets.
-        </p>
-      </div>
-    </section>
+<section id="projects">
+<h2>Strategic Project</h2>
+<div class="project">
+<h3>NATICON</h3>
+<p>
+National Title Insurance & Conveyancing Network —
+formalizing property transactions and unlocking capital markets.
+</p>
+</div>
+</section>
 
-    <section id="resources">
-      <h2>Resources</h2>
-      <p>
-        The FSTL White Paper sets out the legal, economic, and institutional blueprint
-        for Nigeria’s title insurance and mortgage-backed securities framework.
-      </p>
-      <a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Access Full White Paper</a>
-    </section>
+<section id="agents">
+<h2>Commission-Based Professional Agents</h2>
+<p>
+Lawyers, conveyancers, and transaction professionals act as independent commission-based sales agents.
+</p>
+<p><strong>Commission:</strong> 15% per confirmed transaction — paid instantly upon verification.</p>
+</section>
 
-    <section id="contact">
-      <h2>Engage FSTL</h2>
-      <p>
-        Institutional partners, regulators, capital market participants,
-        and professional agents are invited to engage.
-      </p>
-    </section>
+<section id="whitepaper">
+<h2>White Paper</h2>
+<p>
+The definitive blueprint for Nigeria’s title insurance and mortgage-backed securities framework.
+</p>
+<a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Download PDF</a>
+<div class="embed">
+<iframe src="FSTL_WHITE_PAPER.pdf" width="100%" height="100%"></iframe>
+</div>
+</section>
 
-  </main>
+</main>
 </div>
 
 <footer>
-  <div class="footer-inner">
-    <div>
-      <h4>FSTL</h4>
-      <p>First Standard Title Limited</p>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Projects</a>
-      <a href="#">White Paper</a>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <p>Email: info@fstl.ng</p>
-    </div>
-  </div>
-  <small>© First Standard Title Limited. All rights reserved.</small>
+<div class="footer">
+<div>
+<h4>FSTL</h4>
+<p>First Standard Title Limited</p>
+</div>
+<div>
+<h4>Company</h4>
+<a href="#">About</a>
+<a href="#">Projects</a>
+<a href="#">White Paper</a>
+</div>
+<div>
+<h4>Contact</h4>
+<p>info@fstl.ng</p>
+</div>
+</div>
+<small>© First Standard Title Limited. All rights reserved.</small>
 </footer>
 
 </body>
