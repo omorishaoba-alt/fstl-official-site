@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>First Standard Title Limited (FSTL)</title>
 <meta name="description" content="FSTL - Secure Property & Title Intelligence | Commission-Based Partners | ChatGPT Assisted">
-
 <style>
 /* Reset & Body */
 body, html {
@@ -15,6 +14,7 @@ body, html {
   line-height: 1.6;
   color: #222;
   scroll-behavior: smooth;
+  background-color: #f4f6f8;
 }
 
 /* Sidebar */
@@ -28,6 +28,7 @@ body, html {
   padding-top: 20px;
   display: flex;
   flex-direction: column;
+  z-index: 1000;
 }
 
 .sidebar a {
@@ -37,6 +38,7 @@ body, html {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .sidebar a:hover {
@@ -56,7 +58,9 @@ header {
   padding: 40px 20px;
   background: #0b3c5d;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 header h1 {
@@ -71,14 +75,25 @@ header .badge {
   font-weight: bold;
 }
 
-/* Sections */
+/* Section cards */
 section {
-  padding: 40px 20px;
+  padding: 30px 20px;
   margin-bottom: 20px;
-  border-left: 6px solid #1f77d0;
-  background: #f9f9f9;
-  border-radius: 6px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
 }
+
+section:hover {
+  transform: translateY(-3px);
+}
+
+#mandate { background-color: #e3f2fd; }
+#what-we-do { background-color: #fff3e0; }
+#commission { background-color: #e8f5e9; }
+#technology { background-color: #fce4ec; }
+#white-paper { background-color: #fffde7; }
+#contact { background-color: #f0f4c3; }
 
 section h2 {
   margin-top: 0;
@@ -96,10 +111,12 @@ section h2 {
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .button:hover {
   background: #145ea8;
+  transform: translateY(-2px);
 }
 
 /* PDF iframe */
@@ -108,6 +125,7 @@ iframe {
   height: 600px;
   border: 1px solid #ddd;
   margin-top: 15px;
+  border-radius: 6px;
 }
 
 /* Lists */
@@ -123,6 +141,7 @@ footer {
   background: #e8e8e8;
   font-size: 14px;
   color: #555;
+  border-top: 1px solid #ccc;
 }
 
 /* Responsive */
@@ -145,7 +164,6 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <div class="sidebar">
@@ -217,7 +235,7 @@ footer {
   <section id="contact">
     <h2>Contact & Onboarding</h2>
     <p>Introducers, institutions, and partners may begin engagement through the onboarding form.</p>
-    <!-- Replace with Google Form iframe if needed -->
+    <!-- Optional: Add Google Form iframe -->
   </section>
 
   <footer>
