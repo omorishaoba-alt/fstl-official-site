@@ -24,7 +24,8 @@
     .container { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
     .logo { font-size: 1.5rem; font-weight: bold; color: #1a1a1a; }
     nav { display: flex; gap: 1.5rem; }
-    nav a { font-weight: 500; }
+    nav a { font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #ff6600; }
     .hamburger { display: none; flex-direction: column; cursor: pointer; }
     .hamburger div { width: 25px; height: 3px; background: #333; margin: 4px 0; transition: 0.3s; }
 
@@ -44,10 +45,7 @@
       width:100%; height:100%;
       background: rgba(0,0,0,0.5);
     }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
+    .hero-content { position: relative; z-index: 1; }
     .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
     .hero button {
@@ -69,14 +67,15 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .card a { color: #ff6600; display: inline-block; margin-top: 0.5rem; }
 
     /* PDF Embed */
-    .pdf-container { display: flex; justify-content: center; }
-    .pdf-container iframe { width: 90%; height: 600px; border: none; }
+    .pdf-container { display: flex; justify-content: center; flex-direction: column; align-items: center; }
+    .pdf-container iframe { width: 90%; height: 600px; border: none; margin-bottom: 1rem; }
 
     /* Footer */
     footer { background: #1a1a1a; color: #fff; padding: 2rem 1rem; text-align: center; }
-    footer a { color: #ff6600; }
+    footer a { color: #ff6600; margin: 0 0.5rem; }
 
     /* Responsive */
     @media(max-width:768px){
@@ -113,6 +112,7 @@
       <h1>First Standard Title Limited (FSTL)</h1>
       <p>Your trusted partner for title insurance and mortgage security solutions.</p>
       <button onclick="document.getElementById('whitepaper').scrollIntoView({behavior:'smooth'})">View White Paper</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="margin-left:1rem;">Contact Us</button>
     </div>
   </section>
 
@@ -123,14 +123,17 @@
       <div class="card">
         <h3>Title Insurance</h3>
         <p>Protect your property and investment with our comprehensive title insurance coverage.</p>
+        <a href="#whitepaper">Learn More</a>
       </div>
       <div class="card">
         <h3>Mortgage Insurance</h3>
         <p>Secure your mortgage with our trusted insurance solutions tailored to your needs.</p>
+        <a href="#whitepaper">Learn More</a>
       </div>
       <div class="card">
         <h3>Consultancy</h3>
         <p>Expert advice for navigating property transactions, legal frameworks, and risk management.</p>
+        <a href="#contact">Get Advice</a>
       </div>
     </div>
   </section>
@@ -142,8 +145,9 @@
       <div class="card">
         <h3>NATICON</h3>
         <p>The National Title Insurance Company initiative enhances FSTL's mission to secure property rights nationwide.</p>
+        <a href="#contact">Contact for NATICON</a>
       </div>
-      <!-- Add more project cards if needed -->
+      <!-- Add more project cards here -->
     </div>
   </section>
 
@@ -151,31 +155,16 @@
   <section id="whitepaper">
     <h2>FSTL White Paper</h2>
     <div class="pdf-container">
-      <iframe src="https://example.com/fstl-whitepaper.pdf"></iframe>
+      <iframe src="https://yourdomain.com/fstl-whitepaper.pdf"></iframe>
+      <a href="https://yourdomain.com/fstl-whitepaper.pdf" download>
+        <button style="background:#ff6600; color:#fff; padding:0.75rem 1.5rem; border:none; border-radius:5px; cursor:pointer;">
+          Download White Paper
+        </button>
+      </a>
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact">
     <h2>Contact Us</h2>
-    <p style="text-align:center;">Email: info@fstl.com | Phone: +234 123 456 7890</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
-  </footer>
-
-  <!-- Scripts -->
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('menu');
-
-    hamburger.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-  </script>
-
-</body>
-</html>
+    <p style="text-align:center;">Email: info@fstl.com | Phone
