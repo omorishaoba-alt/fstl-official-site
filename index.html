@@ -2,7 +2,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSTL Official Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Roboto', sans-serif; line-height: 1.6; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: #003366; color: #fff; position: sticky; top: 0; z-index: 100; }
+    header nav a { margin: 0 15px; font-weight: 500; }
+    .hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 80vh; background: url('https://images.unsplash.com/photo-1565372914312-7b567d2a13fc') no-repeat center/cover; color: #fff; padding: 0 20px; }
+    .hero h1 { font-size: 3rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.3rem; margin-bottom: 25px; }
+    .hero .cta { padding: 12px 25px; background: #ff9900; color: #fff; font-weight: bold; border-radius: 5px; transition: background 0.3s; }
+    .hero .cta:hover { background: #cc7a00; }
+    section { padding: 60px 50px; max-width: 1200px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: #003366; }
+    .services, .projects, .team, .blog { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+    .card { background: #f7f7f7; border-radius: 8px; padding: 20px; text-align: center; transition: transform 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { max-width: 100%; border-radius: 5px; margin-bottom: 15px; }
+    .projects-slider { display: flex; overflow-x: auto; gap: 20px; scroll-behavior: smooth; }
+    .projects-slider::-webkit-scrollbar { display: none; }
+    .team-member { text-align: center; }
+    .team-member img { border-radius: 50%; width: 150px; height: 150px; object-fit: cover; margin-bottom: 15px; }
+    footer { background: #003366; color: #fff; padding: 40px 50px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+    footer a { color: #ff9900; }
+    .footer-section { margin-bottom: 20px; min-width: 200px; }
+    form input, form textarea { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+    form button { padding: 12px 25px; background: #ff9900; color: #fff; font-weight: bold; border-radius: 5px; border: none; cursor: pointer; }
+    form button:hover { background: #cc7a00; }
+    @media(max-width:768px){header {flex-direction:column; text-align:center;} header nav {margin-top:10px;} .hero h1 {font-size:2.2rem;} .hero p {font-size:1rem;}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><h1>FSTL Official</h1></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#team">Team</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>FSTL – Pioneers of Title & Mortgage Insurance</h1>
+  <p>Protecting your property and securing your investment across Nigeria.</p>
+  <a href="#contact" class="cta">Get a Quote</a>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-0e14f4c2e426" alt="Title Insurance">
+      <h3>Title Insurance</h3>
+      <p>Comprehensive coverage to secure property ownership and prevent legal disputes.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Mortgage Insurance">
+      <h3>Mortgage Insurance</h3>
+      <p>Protect lenders and borrowers with reliable mortgage risk coverage solutions.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-0e14f4c2e426" alt="Risk Assessment">
+      <h3>Risk Assessment</h3>
+      <p>Evaluate property and financial risks with precision and expert analysis.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Our Projects</h2>
+  <div class="projects-slider">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-0e14f4c2e426" alt="NATICON">
+      <h3>NATICON Project</h3>
+      <p>Our flagship project in blockchain and title verification technology.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Other Project">
+      <h3>Other Project</h3>
+      <p>Innovative solutions in property and finance technology.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1581090700227-0e14f4c2e426" alt="Other Project 2">
+      <h3>Other Project 2</h3>
+      <p>Smart integration of technology and financial services.</p>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <h2>Meet Our Team</h2>
+  <div class="team">
+    <div class="team-member">
+      <img src="https://images.unsplash.com/photo-1603415526960-f7e0328f9620" alt="Team Member 1">
+      <h3>HRH, KABIYESI AYODELE OOGUNJE</h3>
+      <p>Chairman of FSTL – Iwori Osa Aweda Jawusa</p>
+    </div>
+    <div class="team-member">
+      <img src="https://images.unsplash.com/photo-1603415526960-f7e0328f9620" alt="Team Member 2">
+      <h3>Jane Doe</h3>
+      <p>Operations Manager</p>
+    </div>
+  </div>
+</section>
+
+<section id="blog">
+  <h2>Latest Articles</h2>
+  <div class="blog">
+    <div class="card">
+      <h3>Understanding Title Insurance in Nigeria</h3>
+      <p>Learn the importance of protecting property ownership in today’s market.</p>
+    </div>
+    <div class="card">
+      <h3>Mortgage Insurance Benefits</h3>
+      <p>How mortgage insurance protects borrowers and lenders alike.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <div class="footer-section">
+    <h3>FSTL Official</h3>
+    <p>Email: info@fstl.com.ng</p>
+    <p>WhatsApp: +234 800 000 0000</p>
+  </div>
+  <div class="footer-section">
+    <h3>Quick Links</h3>
+    <a href="#services">Services</a><br>
+    <a href="#projects">Projects</a><br>
+    <a href="#team">Team</a><br>
+    <a href="#blog">Blog</a><br>
+  </div>
+  <div class="footer-section">
+    <h3>Legal</h3>
+    <a href="#">Terms & Conditions</a><br>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>, initial-scale=1.0">
 <title>First Standard Title Limited (FSTL)</title>
 <meta name="description" content="FSTL - Secure Property & Title Intelligence | Commission-Based Partners | ChatGPT Assisted">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
