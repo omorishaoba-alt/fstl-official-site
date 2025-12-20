@@ -1,121 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FSTL Official Website</title>
-<style>
-  /* Reset default margins */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSTL Official Website</title>
+  <style>
+    /* Reset & basic styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; color: #333; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; }
 
-  body { font-family: Arial, sans-serif; }
-
-  /* Header styling */
-  header {
-    width: 100%;
-    background: #ffffff; /* clean white header */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-  }
-
-  /* Logo */
-  .logo { font-weight: bold; font-size: 1.5rem; color: #1a1a1a; }
-
-  /* Menu */
-  nav {
-    display: flex;
-    align-items: center;
-  }
-
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  nav ul li a {
-    text-decoration: none;
-    color: #1a1a1a;
-    font-weight: 500;
-    transition: color 0.3s;
-  }
-
-  nav ul li a:hover { color: #007bff; }
-
-  /* Hamburger for mobile */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-  }
-
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: #1a1a1a;
-  }
-
-  /* Mobile menu */
-  @media (max-width: 768px) {
-    nav ul {
+    /* Header */
+    header {
+      width: 100%;
+      background: #fff;
       position: fixed;
-      top: 70px;
-      right: -100%;
-      height: 100vh;
-      width: 200px;
-      background: #ffffff;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding: 2rem;
-      transition: right 0.3s ease;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+    .container { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #1a1a1a; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a { font-weight: 500; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background: #333; margin: 4px 0; transition: 0.3s; }
 
-    nav ul.show { right: 0; }
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      text-align: center;
+      padding: 5rem 1rem;
+      background: url('https://via.placeholder.com/1920x600') no-repeat center/cover;
+      color: #fff;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top:0; left:0;
+      width:100%; height:100%;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+    .hero button {
+      background: #ff6600; color: #fff; border: none; padding: 0.75rem 1.5rem; cursor: pointer; font-size: 1rem;
+      border-radius: 5px; transition: background 0.3s;
+    }
+    .hero button:hover { background: #e65c00; }
 
-    .hamburger { display: flex; }
-  }
-</style>
+    /* Sections */
+    section { padding: 4rem 1rem; }
+    h2 { text-align: center; margin-bottom: 2rem; font-size: 2rem; }
+    .cards { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+    .card {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+
+    /* PDF Embed */
+    .pdf-container { display: flex; justify-content: center; }
+    .pdf-container iframe { width: 90%; height: 600px; border: none; }
+
+    /* Footer */
+    footer { background: #1a1a1a; color: #fff; padding: 2rem 1rem; text-align: center; }
+    footer a { color: #ff6600; }
+
+    /* Responsive */
+    @media(max-width:768px){
+      nav { display: none; flex-direction: column; background: #fff; position: absolute; top: 80px; right: 0; width: 200px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+      nav.active { display: flex; }
+      .hamburger { display: flex; }
+      .cards { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">FSTL</div>
-  <nav>
-    <ul id="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">FSTL</div>
+      <nav id="menu">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#whitepaper">White Paper</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </nav>
-</header>
+  </header>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>First Standard Title Limited (FSTL)</h1>
+      <p>Your trusted partner for title insurance and mortgage security solutions.</p>
+      <button onclick="document.getElementById('whitepaper').scrollIntoView({behavior:'smooth'})">View White Paper</button>
+    </div>
+  </section>
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-</script>
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Title Insurance</h3>
+        <p>Protect your property and investment with our comprehensive title insurance coverage.</p>
+      </div>
+      <div class="card">
+        <h3>Mortgage Insurance</h3>
+        <p>Secure your mortgage with our trusted insurance solutions tailored to your needs.</p>
+      </div>
+      <div class="card">
+        <h3>Consultancy</h3>
+        <p>Expert advice for navigating property transactions, legal frameworks, and risk management.</p>
+      </div>
+    </div>
+  </section>
 
-<!-- Add padding-top to prevent content hidden behind fixed header -->
-<div style="padding-top:80px;">
-  <!-- Your website content goes here -->
-</div>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>NATICON</h3>
+        <p>The National Title Insurance Company initiative enhances FSTL's mission to secure property rights nationwide.</p>
+      </div>
+      <!-- Add more project cards if needed -->
+    </div>
+  </section>
+
+  <!-- White Paper / PDF -->
+  <section id="whitepaper">
+    <h2>FSTL White Paper</h2>
+    <div class="pdf-container">
+      <iframe src="https://example.com/fstl-whitepaper.pdf"></iframe>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Email: info@fstl.com | Phone: +234 123 456 7890</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 First Standard Title Limited (FSTL). All Rights Reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>
