@@ -21,16 +21,17 @@ body, html {
 
 /* Sidebar */
 .sidebar {
-  height: 100%;
-  width: 220px;
   position: fixed;
   top: 0;
   left: 0;
+  width: 220px;
+  height: 100%;
   background-color: #0b3c5d;
   padding-top: 20px;
   display: flex;
   flex-direction: column;
   z-index: 1000;
+  overflow-y: auto;
 }
 
 .sidebar a {
@@ -55,7 +56,7 @@ body, html {
 
 /* Main content */
 .main {
-  margin-left: 240px;
+  margin-left: 240px; /* space for sidebar */
   padding: 20px;
 }
 
@@ -166,22 +167,16 @@ footer i {
   margin: 0 8px;
 }
 
-/* Responsive */
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    flex-direction: row;
-    overflow-x: auto;
+    width: 60px; /* collapsed */
   }
-  .sidebar a {
-    flex: 1;
-    justify-content: center;
-    margin-bottom: 0;
+  .sidebar a span {
+    display: none; /* hide text labels, keep icons */
   }
   .main {
-    margin-left: 0;
+    margin-left: 70px;
   }
   iframe { height: 400px; }
 }
@@ -190,12 +185,12 @@ footer i {
 <body>
 
 <div class="sidebar">
-  <a href="#mandate"><i class="fas fa-bullseye"></i>Mandate</a>
-  <a href="#what-we-do"><i class="fas fa-briefcase"></i>What We Do</a>
-  <a href="#commission"><i class="fas fa-hand-holding-usd"></i>Commission</a>
-  <a href="#technology"><i class="fas fa-robot"></i>AI & Tech</a>
-  <a href="#white-paper"><i class="fas fa-file-pdf"></i>White Paper</a>
-  <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+  <a href="#mandate"><i class="fas fa-bullseye"></i><span>Mandate</span></a>
+  <a href="#what-we-do"><i class="fas fa-briefcase"></i><span>What We Do</span></a>
+  <a href="#commission"><i class="fas fa-hand-holding-usd"></i><span>Commission</span></a>
+  <a href="#technology"><i class="fas fa-robot"></i><span>AI & Tech</span></a>
+  <a href="#white-paper"><i class="fas fa-file-pdf"></i><span>White Paper</span></a>
+  <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
 </div>
 
 <div class="main">
@@ -207,10 +202,7 @@ footer i {
 
   <section id="mandate">
     <h2><i class="fas fa-bullseye"></i>Our Mandate</h2>
-    <p>
-      FSTL exists to eliminate uncertainty, fraud, and inefficiency in property transactions. 
-      We provide technology-driven infrastructure enabling confidence for professionals, institutions, and the public.
-    </p>
+    <p>FSTL exists to eliminate uncertainty, fraud, and inefficiency in property transactions. We provide technology-driven infrastructure enabling confidence for professionals, institutions, and the public.</p>
   </section>
 
   <section id="what-we-do">
@@ -226,10 +218,7 @@ footer i {
 
   <section id="commission">
     <h2><i class="fas fa-hand-holding-usd"></i>Commission-Based Partner Model</h2>
-    <p>
-      Lawyers and transaction agents operate as <strong>commission-based partners</strong>.
-      Payments are instant upon confirmation of valid work. Structure is transparent, fair, and scalable.
-    </p>
+    <p>Lawyers and transaction agents operate as <strong>commission-based partners</strong>. Payments are instant upon confirmation of valid work. Structure is transparent, fair, and scalable.</p>
     <ul>
       <li>No delays, instant payment</li>
       <li>Legally documented agreements</li>
@@ -240,17 +229,12 @@ footer i {
 
   <section id="technology">
     <h2><i class="fas fa-robot"></i>AI & Technology</h2>
-    <p>
-      FSTL uses AI (ChatGPT) for infrastructure, verification, and reporting.
-      AI does not replace legal professionals or statutory authorities.
-    </p>
+    <p>FSTL uses AI (ChatGPT) for infrastructure, verification, and reporting. AI does not replace legal professionals or statutory authorities.</p>
   </section>
 
   <section id="white-paper">
     <h2><i class="fas fa-file-pdf"></i>White Paper (NATICON)</h2>
-    <p>
-      The National Title Confidence framework (NATICON) outlines the full legal, economic, and institutional architecture.
-    </p>
+    <p>The National Title Confidence framework (NATICON) outlines the full legal, economic, and institutional architecture.</p>
     <iframe src="whitepaper.pdf" title="NATICON White Paper"></iframe>
     <a href="whitepaper.pdf" class="button" target="_blank">Download White Paper</a>
   </section>
@@ -258,12 +242,10 @@ footer i {
   <section id="contact">
     <h2><i class="fas fa-envelope"></i>Contact & Onboarding</h2>
     <p>Introducers, institutions, and partners may begin engagement through the onboarding form.</p>
-    <!-- Optional: Add Google Form iframe -->
   </section>
 
   <footer>
-    <p>
-      © First Standard Title Limited (FSTL) | Secure Infrastructure | Verified Intelligence | Sustainable Revenue
+    <p>© First Standard Title Limited (FSTL) | Secure Infrastructure | Verified Intelligence | Sustainable Revenue
       <br>
       <i class="fas fa-envelope"></i> fstl@example.com
       <i class="fas fa-phone"></i> +234-000-0000
