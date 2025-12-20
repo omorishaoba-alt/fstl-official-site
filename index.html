@@ -6,9 +6,8 @@
 <title>First Standard Title Limited (FSTL)</title>
 <meta name="description" content="FSTL - Secure Property & Title Intelligence | Commission-Based Partners | ChatGPT Assisted">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
 <style>
-/* Reset & Body */
+/* Reset & body */
 body, html {
   margin: 0;
   padding: 0;
@@ -24,78 +23,116 @@ body, html {
   position: fixed;
   top: 0;
   left: 0;
-  width: 220px;
+  width: 250px;
   height: 100%;
   background-color: #0b3c5d;
   padding-top: 20px;
   display: flex;
   flex-direction: column;
   z-index: 1000;
+  transition: all 0.3s ease;
   overflow-y: auto;
 }
 
 .sidebar a {
-  padding: 12px 20px;
+  padding: 15px 20px;
   text-decoration: none;
   color: white;
   display: flex;
   align-items: center;
   margin-bottom: 5px;
   font-weight: bold;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .sidebar a i {
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 .sidebar a:hover {
   background-color: #145ea8;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 28px;
+  color: white;
+  z-index: 1100;
+  cursor: pointer;
 }
 
 /* Main content */
 .main {
-  margin-left: 240px; /* space for sidebar */
-  padding: 20px;
+  margin-left: 250px;
+  padding: 0;
+  transition: margin-left 0.3s ease;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 40px 20px;
-  background: #0b3c5d;
+/* Hero section */
+.hero {
+  height: 450px;
+  background: linear-gradient(135deg,#1f77d0,#145ea8);
   color: white;
-  margin-bottom: 30px;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
-header h1 {
-  margin-bottom: 10px;
-  font-size: 2.4em;
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  animation: slideInDown 1s ease forwards;
 }
 
-header .badge {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  border: 1px solid white;
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  animation: slideInUp 1s ease forwards;
+}
+
+.hero .cta-button {
+  background: #ffd700;
+  color: #0b3c5d;
+  padding: 16px 32px;
   font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero .cta-button:hover {
+  background: #e6c200;
+  transform: scale(1.05);
 }
 
 /* Section cards */
 section {
-  padding: 30px 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  padding: 40px 30px;
+  margin: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 section:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 /* Section colors */
@@ -115,7 +152,7 @@ section h2 {
 }
 
 section h2 i {
-  margin-right: 10px;
+  margin-right: 12px;
   color: #1f77d0;
 }
 
@@ -129,13 +166,13 @@ section h2 i {
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
   background: #145ea8;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 /* PDF iframe */
@@ -148,10 +185,7 @@ iframe {
 }
 
 /* Lists */
-ul {
-  padding-left: 20px;
-  margin: 0;
-}
+ul { padding-left: 20px; margin: 0; }
 
 /* Footer */
 footer {
@@ -163,42 +197,45 @@ footer {
   border-top: 1px solid #ccc;
 }
 
-footer i {
-  margin: 0 8px;
+footer i { margin: 0 8px; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+@keyframes slideInDown { from { transform: translateY(-50px) } to { transform: translateY(0) } }
+@keyframes slideInUp { from { transform: translateY(50px) } to { transform: translateY(0) } }
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .main { margin-left: 220px; }
 }
 
-/* Mobile adjustments */
 @media screen and (max-width: 768px) {
-  .sidebar {
-    width: 60px; /* collapsed */
-  }
-  .sidebar a span {
-    display: none; /* hide text labels, keep icons */
-  }
-  .main {
-    margin-left: 70px;
-  }
-  iframe { height: 400px; }
+  .sidebar { left: -250px; }
+  .sidebar.active { left: 0; }
+  .hamburger { display: block; }
+  .main { margin-left: 0; padding-top: 60px; }
 }
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <a href="#mandate"><i class="fas fa-bullseye"></i><span>Mandate</span></a>
-  <a href="#what-we-do"><i class="fas fa-briefcase"></i><span>What We Do</span></a>
-  <a href="#commission"><i class="fas fa-hand-holding-usd"></i><span>Commission</span></a>
-  <a href="#technology"><i class="fas fa-robot"></i><span>AI & Tech</span></a>
-  <a href="#white-paper"><i class="fas fa-file-pdf"></i><span>White Paper</span></a>
-  <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+<div class="hamburger" onclick="toggleSidebar()"><i class="fas fa-bars"></i></div>
+
+<div class="sidebar" id="sidebar">
+  <a href="#mandate"><i class="fas fa-bullseye"></i>Mandate</a>
+  <a href="#what-we-do"><i class="fas fa-briefcase"></i>What We Do</a>
+  <a href="#commission"><i class="fas fa-hand-holding-usd"></i>Commission</a>
+  <a href="#technology"><i class="fas fa-robot"></i>AI & Tech</a>
+  <a href="#white-paper"><i class="fas fa-file-pdf"></i>White Paper</a>
+  <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
 </div>
 
 <div class="main">
-  <header>
+  <section class="hero">
     <h1>First Standard Title Limited (FSTL)</h1>
     <p>Secure Property & Title Intelligence | Transaction Assurance | Monetisable Infrastructure</p>
-    <div class="badge">CHATGPT INSIDE</div>
-  </header>
+    <a href="#white-paper" class="cta-button">Download White Paper</a>
+  </section>
 
   <section id="mandate">
     <h2><i class="fas fa-bullseye"></i>Our Mandate</h2>
@@ -245,14 +282,34 @@ footer i {
   </section>
 
   <footer>
-    <p>© First Standard Title Limited (FSTL) | Secure Infrastructure | Verified Intelligence | Sustainable Revenue
-      <br>
+    <p>© FSTL | Secure Infrastructure | Verified Intelligence | Sustainable Revenue<br>
       <i class="fas fa-envelope"></i> fstl@example.com
       <i class="fas fa-phone"></i> +234-000-0000
       <i class="fab fa-linkedin"></i> FSTL LinkedIn
     </p>
   </footer>
 </div>
+
+<script>
+// Sidebar toggle for mobile
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('active');
+}
+
+// Scroll reveal for sections
+const sections = document.querySelectorAll('section');
+function revealSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if(sectionTop < triggerBottom){
+      section.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
+</script>
 
 </body>
 </html>
