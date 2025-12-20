@@ -1,319 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Standard Title Limited (FSTL)</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Standard Title Limited (FSTL)</title>
 
-<style>
-:root{
---blue:#0b2a4a;
---silver:#f3f6fb;
---dark:#0e1621;
---text:#2b2e34;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-color:var(--text);
-background:#fff;
-line-height:1.65;
-}
+  <style>
+    :root {
+      --text-main: #1f2933;
+      --text-muted: #5f6c7b;
+      --accent: #0f4c81;
+      --bg-main: #ffffff;
+      --bg-soft: #f6f8fa;
+      --border-soft: #e5e7eb;
+    }
 
-/* HEADER */
-header{
-position:sticky;
-top:0;
-background:#fff;
-border-bottom:1px solid #e6e9ef;
-z-index:1000;
-}
-.header-inner{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:16px 20px;
-}
-.logo{
-font-weight:700;
-font-size:20px;
-color:var(--blue);
-}
-nav ul{
-list-style:none;
-display:flex;
-gap:28px;
-padding:0;
-margin:0;
-}
-nav a{
-text-decoration:none;
-color:var(--dark);
-font-weight:500;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* LAYOUT */
-.layout{
-display:grid;
-grid-template-columns:240px 1fr;
-max-width:1400px;
-margin:auto;
-}
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text-main);
+      background: var(--bg-main);
+      line-height: 1.6;
+    }
 
-/* SIDEBAR */
-.sidebar{
-border-right:1px solid #e6e9ef;
-padding:40px 20px;
-background:#fff;
-position:sticky;
-top:80px;
-height:calc(100vh - 80px);
-}
-.sidebar a{
-display:block;
-text-decoration:none;
-color:var(--text);
-margin-bottom:14px;
-padding:10px 12px;
-border-radius:6px;
-transition:.25s;
-}
-.sidebar a:hover{
-background:var(--silver);
-transform:translateX(6px);
-}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
 
-/* MAIN */
-main{
-padding:40px 60px;
-}
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border-soft);
+      z-index: 1000;
+    }
 
-/* HERO */
-.hero{
-padding:80px 0;
-position:relative;
-}
-.hero h1{
-font-size:44px;
-max-width:700px;
-color:var(--dark);
-}
-.hero p{
-font-size:18px;
-max-width:640px;
-}
-.cta{
-display:inline-block;
-margin-top:30px;
-padding:14px 28px;
-background:var(--blue);
-color:#fff;
-text-decoration:none;
-border-radius:8px;
-font-weight:600;
-}
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* FLOATING ICONS */
-.float-icon{
-position:absolute;
-font-size:48px;
-opacity:.06;
-animation:floaty 9s infinite ease-in-out;
-}
-@keyframes floaty{
-50%{transform:translateY(-30px)}
-}
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.3px;
+    }
 
-/* SECTIONS */
-section{
-margin-bottom:100px;
-}
-h2{
-font-size:32px;
-margin-bottom:20px;
-color:var(--dark);
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
-}
-.card{
-border:1px solid #e6e9ef;
-border-radius:18px;
-padding:30px;
-background:#fff;
-}
+    nav ul li {
+      position: relative;
+    }
 
-/* METRICS */
-.metrics{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-}
-.metric{
-text-align:center;
-border:1px solid #e6e9ef;
-border-radius:18px;
-padding:30px;
-}
-.metric h3{
-font-size:34px;
-color:var(--blue);
-margin:0;
-}
+    nav ul li:hover .dropdown {
+      display: block;
+    }
 
-/* REVEAL */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-.reveal.active{
-opacity:1;
-transform:none;
-}
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 28px;
+      left: 0;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      min-width: 220px;
+      padding: 12px 0;
+    }
 
-/* FOOTER */
-footer{
-background:#0e1621;
-color:#cfd6e6;
-padding:60px 20px;
-}
-footer .inner{
-max-width:1200px;
-margin:auto;
-}
-footer a{color:#cfd6e6;text-decoration:none}
+    .dropdown a {
+      display: block;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
 
-@media(max-width:900px){
-.layout{grid-template-columns:1fr}
-.sidebar{display:none}
-main{padding:30px}
-}
-</style>
+    .dropdown a:hover {
+      background: var(--bg-soft);
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1200px;
+      margin: 80px auto 100px;
+      padding: 0 24px;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 600;
+      max-width: 820px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      margin-top: 36px;
+      display: flex;
+      gap: 18px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .section-text {
+      max-width: 760px;
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      border-top: 2px solid var(--accent);
+      padding-top: 20px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* WHITE PAPER */
+    .paper {
+      background: var(--bg-soft);
+      border: 1px solid var(--border-soft);
+      padding: 40px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 60px 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    footer a {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="header-inner">
-<div class="logo">FIRST STANDARD TITLE LIMITED</div>
-<nav>
-<ul>
-<li><a href="#services">Services</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#about">About</a></li>
-</ul>
-</nav>
-</div>
+  <div class="nav-container">
+    <div class="logo">FIRST STANDARD TITLE LIMITED</div>
+    <nav>
+      <ul>
+        <li>Firm</li>
+        <li>
+          What We Do
+          <div class="dropdown">
+            <a href="#">Title Insurance Infrastructure</a>
+            <a href="#">Mortgage Risk Frameworks</a>
+            <a href="#">Institutional Advisory</a>
+          </div>
+        </li>
+        <li>
+          Projects
+          <div class="dropdown">
+            <a href="#">NATICON</a>
+          </div>
+        </li>
+        <li>Insights</li>
+        <li>White Papers</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+  </div>
 </header>
-
-<div class="layout">
-
-<aside class="sidebar">
-<a href="#services">Title & Mortgage Insurance</a>
-<a href="#projects">Strategic Projects</a>
-<a href="#resources">White Paper</a>
-<a href="#about">Corporate Governance</a>
-</aside>
 
 <main>
 
-<section class="hero">
-<h1>Institutional Title & Mortgage Insurance Infrastructure for Nigeria</h1>
-<p>First Standard Title Limited (FSTL) is Nigeria’s pioneer title insurance and mortgage risk mitigation platform — designed to unlock capital, restore trust, and institutionalise property transactions.</p>
-<a class="cta" href="FSTL_MASTER_DOCUMENT.pdf">Download White Paper</a>
+  <div class="hero">
+    <h1>Institutional Infrastructure for Property, Title, and Mortgage Risk in Nigeria.</h1>
+    <p>
+      First Standard Title Limited (FSTL) provides the foundational frameworks required to
+      stabilise property transactions, protect capital, and restore confidence in Nigeria’s real estate market.
+    </p>
+    <div class="hero-actions">
+      <a href="#whitepaper" class="btn">Read the White Paper</a>
+      <a href="#contact" class="btn secondary">Institutional Engagement</a>
+    </div>
+  </div>
 
-<div class="float-icon" style="top:20%;left:10%">🏛️</div>
-<div class="float-icon" style="top:55%;left:80%">📊</div>
-<div class="float-icon" style="top:35%;left:65%">📈</div>
-</section>
+  <section>
+    <div class="section-inner">
+      <h2 class="section-title">The Market Reality</h2>
+      <p class="section-text">
+        Nigeria’s property and mortgage markets suffer from structural risk arising from title uncertainty,
+        fragmented registries, and the absence of standardized insurance-backed safeguards.
+      </p>
 
-<section id="services" class="reveal">
-<h2>Core Services</h2>
-<div class="cards">
-<div class="card">
-<h3>Title Insurance</h3>
-<p>Protection against defective title, fraud, forgery, and historical land risks.</p>
-</div>
-<div class="card">
-<h3>Mortgage Insurance</h3>
-<p>Risk transfer mechanisms enabling banks and lenders to safely extend credit.</p>
-</div>
-<div class="card">
-<h3>Transaction Due Diligence</h3>
-<p>AI-assisted verification layered with legal and cadastral intelligence.</p>
-</div>
-</div>
-</section>
+      <div class="grid">
+        <div class="card">
+          <h3>Title Uncertainty</h3>
+          <p>Overlapping claims and weak verification undermine transactional confidence.</p>
+        </div>
+        <div class="card">
+          <h3>Mortgage Fragility</h3>
+          <p>Lenders face elevated default exposure due to inadequate risk mitigation tools.</p>
+        </div>
+        <div class="card">
+          <h3>Capital Flight</h3>
+          <p>Institutional capital remains sidelined due to regulatory and structural gaps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="reveal">
-<h2>Institutional Metrics</h2>
-<div class="metrics">
-<div class="metric">
-<h3>₦ Trillions</h3>
-<p>Unsecured property value addressable</p>
-</div>
-<div class="metric">
-<h3>30M+</h3>
-<p>Land titles requiring insurance</p>
-</div>
-<div class="metric">
-<h3>1969</h3>
-<p>Consulting pedigree via Organisation & Methods Nigeria Ltd</p>
-</div>
-</div>
-</section>
+  <section>
+    <div class="section-inner">
+      <h2 class="section-title">Our Role</h2>
+      <p class="section-text">
+        FSTL operates as market infrastructure — not a brokerage, not a developer,
+        but a stabilising layer that enables trust, compliance, and scale.
+      </p>
 
-<section id="projects" class="reveal">
-<h2>Strategic Projects</h2>
-<div class="cards">
-<div class="card">
-<h3>NATICON</h3>
-<p>National Title Insurance & Conveyancing Network — a systemic solution to land fraud and transaction opacity.</p>
-</div>
-</div>
-</section>
+      <div class="grid">
+        <div class="card">
+          <h3>Risk Standardisation</h3>
+          <p>Institutional frameworks aligned with global insurance and title standards.</p>
+        </div>
+        <div class="card">
+          <h3>Regulatory Alignment</h3>
+          <p>Designed to complement Nigerian legal and policy structures.</p>
+        </div>
+        <div class="card">
+          <h3>Market Confidence</h3>
+          <p>Creating conditions required for long-term domestic and foreign capital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="resources" class="reveal">
-<h2>Resources</h2>
-<p>Our White Paper outlines the legal, economic, and infrastructural blueprint for institutionalising land and mortgage security in Nigeria.</p>
-<a class="cta" href="FSTL_MASTER_DOCUMENT.pdf">Download White Paper</a>
-</section>
-
-<section id="about" class="reveal">
-<h2>About FSTL</h2>
-<p>First Standard Title Limited are the pioneers of title insurance and mortgage insurance in Nigeria, positioned to serve lenders, investors, governments, and the capital markets.</p>
-</section>
+  <section id="whitepaper">
+    <div class="section-inner paper">
+      <h2 class="section-title">NATICON White Paper</h2>
+      <p class="section-text">
+        The National Title Insurance & Confidence Framework (NATICON) outlines a structured,
+        insurance-backed solution to Nigeria’s systemic property risk.
+      </p>
+      <a href="NATICON_WHITE_PAPER.pdf" class="btn">Download PDF</a>
+    </div>
+  </section>
 
 </main>
-</div>
 
 <footer>
-<div class="inner">
-<p><strong>FIRST STANDARD TITLE LIMITED</strong></p>
-<p>© 2025 FSTL. All rights reserved.</p>
-</div>
+  <div class="footer-inner">
+    <div>
+      <h4>Firm</h4>
+      <a href="#">About FSTL</a>
+      <a href="#">Governance</a>
+    </div>
+    <div>
+      <h4>Projects</h4>
+      <a href="#">NATICON</a>
+    </div>
+    <div>
+      <h4>Insights</h4>
+      <a href="#">White Papers</a>
+      <a href="#">Publications</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="#">Institutional Enquiries</a>
+    </div>
+  </div>
 </footer>
-
-<script>
-const reveals=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>{
-reveals.forEach(r=>{
-if(r.getBoundingClientRect().top<window.innerHeight-100){
-r.classList.add('active');
-}
-});
-});
-</script>
 
 </body>
 </html>
