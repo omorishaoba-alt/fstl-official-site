@@ -3,186 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Standard Title Limited (FSTL) - Official</title>
-
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
+<title>FSTL Official Website</title>
 <style>
-:root {
-  --bg: #0b0f14;
-  --panel: #111827;
-  --card: #151c2f;
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #3b82f6;
-  --gold: #c9a24d;
-}
+  /* Reset default margins */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Reset */
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+  body { font-family: Arial, sans-serif; }
 
-/* Header / Navbar */
-header { position: sticky; top:0; background:var(--panel); z-index:1000; }
-.nav { max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:18px 24px; }
-.logo { font-weight:700; font-size:18px; }
-nav ul { list-style:none; display:flex; gap:28px; }
-nav li { position:relative; font-size:14px; color:var(--muted); cursor:pointer; }
-nav li:hover { color:var(--text); }
-.dropdown { display:none; position:absolute; top:35px; left:0; background:var(--panel); border-radius:10px; padding:16px; min-width:240px; box-shadow:0 20px 40px rgba(0,0,0,0.5); }
-nav li:hover .dropdown { display:block; }
-.dropdown a { display:block; padding:8px 0; font-size:13px; color:var(--muted); }
-.dropdown a:hover { color:var(--accent); }
+  /* Header styling */
+  header {
+    width: 100%;
+    background: #ffffff; /* clean white header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
 
-/* Sidebar for mobile */
-.sidebar { display:none; position:fixed; top:0; left:0; width:250px; height:100%; background:var(--panel); padding:24px; flex-direction:column; gap:20px; overflow-y:auto; z-index:1500; }
-.sidebar a { color:var(--text); font-size:15px; text-decoration:none; display:block; padding:10px 0; }
-.sidebar a:hover { color:var(--accent); }
-.sidebar-toggle { display:none; font-size:20px; cursor:pointer; color:var(--text); }
+  /* Logo */
+  .logo { font-weight: bold; font-size: 1.5rem; color: #1a1a1a; }
 
-/* Hero */
-.hero { padding:140px 24px 100px; text-align:center; background:radial-gradient(circle at top, rgba(59,130,246,0.15), transparent 60%); }
-.hero h1 { font-size:44px; max-width:900px; margin:auto; font-weight:700; }
-.hero p { max-width:720px; margin:24px auto 40px; color:var(--muted); font-size:17px; }
-.cta { display:inline-flex; gap:14px; }
-.btn { padding:14px 26px; border-radius:30px; font-size:14px; font-weight:500; border:1px solid transparent; cursor:pointer; }
-.btn-primary { background:var(--accent); color:#fff; }
-.btn-secondary { background:transparent; border-color:rgba(255,255,255,0.2); color:var(--text); }
+  /* Menu */
+  nav {
+    display: flex;
+    align-items: center;
+  }
 
-/* Sections */
-section { max-width:1200px; margin:auto; padding:90px 24px; }
-section h2 { font-size:30px; margin-bottom:14px; }
-section p.lead { max-width:760px; color:var(--muted); margin-bottom:60px; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
 
-/* Cards */
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px; }
-.card { background:linear-gradient(180deg,#111827,#0b0f14); border-radius:18px; padding:28px; border:1px solid rgba(255,255,255,0.05); transition:transform 0.3s ease; }
-.card:hover { transform:translateY(-6px); }
-.card i { font-size:22px; color:var(--accent); margin-bottom:14px; }
-.card h3 { margin:10px 0; font-size:18px; }
-.card p { color:var(--muted); font-size:14px; }
+  nav ul li a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
 
-/* Flagship */
-.flagship { background:linear-gradient(180deg, rgba(201,162,77,0.08), transparent); border-radius:24px; padding:60px; border:1px solid rgba(201,162,77,0.25); text-align:center; }
-.flagship span { font-size:13px; letter-spacing:1px; color:var(--gold); text-transform:uppercase; }
+  nav ul li a:hover { color: #007bff; }
 
-/* PDF Embed */
-.pdf-container { margin-top:40px; text-align:center; }
-.pdf-container iframe { width:100%; height:600px; border:none; border-radius:16px; }
+  /* Hamburger for mobile */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
 
-/* Footer */
-footer { border-top:1px solid rgba(255,255,255,0.05); padding:60px 24px; background:#070b11; }
-.footer-grid { max-width:1200px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:40px; }
-footer h4 { font-size:14px; margin-bottom:14px; }
-footer a { display:block; font-size:13px; color:var(--muted); margin-bottom:8px; }
-footer a:hover { color:var(--text); }
-.copyright { text-align:center; margin-top:40px; font-size:12px; color:var(--muted); }
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #1a1a1a;
+  }
 
-/* Responsive */
-@media(max-width:900px){ .nav ul { display:none; } .sidebar-toggle { display:block; } .sidebar { display:flex; } }
+  /* Mobile menu */
+  @media (max-width: 768px) {
+    nav ul {
+      position: fixed;
+      top: 70px;
+      right: -100%;
+      height: 100vh;
+      width: 200px;
+      background: #ffffff;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
+      transition: right 0.3s ease;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul.show { right: 0; }
+
+    .hamburger { display: flex; }
+  }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="nav">
-    <div class="logo">FIRST STANDARD TITLE LIMITED</div>
-    <i class="fas fa-bars sidebar-toggle" onclick="toggleSidebar()"></i>
-    <nav>
-      <ul>
-        <li>Institution
-          <div class="dropdown">
-            <a href="#">About FSTL</a>
-            <a href="#">Mandate</a>
-            <a href="#">Governance</a>
-          </div>
-        </li>
-        <li>Solutions
-          <div class="dropdown">
-            <a href="#">Title Insurance</a>
-            <a href="#">Mortgage Insurance</a>
-            <a href="#">Risk Framework</a>
-          </div>
-        </li>
-        <li>Projects
-          <div class="dropdown">
-            <a href="#naticon">NATICON</a>
-          </div>
-        </li>
-        <li>Insights
-          <div class="dropdown">
-            <a href="#whitepaper">White Paper</a>
-            <a href="#">Policy Notes</a>
-          </div>
-        </li>
-        <li>Engage</li>
-      </ul>
-    </nav>
-  </div>
+  <div class="logo">FSTL</div>
+  <nav>
+    <ul id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 </header>
 
-<div class="sidebar" id="sidebar">
-  <a href="#">Institution</a>
-  <a href="#">Solutions</a>
-  <a href="#naticon">Projects</a>
-  <a href="#whitepaper">White Paper</a>
-  <a href="#">Engage</a>
-</div>
-
-<section class="hero">
-  <h1>Institutional Infrastructure for Title Security, Capital Confidence, and Market Stability</h1>
-  <p>First Standard Title Limited (FSTL) is Nigeria’s pioneer institutional framework for title insurance, mortgage risk mitigation, and property market trust.</p>
-  <div class="cta">
-    <a class="btn btn-primary" href="#whitepaper">Access White Paper</a>
-    <a class="btn btn-secondary">Institutional Engagement</a>
-  </div>
-</section>
-
-<section>
-  <h2>What FSTL Does</h2>
-  <p class="lead">We design the legal, insurance, and capital structures that make land, housing, and mortgage markets investable at scale.</p>
-  <div class="grid">
-    <div class="card"><i class="fa-solid fa-shield-halved"></i><h3>Title Insurance Framework</h3><p>Permanent protection against title defects and ownership risks.</p></div>
-    <div class="card"><i class="fa-solid fa-building-columns"></i><h3>Mortgage Risk Architecture</h3><p>Capital-ready structures for lenders and financial institutions.</p></div>
-    <div class="card"><i class="fa-solid fa-scale-balanced"></i><h3>Policy & Legal Integration</h3><p>Designed to align with regulators, courts, and land registries.</p></div>
-  </div>
-</section>
-
-<section id="naticon">
-  <div class="flagship">
-    <span>Flagship National Implementation</span>
-    <h2>National Title Insurance Company (NATICON)</h2>
-    <p class="lead">NATICON is a national execution vehicle within the FSTL framework, operationalizing title insurance at sovereign scale.</p>
-  </div>
-</section>
-
-<section id="whitepaper">
-  <h2>FSTL White Paper</h2>
-  <p class="lead">Download or view the official white paper detailing the legal, policy, and market framework of FSTL.</p>
-  <div class="pdf-container">
-    <iframe src="YOUR_WHITEPAPER.pdf"></iframe>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div><h4>Institution</h4><a>About FSTL</a><a>Governance</a><a>Standards</a></div>
-    <div><h4>Projects</h4><a>NATICON</a></div>
-    <div><h4>Insights</h4><a>White Paper</a><a>Policy Briefs</a></div>
-    <div><h4>Contact</h4><a>Institutional Enquiries</a><a>Partnerships</a></div>
-  </div>
-  <div class="copyright">© First Standard Title Limited (FSTL). All Rights Reserved.</div>
-</footer>
-
 <script>
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.style.display = (sidebar.style.display === 'flex') ? 'none' : 'flex';
-}
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 </script>
+
+<!-- Add padding-top to prevent content hidden behind fixed header -->
+<div style="padding-top:80px;">
+  <!-- Your website content goes here -->
+</div>
 
 </body>
 </html>
