@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>First Standard Title Limited (FSTL)</title>
 <meta name="description" content="FSTL - Secure Property & Title Intelligence | Commission-Based Partners | ChatGPT Assisted">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
 <style>
 /* Reset & Body */
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   color: #222;
   scroll-behavior: smooth;
@@ -35,10 +37,15 @@ body, html {
   padding: 12px 20px;
   text-decoration: none;
   color: white;
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: 5px;
   font-weight: bold;
   transition: 0.3s;
+}
+
+.sidebar a i {
+  margin-right: 8px;
 }
 
 .sidebar a:hover {
@@ -65,6 +72,7 @@ header {
 
 header h1 {
   margin-bottom: 10px;
+  font-size: 2.4em;
 }
 
 header .badge {
@@ -79,15 +87,17 @@ header .badge {
 section {
   padding: 30px 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 section:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+/* Section colors */
 #mandate { background-color: #e3f2fd; }
 #what-we-do { background-color: #fff3e0; }
 #commission { background-color: #e8f5e9; }
@@ -99,24 +109,32 @@ section h2 {
   margin-top: 0;
   margin-bottom: 15px;
   color: #0b3c5d;
+  display: flex;
+  align-items: center;
+}
+
+section h2 i {
+  margin-right: 10px;
+  color: #1f77d0;
 }
 
 /* Buttons */
 .button {
   display: inline-block;
-  padding: 12px 24px;
-  margin-top: 10px;
+  padding: 14px 28px;
+  margin-top: 15px;
   background: #1f77d0;
   color: white;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .button:hover {
   background: #145ea8;
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* PDF iframe */
@@ -125,7 +143,7 @@ iframe {
   height: 600px;
   border: 1px solid #ddd;
   margin-top: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 /* Lists */
@@ -144,6 +162,10 @@ footer {
   border-top: 1px solid #ccc;
 }
 
+footer i {
+  margin: 0 8px;
+}
+
 /* Responsive */
 @media screen and (max-width: 768px) {
   .sidebar {
@@ -155,24 +177,25 @@ footer {
   }
   .sidebar a {
     flex: 1;
-    text-align: center;
+    justify-content: center;
     margin-bottom: 0;
   }
   .main {
     margin-left: 0;
   }
+  iframe { height: 400px; }
 }
 </style>
 </head>
 <body>
 
 <div class="sidebar">
-  <a href="#mandate">Mandate</a>
-  <a href="#what-we-do">What We Do</a>
-  <a href="#commission">Commission</a>
-  <a href="#technology">AI & Tech</a>
-  <a href="#white-paper">White Paper</a>
-  <a href="#contact">Contact</a>
+  <a href="#mandate"><i class="fas fa-bullseye"></i>Mandate</a>
+  <a href="#what-we-do"><i class="fas fa-briefcase"></i>What We Do</a>
+  <a href="#commission"><i class="fas fa-hand-holding-usd"></i>Commission</a>
+  <a href="#technology"><i class="fas fa-robot"></i>AI & Tech</a>
+  <a href="#white-paper"><i class="fas fa-file-pdf"></i>White Paper</a>
+  <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
 </div>
 
 <div class="main">
@@ -183,7 +206,7 @@ footer {
   </header>
 
   <section id="mandate">
-    <h2>Our Mandate</h2>
+    <h2><i class="fas fa-bullseye"></i>Our Mandate</h2>
     <p>
       FSTL exists to eliminate uncertainty, fraud, and inefficiency in property transactions. 
       We provide technology-driven infrastructure enabling confidence for professionals, institutions, and the public.
@@ -191,7 +214,7 @@ footer {
   </section>
 
   <section id="what-we-do">
-    <h2>What We Do</h2>
+    <h2><i class="fas fa-briefcase"></i>What We Do</h2>
     <ul>
       <li>Title intelligence and document assurance</li>
       <li>Transaction risk analysis and verification</li>
@@ -202,7 +225,7 @@ footer {
   </section>
 
   <section id="commission">
-    <h2>Commission-Based Partner Model</h2>
+    <h2><i class="fas fa-hand-holding-usd"></i>Commission-Based Partner Model</h2>
     <p>
       Lawyers and transaction agents operate as <strong>commission-based partners</strong>.
       Payments are instant upon confirmation of valid work. Structure is transparent, fair, and scalable.
@@ -216,7 +239,7 @@ footer {
   </section>
 
   <section id="technology">
-    <h2>AI & Technology</h2>
+    <h2><i class="fas fa-robot"></i>AI & Technology</h2>
     <p>
       FSTL uses AI (ChatGPT) for infrastructure, verification, and reporting.
       AI does not replace legal professionals or statutory authorities.
@@ -224,7 +247,7 @@ footer {
   </section>
 
   <section id="white-paper">
-    <h2>White Paper (NATICON)</h2>
+    <h2><i class="fas fa-file-pdf"></i>White Paper (NATICON)</h2>
     <p>
       The National Title Confidence framework (NATICON) outlines the full legal, economic, and institutional architecture.
     </p>
@@ -233,13 +256,19 @@ footer {
   </section>
 
   <section id="contact">
-    <h2>Contact & Onboarding</h2>
+    <h2><i class="fas fa-envelope"></i>Contact & Onboarding</h2>
     <p>Introducers, institutions, and partners may begin engagement through the onboarding form.</p>
     <!-- Optional: Add Google Form iframe -->
   </section>
 
   <footer>
-    <p>© First Standard Title Limited (FSTL) | Secure Infrastructure | Verified Intelligence | Sustainable Revenue</p>
+    <p>
+      © First Standard Title Limited (FSTL) | Secure Infrastructure | Verified Intelligence | Sustainable Revenue
+      <br>
+      <i class="fas fa-envelope"></i> fstl@example.com
+      <i class="fas fa-phone"></i> +234-000-0000
+      <i class="fab fa-linkedin"></i> FSTL LinkedIn
+    </p>
   </footer>
 </div>
 
