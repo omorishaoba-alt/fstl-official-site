@@ -1,194 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSTL Official Website</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Standard Title Limited (FSTL)</title>
 
-    /* Body */
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    /* Header */
-    header { background: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #ddd; }
-    header .logo { font-weight: bold; font-size: 24px; color: #003366; }
-    nav ul { display: flex; list-style: none; }
-    nav ul li { position: relative; }
-    nav ul li a { padding: 10px 15px; display: block; text-decoration: none; color: #003366; font-weight: 500; }
-    nav ul li:hover > a { color: #0077cc; }
-    
-    /* Dropdown Menu */
-    nav ul li ul { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); min-width: 200px; z-index: 1000; }
-    nav ul li:hover ul { display: block; }
-    nav ul li ul li { width: 100%; }
-    nav ul li ul li a { padding: 10px; }
+<style>
+:root{
+  --primary:#0a2540;
+  --secondary:#0057ff;
+  --light:#f4f7fb;
+  --text:#1a1a1a;
+}
 
-    /* Hero Section */
-    .hero { background: url('hero-image.jpg') center/cover no-repeat; height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; text-align: center; }
-    .hero h1 { font-size: 48px; margin-bottom: 20px; }
-    .hero p { font-size: 20px; margin-bottom: 30px; max-width: 700px; }
-    .hero .cta { background: #0077cc; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Inter, sans-serif;
+  color:var(--text);
+  background:#fff;
+}
 
-    /* Sections */
-    section { padding: 60px 30px; }
-    .section-title { font-size: 32px; margin-bottom: 30px; color: #003366; text-align: center; }
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.navbar{
+  max-width:1300px;
+  margin:auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:var(--primary);
+}
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:24px;
+}
+nav ul li{
+  position:relative;
+}
+nav ul li a{
+  text-decoration:none;
+  color:#333;
+  font-weight:500;
+}
+nav ul li:hover > ul{
+  display:block;
+}
 
-    /* Cards */
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; transition: transform 0.3s; }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 100%; height: 180px; object-fit: cover; }
-    .card-content { padding: 15px; }
-    .card-content h3 { margin-bottom: 10px; color: #0077cc; }
-    .card-content p { font-size: 14px; color: #555; }
+/* DROPDOWN */
+nav ul li ul{
+  display:none;
+  position:absolute;
+  top:30px;
+  background:#fff;
+  border:1px solid #ddd;
+  min-width:200px;
+}
+nav ul li ul li{
+  padding:12px 16px;
+}
+nav ul li ul li a{
+  color:#333;
+}
 
-    /* Footer */
-    footer { background: #003366; color: #fff; padding: 40px 30px; display: flex; flex-wrap: wrap; justify-content: space-between; }
-    footer a { color: #fff; text-decoration: none; margin-bottom: 10px; display: block; }
-    footer .footer-section { flex: 1 1 200px; margin-bottom: 20px; }
-    footer .socials a { display: inline-block; margin-right: 10px; }
+/* HERO */
+.hero{
+  padding:100px 24px;
+  background:linear-gradient(120deg,#f4f7fb,#ffffff);
+}
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:60px;
+}
+.hero h1{
+  font-size:44px;
+  font-weight:700;
+  color:var(--primary);
+}
+.hero p{
+  margin:20px 0;
+  font-size:18px;
+  max-width:600px;
+}
+.cta{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 26px;
+  background:var(--secondary);
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:600;
+}
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul { flex-direction: column; display: none; }
-      nav ul.active { display: flex; }
-      .menu-toggle { display: block; cursor: pointer; font-size: 24px; }
-    }
-    @media (min-width: 769px) {
-      .menu-toggle { display: none; }
-    }
-  </style>
+/* SIDEBAR */
+.wrapper{
+  max-width:1300px;
+  margin:auto;
+  padding:80px 24px;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:50px;
+}
+.sidebar{
+  position:sticky;
+  top:120px;
+}
+.sidebar h3{
+  margin-bottom:12px;
+}
+.sidebar ul{
+  list-style:none;
+}
+.sidebar ul li{
+  margin-bottom:10px;
+}
+.sidebar ul li a{
+  text-decoration:none;
+  color:#0057ff;
+}
+
+/* SECTIONS */
+section{
+  margin-bottom:80px;
+}
+section h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  padding:30px;
+  border-radius:12px;
+}
+.card h3{
+  margin-bottom:10px;
+}
+
+/* PROJECT */
+.highlight{
+  background:var(--light);
+  padding:50px;
+  border-radius:16px;
+}
+
+/* FOOTER */
+footer{
+  background:#0a2540;
+  color:#fff;
+  padding:60px 24px;
+}
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:40px;
+}
+footer a{
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  margin-bottom:8px;
+}
+small{
+  display:block;
+  margin-top:40px;
+  opacity:.7;
+  text-align:center;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
+<header>
+  <div class="navbar">
     <div class="logo">FSTL</div>
-    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li>
-          <a href="#services">Services</a>
+        <li><a href="#services">Services</a>
           <ul>
-            <li><a href="#">UI/UX Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Software Solutions</a></li>
+            <li><a href="#">Title Insurance</a></li>
+            <li><a href="#">Mortgage Insurance</a></li>
+            <li><a href="#">Risk & Due Diligence</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#projects">Projects</a>
+        <li><a href="#projects">Projects</a>
           <ul>
-            <li><a href="#">Naticon</a></li>
-            <li><a href="#">Other Projects</a></li>
+            <li><a href="#naticon">NATICON</a></li>
           </ul>
         </li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="#resources">Resources</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h1>Welcome to FSTL</h1>
-    <p>First Standard Title Limited – Pioneers of Title Insurance & Mortgage Insurance in Nigeria.</p>
-    <a href="#contact" class="cta">Get in Touch</a>
-  </section>
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>First Standard Title Limited</h1>
+      <p>
+        Nigeria’s pioneer Title Insurance & Mortgage Risk Infrastructure.
+        A private-sector solution engineered for capital markets, institutional trust, and scalable national adoption.
+      </p>
+      <a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Download White Paper</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Services Section -->
-  <section id="services">
-    <h2 class="section-title">Our Services</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="service1.jpg" alt="Service 1">
-        <div class="card-content">
+<div class="wrapper">
+
+  <aside class="sidebar">
+    <h3>Navigate</h3>
+    <ul>
+      <li><a href="#services">Core Services</a></li>
+      <li><a href="#projects">Strategic Projects</a></li>
+      <li><a href="#resources">White Paper</a></li>
+      <li><a href="#contact">Engage FSTL</a></li>
+    </ul>
+  </aside>
+
+  <main>
+
+    <section id="services">
+      <h2>Core Services</h2>
+      <div class="cards">
+        <div class="card">
           <h3>Title Insurance</h3>
-          <p>Protecting property owners with comprehensive title insurance coverage.</p>
+          <p>Protecting property ownership, lenders, and investors from title defects.</p>
         </div>
-      </div>
-      <div class="card">
-        <img src="service2.jpg" alt="Service 2">
-        <div class="card-content">
+        <div class="card">
           <h3>Mortgage Insurance</h3>
-          <p>Ensuring security for lenders and borrowers in real estate transactions.</p>
+          <p>Risk mitigation framework enabling long-term housing finance.</p>
+        </div>
+        <div class="card">
+          <h3>Institutional Due Diligence</h3>
+          <p>Legal, land registry, and transactional intelligence at scale.</p>
         </div>
       </div>
-      <div class="card">
-        <img src="service3.jpg" alt="Service 3">
-        <div class="card-content">
-          <h3>Consultancy</h3>
-          <p>Expert advice and solutions for property risk and legal compliance.</p>
-        </div>
+    </section>
+
+    <section id="projects">
+      <h2>Strategic Projects</h2>
+      <div class="highlight" id="naticon">
+        <h3>NATICON</h3>
+        <p>
+          National Title Insurance & Conveyancing Network — a market-wide infrastructure
+          designed to formalize property transactions and unlock capital markets.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 class="section-title">Our Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="naticon.jpg" alt="Naticon Project">
-        <div class="card-content">
-          <h3>Naticon</h3>
-          <p>Our flagship technology project for modern real estate solutions.</p>
-        </div>
-      </div>
-      <div class="card">
-        <img src="project2.jpg" alt="Project 2">
-        <div class="card-content">
-          <h3>Other Project</h3>
-          <p>Innovative initiatives shaping Nigeria's property sector.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="resources">
+      <h2>Resources</h2>
+      <p>
+        The FSTL White Paper sets out the legal, economic, and institutional blueprint
+        for Nigeria’s title insurance and mortgage-backed securities framework.
+      </p>
+      <a class="cta" href="FSTL_WHITE_PAPER.pdf" target="_blank">Access Full White Paper</a>
+    </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <p style="text-align:center; max-width:800px; margin:0 auto;">FSTL – First Standard Title Limited, pioneers of title insurance in Nigeria, committed to protecting property owners and advancing the real estate sector.</p>
-  </section>
+    <section id="contact">
+      <h2>Engage FSTL</h2>
+      <p>
+        Institutional partners, regulators, capital market participants,
+        and professional agents are invited to engage.
+      </p>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;">Email: info@fstl.com | Phone: +234 800 123 4567</p>
-  </section>
+  </main>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-section">
+<footer>
+  <div class="footer-inner">
+    <div>
       <h4>FSTL</h4>
-      <p>Pioneers of Title Insurance & Mortgage Insurance in Nigeria.</p>
+      <p>First Standard Title Limited</p>
     </div>
-    <div class="footer-section">
-      <h4>Quick Links</h4>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <div>
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Projects</a>
+      <a href="#">White Paper</a>
     </div>
-    <div class="footer-section socials">
-      <h4>Follow Us</h4>
-      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: info@fstl.ng</p>
     </div>
-  </footer>
+  </div>
+  <small>© First Standard Title Limited. All rights reserved.</small>
+</footer>
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navUl = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click', () => {
-      navUl.classList.toggle('active');
-    });
-  </script>
 </body>
 </html>
