@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>First Standard Title Limited (FSTL) – Official Website</title>
 
-<script src="https://js.paystack.co/v1/inline.js"></script>
-
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6f8;color:#222;line-height:1.6}
@@ -102,32 +100,6 @@ padding:20px
 function toggleMenu(){
  const m=document.getElementById("menu");
  m.style.display=(m.style.display==="flex")?"none":"flex";
-}
-
-function pay(service,amount){
- let handler=PaystackPop.setup({
-  key:'pk_test_xxxxxxxxxxxxx',
-  email:document.getElementById("email").value,
-  amount:amount*100,
-  currency:'NGN',
-  metadata:{
-   custom_fields:[
-    {display_name:"Service",value:service},
-    {display_name:"Phone",value:document.getElementById("phone").value}
-   ]
-  },
-  callback:function(response){
-   alert("Payment successful. Reference: "+response.reference);
-   window.location.href=
-   "mailto:fstlofficialsite@gmail.com?subject=FSTL Payment Confirmation"+
-   "&body=Service: "+service+
-   "%0APayment Reference: "+response.reference;
-  },
-  onClose:function(){
-   alert("Transaction cancelled");
-  }
- });
- handler.openIframe();
 }
 </script>
 </head>
@@ -239,16 +211,24 @@ Certification confirming that a land title meets institutional lending and inves
 <section id="payment">
 <h2>Make Payment</h2>
 
-<input type="email" id="email" placeholder="Your Email Address" required>
-<input type="tel" id="phone" placeholder="Your Phone Number" required>
-
 <h3>TRAR™ – Title Risk Assessment Report</h3>
-<button onclick="pay('TRAR – Title Risk Assessment Report',100000)">Pay ₦100,000</button>
-
-<hr>
+<p>Professional Fee: ₦100,000</p>
 
 <h3>MRTC™ – Mortgage Readiness & Title Cleanliness Certification</h3>
-<button onclick="pay('MRTC – Mortgage Readiness Certification',200000)">Pay ₦200,000</button>
+<p>Professional Fee: ₦200,000</p>
+
+<h3>Manual Bank Transfer Instructions</h3>
+<p>
+Please transfer the appropriate amount to the account below and email proof of payment to <strong>fstlofficialsite@gmail.com</strong>.  
+Our team will confirm receipt and initiate your service immediately.
+</p>
+<ul>
+<li><strong>Bank Name:</strong> [Your Bank Name]</li>
+<li><strong>Account Name:</strong> First Standard Title Limited (FSTL)</li>
+<li><strong>Account Number:</strong> [Your Account Number]</li>
+</ul>
+
+<p><em>Note: Pricing is based on title/property complexity, not property size.</em></p>
 </section>
 
 <section>
