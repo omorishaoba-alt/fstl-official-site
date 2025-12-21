@@ -15,33 +15,34 @@
       line-height: 1.6;
     }
 
+    /* HEADER */
     header {
       background: #0b2c49;
       color: #fff;
-      padding: 25px 20px;
+      padding: 30px 20px;
     }
     header h1 {
       margin: 0;
       font-size: 24px;
     }
     header p {
-      margin-top: 8px;
+      margin-top: 10px;
       max-width: 900px;
     }
 
-    .contact-top {
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
+    /* NAVIGATION (STICKY) */
     nav {
       background: #092338;
       padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -52,6 +53,7 @@
     .menu {
       display: flex;
     }
+
     .hamburger {
       display: none;
       font-size: 26px;
@@ -59,23 +61,28 @@
       color: #fff;
     }
 
+    /* PAGE SECTIONS */
     section {
       background: #fff;
       max-width: 1000px;
-      margin: 30px auto;
+      margin: 40px auto;
       padding: 35px;
     }
+
     h2 {
       color: #0b2c49;
       margin-top: 0;
     }
+
     h3 {
       color: #123d63;
       margin-top: 25px;
     }
+
     ul {
       padding-left: 20px;
     }
+
     .cta {
       background: #eef5fb;
       border-left: 5px solid #0b2c49;
@@ -83,12 +90,14 @@
       margin-top: 20px;
     }
 
+    /* FORM */
     form input, form textarea, form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
     }
+
     form button {
       background: #0b2c49;
       color: #fff;
@@ -98,6 +107,7 @@
       font-size: 15px;
     }
 
+    /* FOOTER */
     footer {
       background: #0b2c49;
       color: #fff;
@@ -106,13 +116,14 @@
       font-size: 14px;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .menu {
         display: none;
         flex-direction: column;
         background: #092338;
         position: absolute;
-        top: 60px;
+        top: 48px;
         left: 0;
         width: 100%;
         padding: 15px;
@@ -142,10 +153,6 @@
     Pioneers of Title Risk Assessment, Mortgage Readiness Certification,
     and Institutional Advisory in Nigeria.
   </p>
-  <div class="contact-top">
-    📞 +234 800 000 0000 &nbsp; | &nbsp;
-    ✉️ info@fstl.ng
-  </div>
 </header>
 
 <nav>
@@ -230,7 +237,7 @@
 </section>
 
 <footer>
-  © First Standard Title Limited (FSTL).<br>
+  © First Standard Title Limited (FSTL)<br>
   Tel: +234 800 000 0000 | Email: info@fstl.ng
 </footer>
 
