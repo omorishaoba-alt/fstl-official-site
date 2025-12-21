@@ -7,210 +7,176 @@
   <meta name="description" content="First Standard Title Limited – Title Risk Assessment, Mortgage Readiness Certification, and Institutional Advisory in Nigeria.">
 
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #f4f6f8;
-      color: #222;
-      line-height: 1.6;
-    }
+    /* BASIC RESET */
+    body { font-family: Arial, Helvetica, sans-serif; margin:0; line-height:1.6; background:#f4f6f8; color:#222; }
+    h1,h2,h3 { margin-top:0; }
+    a { text-decoration:none; }
 
-    /* HEADER */
-    header {
-      background: #0b2c49;
-      color: #fff;
-      padding: 30px 20px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    header p {
-      margin-top: 10px;
-      max-width: 900px;
-    }
+    /* HEADER HERO */
+    header { background:#0b2c49; color:#fff; padding:50px 20px; text-align:center; }
+    header h1 { font-size:36px; margin-bottom:15px; }
+    header p { font-size:18px; margin-bottom:25px; max-width:800px; margin-left:auto;margin-right:auto; }
+    .cta-buttons a { display:inline-block; background:#ffba00; color:#000; padding:15px 25px; margin:5px; font-weight:bold; border-radius:5px; transition:0.3s; }
+    .cta-buttons a:hover { background:#e0a800; }
 
-    /* NAVIGATION (STICKY) */
-    nav {
-      background: #092338;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* NAVIGATION */
+    nav { background:#092338; padding:12px 20px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; }
+    nav a { color:#fff; margin-right:15px; font-weight:bold; }
+    .menu { display:flex; }
+    .hamburger { display:none; font-size:26px; cursor:pointer; color:#fff; }
 
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 15px;
-    }
-
-    .menu {
-      display: flex;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    /* PAGE SECTIONS */
-    section {
-      background: #fff;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 35px;
-    }
-
-    h2 {
-      color: #0b2c49;
-      margin-top: 0;
-    }
-
-    h3 {
-      color: #123d63;
-      margin-top: 25px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    .cta {
-      background: #eef5fb;
-      border-left: 5px solid #0b2c49;
-      padding: 15px;
-      margin-top: 20px;
-    }
+    /* SECTIONS */
+    section { background:#fff; max-width:1000px; margin:40px auto; padding:35px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.05); }
+    h2 { color:#0b2c49; margin-bottom:20px; }
+    h3 { color:#123d63; margin-top:25px; }
+    ul { padding-left:20px; }
+    .project, .whitepaper-item { margin-bottom:20px; }
 
     /* FORM */
-    form input, form textarea, form select {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-    }
-
-    form button {
-      background: #0b2c49;
-      color: #fff;
-      border: none;
-      padding: 12px 25px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+    form input, form textarea, form select { width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px; }
+    form button { background:#0b2c49; color:#fff; border:none; padding:12px 25px; cursor:pointer; font-size:15px; border-radius:5px; }
+    form button:hover { background:#081f34; }
 
     /* FOOTER */
-    footer {
-      background: #0b2c49;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
+    footer { background:#0b2c49; color:#fff; text-align:center; padding:20px; font-size:14px; }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .menu {
-        display: none;
-        flex-direction: column;
-        background: #092338;
-        position: absolute;
-        top: 48px;
-        left: 0;
-        width: 100%;
-        padding: 15px;
-      }
-      .menu a {
-        margin: 10px 0;
-      }
-      .hamburger {
-        display: block;
-      }
+    @media (max-width:768px){
+      .menu { display:none; flex-direction:column; background:#092338; position:absolute; top:48px; left:0; width:100%; padding:15px; }
+      .menu a { margin:10px 0; }
+      .hamburger { display:block; }
     }
+
+    /* COLLAPSIBLE */
+    .collapsible { background:#eef5fb; cursor:pointer; padding:12px; border-left:5px solid #0b2c49; margin-bottom:10px; }
+    .content { padding:0 15px; display:none; overflow:hidden; }
   </style>
 
   <script>
     function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+      const menu=document.getElementById("menu");
+      menu.style.display = menu.style.display==="flex" ? "none" : "flex";
+    }
+    function toggleCollapsible(id){
+      const content=document.getElementById(id);
+      content.style.display = content.style.display==="block" ? "none" : "block";
     }
   </script>
 </head>
 
 <body>
 
+<!-- HERO -->
 <header>
-  <h1>First Standard Title Limited (FSTL)</h1>
-  <p>
-    Pioneers of Title Risk Assessment, Mortgage Readiness Certification,
-    and Institutional Advisory in Nigeria.
-  </p>
+  <h1>Protect Your Property. Secure Your Investment.</h1>
+  <p>FSTL ensures your title is risk-free and mortgage-ready — trusted by banks, investors, and developers across Nigeria.</p>
+  <div class="cta-buttons">
+    <a href="#contact">Request TRAR™</a>
+    <a href="#whitepaper">Download White Paper</a>
+  </div>
 </header>
 
+<!-- NAVIGATION -->
 <nav>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="menu" id="menu">
     <a href="#about">About</a>
     <a href="#products">Products</a>
-    <a href="#advisory">Advisory</a>
+    <a href="#projects">Projects</a>
+    <a href="#whitepaper">White Paper</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<!-- ABOUT / PHILOSOPHY -->
 <section id="about">
-  <h2>About FSTL</h2>
-  <p>
-    First Standard Title Limited (FSTL) is an independent authority dedicated
-    to reducing title-related uncertainty in property transactions and enabling
-    confidence in real estate finance across Nigeria.
-  </p>
+  <h2>Why Choose FSTL</h2>
+  <p>FSTL exists to eliminate uncertainty in property ownership and mortgage financing. Our independent assessments, certifications, and advisory services protect investors, buyers, lenders, and the housing ecosystem.</p>
+  <ul>
+    <li>Independent, unbiased property risk evaluation</li>
+    <li>Trusted by banks, developers, and government agencies</li>
+    <li>Ensuring mortgage readiness and title security</li>
+    <li>Creating standardized, transparent property risk frameworks</li>
+  </ul>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
-  <h2>Our Products</h2>
+  <h2>Our Services & Products</h2>
 
   <h3>Title Risk Assessment Report (TRAR™)</h3>
   <ul>
-    <li>Title ownership verification</li>
-    <li>Registry searches and inconsistencies</li>
-    <li>Litigation and encumbrance checks</li>
-    <li>Government acquisition risks</li>
-    <li>Risk rating and professional opinion</li>
+    <li>Know your property’s legal risks before purchase</li>
+    <li>Verify ownership and registry records</li>
+    <li>Identify encumbrances, litigation, and government acquisition risks</li>
+    <li>Receive an easy-to-understand risk rating</li>
+    <li>Professional recommendation: Proceed / Proceed with Conditions / Do Not Proceed</li>
   </ul>
 
   <h3>Mortgage Readiness & Title Cleanliness Certification (MRTC™)</h3>
   <ul>
-    <li>Mortgage suitability confirmation</li>
-    <li>Reduced bank due diligence</li>
-    <li>Faster loan processing</li>
+    <li>Accelerates mortgage approval with verified title</li>
+    <li>Reduces lender due diligence costs</li>
+    <li>Enhances buyer and investor confidence</li>
   </ul>
-</section>
 
-<section id="advisory">
-  <h2>Institutional & Government Advisory</h2>
+  <h3>Institutional & Government Advisory</h3>
   <ul>
     <li>Title insurance frameworks</li>
-    <li>Land registry reform</li>
-    <li>Mortgage risk mitigation</li>
-    <li>Housing finance policy support</li>
+    <li>Land registry modernization</li>
+    <li>Mortgage risk mitigation strategies</li>
+    <li>Housing finance policy and compliance advisory</li>
   </ul>
 </section>
 
-<section id="contact">
-  <h2>Contact & Service Requests</h2>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>FSTL Projects & Success Stories</h2>
+  <div class="project">
+    <h3>Project: Lagos Mortgage Readiness Program</h3>
+    <ul>
+      <li>Assessed 1200 property titles in Lagos State</li>
+      <li>Improved mortgage approval rate by 45%</li>
+    </ul>
+  </div>
+  <div class="project">
+    <h3>Project: Federal Housing Title Verification</h3>
+    <ul>
+      <li>Partnered with government agencies for 500 properties</li>
+      <li>Reduced title disputes and accelerated development approvals</li>
+    </ul>
+  </div>
+</section>
 
-  <p>
-    <strong>Telephone:</strong> +234 800 000 0000<br>
-    <strong>Email:</strong> info@fstl.ng
-  </p>
+<!-- WHITE PAPER -->
+<section id="whitepaper">
+  <h2>White Paper Highlights</h2>
+  <div class="whitepaper-item">
+    <h3>Key Insights</h3>
+    <ul>
+      <li>High percentage of property titles in Nigeria contain legal defects or encumbrances</li>
+      <li>TRAR™ reduces investment risk and prevents costly disputes</li>
+      <li>MRTC™ streamlines mortgage approvals, saving banks and clients time</li>
+    </ul>
+  </div>
+  <div class="whitepaper-item">
+    <button class="collapsible" onclick="toggleCollapsible('definitions')">Definitions & Legal Precedents</button>
+    <div class="content" id="definitions">
+      <p><strong>Title Insurance:</strong> Protects property owners and lenders against losses from defects in property ownership.</p>
+      <p><strong>Mortgage Insurance:</strong> Protects lenders against borrower default on mortgage obligations.</p>
+      <p><strong>Legal Precedents:</strong> Cases like <em>Olaniyan v. Lagos State</em> and <em>Bank of Industry v. Property Owner</em> illustrate the importance of title verification and mortgage readiness.</p>
+    </div>
+  </div>
+  <div class="whitepaper-item">
+    <a href="FSTL_WhitePaper.pdf" target="_blank" class="cta-buttons">Download Full White Paper</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Request a Service / Contact Us</h2>
+  <p><strong>Telephone:</strong> +234 800 000 0000<br>
+     <strong>Email:</strong> info@fstl.ng</p>
 
   <form action="https://formspree.io/f/yourFormID" method="POST">
     <input type="text" name="name" placeholder="Full Name" required>
@@ -226,16 +192,13 @@
   </form>
 </section>
 
+<!-- LEGAL DISCLAIMER -->
 <section>
   <h2>Legal Disclaimer</h2>
-  <p>
-    First Standard Title Limited (FSTL) provides professional assessment,
-    certification, and advisory services only. Nothing on this website constitutes
-    legal representation or an insurance guarantee unless expressly stated in a
-    separate written agreement.
-  </p>
+  <p>FSTL provides professional assessment, certification, and advisory services only. Nothing on this website constitutes legal representation or an insurance guarantee unless expressly stated in a separate written agreement.</p>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © First Standard Title Limited (FSTL)<br>
   Tel: +234 800 000 0000 | Email: info@fstl.ng
