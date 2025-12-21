@@ -66,4 +66,164 @@ section {
 
 ul { padding-left:20px; }
 
-form input, form textarea, form
+form input, form textarea, form select {
+  width:100%;
+  padding:10px;
+  margin-bottom:14px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+form button {
+  background:#0b2c49;
+  color:#fff;
+  padding:12px 28px;
+  border:none;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+footer {
+  background:#0b2c49;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .menu {
+    display:none;
+    flex-direction:column;
+    background:#092338;
+    position:absolute;
+    top:52px;
+    left:0;
+    width:100%;
+    padding:15px;
+  }
+  .menu a { margin:10px 0; }
+  .hamburger { display:block; }
+}
+</style>
+
+<script>
+function toggleMenu(){
+  const m=document.getElementById("menu");
+  m.style.display = (m.style.display==="flex") ? "none" : "flex";
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <h1>First Standard Title Limited (FSTL)</h1>
+  <p><strong>Pioneers and drivers of NATICON — the National Title Insurance Company of Nigeria</strong></p>
+  <p>We secure land and landed property investments by eliminating title risk, accelerating mortgage approvals, and restoring confidence in property ownership.</p>
+  <div class="cta">
+    <a href="#contact">Request TRAR™ / MRTC™</a>
+    <a href="#whitepaper">View White Paper</a>
+  </div>
+</header>
+
+<nav>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#value">Value</a>
+    <a href="#services">Services</a>
+    <a href="#project">NATICON</a>
+    <a href="#whitepaper">White Paper</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="about">
+  <h2>About First Standard Title Limited (FSTL)</h2>
+  <p>First Standard Title Limited (FSTL) is Nigeria’s pioneering title risk and mortgage readiness authority for land and landed property.</p>
+  <p>FSTL exists to solve one problem: <strong>unsafe, disputed, and non-bankable land titles</strong>.</p>
+</section>
+
+<section id="value">
+  <h2>The Value FSTL Delivers</h2>
+  <ul>
+    <li>Prevents loss of capital from defective land titles</li>
+    <li>Reduces litigation, disputes, and government revocations</li>
+    <li>Makes land mortgage-ready and bankable</li>
+    <li>Accelerates property transactions and access to funding</li>
+    <li>Creates institutional trust in land investments</li>
+  </ul>
+</section>
+
+<section id="services">
+  <h2>Revenue-Generating Services</h2>
+
+  <h3>Title Risk Assessment Report (TRAR™)</h3>
+  <ul>
+    <li>Independent legal and registry verification of land titles</li>
+    <li>Identification of encumbrances, defects, and risks</li>
+    <li>Actionable recommendations before purchase</li>
+    <li><strong>Direct value:</strong> prevents costly disputes and loss</li>
+  </ul>
+
+  <h3>Mortgage Readiness & Title Cleanliness Certification (MRTC™)</h3>
+  <ul>
+    <li>Certifies land as mortgage-ready</li>
+    <li>Reduces lender due diligence time</li>
+    <li>Improves access to capital</li>
+    <li><strong>Direct value:</strong> faster approvals, higher confidence</li>
+  </ul>
+</section>
+
+<section id="project">
+  <h2>Strategic Project</h2>
+  <h3>NATICON</h3>
+  <p>FSTL is pioneering and driving the establishment of <strong>NATICON — the National Title Insurance Company of Nigeria</strong>.</p>
+  <ul>
+    <li>National platform for title insurance</li>
+    <li>Risk pooling and property confidence framework</li>
+    <li>Foundation for large-scale mortgage growth</li>
+  </ul>
+</section>
+
+<section id="whitepaper">
+  <h2>White Paper Highlights</h2>
+  <ul>
+    <li>Definition of Title Insurance and Mortgage Insurance</li>
+    <li>Legal precedents affecting land ownership in Nigeria</li>
+    <li>Why Nigeria needs NATICON</li>
+    <li>How FSTL structures risk before insurance</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>Contact & Service Requests</h2>
+  <p>
+    <strong>Phone:</strong> <a href="tel:+2348035888622">+2348035888622</a><br>
+    <strong>Email:</strong> <a href="mailto:fstlofficialsite@gmail.com">fstlofficialsite@gmail.com</a>
+  </p>
+
+  <form action="https://formspree.io/f/mnqwbzpo" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="_replyto" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option>Title Risk Assessment Report (TRAR™)</option>
+      <option>Mortgage Readiness & Title Cleanliness Certification (MRTC™)</option>
+      <option>Institutional Advisory</option>
+    </select>
+    <textarea name="message" rows="5" placeholder="Brief description of the land or property"></textarea>
+    <button type="submit">Submit Request</button>
+  </form>
+</section>
+
+<footer>
+© First Standard Title Limited (FSTL)<br>
+Tel: +2348035888622 | Email: fstlofficialsite@gmail.com
+</footer>
+
+</body>
+</html>
