@@ -14,29 +14,51 @@
       color: #222;
       line-height: 1.6;
     }
+
     header {
       background: #0b2c49;
       color: #fff;
-      padding: 30px 20px;
+      padding: 25px 20px;
     }
     header h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 24px;
     }
     header p {
+      margin-top: 8px;
       max-width: 900px;
-      margin-top: 10px;
     }
+
+    .contact-top {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
     nav {
       background: #092338;
       padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
     }
     nav a {
       color: #fff;
-      margin-right: 18px;
       text-decoration: none;
       font-weight: bold;
+      margin-right: 15px;
     }
+
+    .menu {
+      display: flex;
+    }
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #fff;
+    }
+
     section {
       background: #fff;
       max-width: 1000px;
@@ -60,6 +82,7 @@
       padding: 15px;
       margin-top: 20px;
     }
+
     form input, form textarea, form select {
       width: 100%;
       padding: 10px;
@@ -74,6 +97,7 @@
       cursor: pointer;
       font-size: 15px;
     }
+
     footer {
       background: #0b2c49;
       color: #fff;
@@ -81,7 +105,33 @@
       padding: 20px;
       font-size: 14px;
     }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        background: #092338;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+      }
+      .menu a {
+        margin: 10px 0;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
   </style>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
 </head>
 
 <body>
@@ -90,106 +140,74 @@
   <h1>First Standard Title Limited (FSTL)</h1>
   <p>
     Pioneers of Title Risk Assessment, Mortgage Readiness Certification,
-    and the evolving Title Insurance ecosystem in Nigeria.
+    and Institutional Advisory in Nigeria.
   </p>
+  <div class="contact-top">
+    📞 +234 800 000 0000 &nbsp; | &nbsp;
+    ✉️ info@fstl.ng
+  </div>
 </header>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#products">Products</a>
-  <a href="#advisory">Advisory</a>
-  <a href="#contact">Contact</a>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#advisory">Advisory</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
 <section id="about">
   <h2>About FSTL</h2>
   <p>
-    First Standard Title Limited (FSTL) is an independent authority focused on
-    reducing legal uncertainty in property transactions and enabling confidence
-    in real estate finance across Nigeria.
-  </p>
-  <p>
-    We provide deployable instruments that diagnose title risk, certify mortgage
-    readiness, and support institutional reform in land administration.
+    First Standard Title Limited (FSTL) is an independent authority dedicated
+    to reducing title-related uncertainty in property transactions and enabling
+    confidence in real estate finance across Nigeria.
   </p>
 </section>
 
 <section id="products">
   <h2>Our Products</h2>
 
-  <h3>1. Title Risk Assessment Report (TRAR™)</h3>
-  <p>
-    A professional, independent evaluation of the legal and transactional risks
-    attached to any property title in Nigeria.
-  </p>
-
-  <strong>What the report covers:</strong>
+  <h3>Title Risk Assessment Report (TRAR™)</h3>
   <ul>
     <li>Title ownership verification</li>
     <li>Registry searches and inconsistencies</li>
-    <li>Existing or potential litigation</li>
-    <li>Encumbrances, liens, and overriding interests</li>
-    <li>Government acquisition or revocation risks</li>
-    <li>Historical defects and red flags</li>
-    <li>Overall Risk Rating (Low / Medium / High)</li>
+    <li>Litigation and encumbrance checks</li>
+    <li>Government acquisition risks</li>
+    <li>Risk rating and professional opinion</li>
   </ul>
 
-  <strong>Professional Decision Opinion:</strong>
+  <h3>Mortgage Readiness & Title Cleanliness Certification (MRTC™)</h3>
   <ul>
-    <li>Proceed</li>
-    <li>Proceed with Conditions</li>
-    <li>Do Not Proceed</li>
+    <li>Mortgage suitability confirmation</li>
+    <li>Reduced bank due diligence</li>
+    <li>Faster loan processing</li>
   </ul>
-
-  <div class="cta">
-    <strong>Use Case:</strong> Buyers, developers, diaspora investors, law firms, and banks
-    use TRAR™ to make informed property decisions.
-  </div>
-
-  <h3>2. Mortgage Readiness & Title Cleanliness Certification (MRTC™)</h3>
-  <p>
-    Certification confirming that a property has been professionally vetted and
-    meets baseline expectations for mortgage financing.
-  </p>
-
-  <ul>
-    <li>Reduces bank due diligence cost</li>
-    <li>Accelerates mortgage approvals</li>
-    <li>Improves lender confidence</li>
-  </ul>
-
-  <div class="cta">
-    <strong>Outcome:</strong> A mortgage-ready property backed by independent verification.
-  </div>
 </section>
 
 <section id="advisory">
   <h2>Institutional & Government Advisory</h2>
-  <p>
-    FSTL advises governments and institutions on title security,
-    land registry reform, and mortgage risk mitigation frameworks.
-  </p>
-
   <ul>
     <li>Title insurance frameworks</li>
-    <li>Mortgage risk models</li>
-    <li>Land registry modernization</li>
-    <li>Title digitization & verification systems</li>
+    <li>Land registry reform</li>
+    <li>Mortgage risk mitigation</li>
     <li>Housing finance policy support</li>
   </ul>
-
-  <div class="cta">
-    <strong>Positioning:</strong> Policy-grade advisory backed by market execution.
-  </div>
 </section>
 
 <section id="contact">
-  <h2>Request a Service</h2>
+  <h2>Contact & Service Requests</h2>
+
+  <p>
+    <strong>Telephone:</strong> +234 800 000 0000<br>
+    <strong>Email:</strong> info@fstl.ng
+  </p>
 
   <form action="https://formspree.io/f/yourFormID" method="POST">
     <input type="text" name="name" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="property_location" placeholder="Property Location (if applicable)">
     <select name="service" required>
       <option value="">Select Service</option>
       <option>Title Risk Assessment</option>
@@ -199,14 +217,21 @@
     <textarea name="message" rows="5" placeholder="Brief description of your request"></textarea>
     <button type="submit">Submit Request</button>
   </form>
+</section>
 
+<section>
+  <h2>Legal Disclaimer</h2>
   <p>
-    Submissions are reviewed manually by FSTL.
+    First Standard Title Limited (FSTL) provides professional assessment,
+    certification, and advisory services only. Nothing on this website constitutes
+    legal representation or an insurance guarantee unless expressly stated in a
+    separate written agreement.
   </p>
 </section>
 
 <footer>
-  © First Standard Title Limited (FSTL). All rights reserved.
+  © First Standard Title Limited (FSTL).<br>
+  Tel: +234 800 000 0000 | Email: info@fstl.ng
 </footer>
 
 </body>
