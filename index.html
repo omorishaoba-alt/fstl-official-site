@@ -37,7 +37,7 @@ padding:120px 20px 80px;
 text-align:center
 }
 header h1{color:#fff}
-header p{max-width:850px;margin:10px auto}
+header p{max-width:900px;margin:10px auto}
 
 .cta a{
 background:#ffba00;
@@ -50,14 +50,14 @@ margin-top:20px
 }
 
 section{
-max-width:1050px;
+max-width:1100px;
 margin:40px auto;
 background:#fff;
 padding:40px;
 border-radius:8px
 }
 
-input{
+input, textarea{
 width:100%;
 padding:12px;
 margin-bottom:15px;
@@ -137,6 +137,7 @@ function pay(service,amount){
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 <div class="menu" id="menu">
 <a href="#about">About</a>
+<a href="#how">How It Works</a>
 <a href="#value">Value</a>
 <a href="#services">Services</a>
 <a href="#payment">Payment</a>
@@ -148,8 +149,8 @@ function pay(service,amount){
 <h1>First Standard Title Limited (FSTL)</h1>
 <p><strong>Nigeria’s Authority on Land and Landed Property Title Risk</strong></p>
 <p>
-First Standard Title Limited (FSTL) is pioneering the professional framework that secures land ownership,
-prevents title failure, and enables mortgage and investment confidence across Nigeria.
+First Standard Title Limited (FSTL) provides professional title risk intelligence that prevents loss,
+reduces disputes, and converts land into mortgage- and investment-ready assets.
 </p>
 <p>
 FSTL is the originator and driving force behind <strong>NATICON – National Title Insurance Company of Nigeria</strong>.
@@ -162,19 +163,40 @@ FSTL is the originator and driving force behind <strong>NATICON – National Tit
 <section id="about">
 <h2>Who We Are</h2>
 <p>
-First Standard Title Limited (FSTL) is a specialist title intelligence firm focused exclusively on land and landed property.
-We exist to remove uncertainty from land transactions and unlock the economic value trapped in defective titles.
+First Standard Title Limited (FSTL) is a specialist firm dedicated exclusively to land and landed property.
+Our mandate is simple: remove uncertainty from land ownership and transactions.
 </p>
+</section>
+
+<section id="how">
+<h2>How FSTL Works</h2>
+<ol>
+<li><strong>Submit Property Details</strong> – Client provides land information and selects the required report.</li>
+<li><strong>Professional Title Review</strong> – FSTL conducts legal, registry, and historical title analysis.</li>
+<li><strong>Risk Intelligence Delivered</strong> – Clear findings, grading, and recommendations are issued.</li>
+<li><strong>Next-Step Advisory</strong> – Optional guidance for mortgage, investment, or risk mitigation.</li>
+</ol>
 </section>
 
 <section id="value">
 <h2>The Value FSTL Adds</h2>
 <ul>
 <li>Prevents financial loss from defective or disputed land titles</li>
-<li>Turns land into mortgage-ready and investment-grade assets</li>
-<li>Reduces litigation, fraud, and post-purchase disputes</li>
-<li>Shortens lender, investor, and buyer decision timelines</li>
-<li>Creates the foundation for national title insurance in Nigeria</li>
+<li>Transforms land into mortgage-ready and investment-grade assets</li>
+<li>Reduces litigation and post-transaction disputes</li>
+<li>Shortens lender and investor decision timelines</li>
+<li>Provides the professional foundation for national title insurance</li>
+</ul>
+</section>
+
+<section>
+<h2>Who Uses FSTL</h2>
+<ul>
+<li>Land buyers and investors</li>
+<li>Property developers</li>
+<li>Mortgage lenders and financial institutions</li>
+<li>Legal practitioners and estate professionals</li>
+<li>Institutional and government-backed projects</li>
 </ul>
 </section>
 
@@ -183,8 +205,8 @@ We exist to remove uncertainty from land transactions and unlock the economic va
 
 <h3>Title Risk Assessment Report (TRAR™)</h3>
 <p>
-A professional, independent evaluation of land title validity, historical defects, encumbrances,
-and legal exposure — before money changes hands.
+An independent professional report assessing title validity, historical defects,
+encumbrances, and exposure before purchase or development.
 </p>
 <p><strong>Professional Fee: ₦100,000</strong></p>
 
@@ -192,10 +214,21 @@ and legal exposure — before money changes hands.
 
 <h3>Mortgage Readiness & Title Cleanliness Certification (MRTC™)</h3>
 <p>
-Certification that a land title meets institutional lending and investor standards,
-making it acceptable for mortgages, development finance, and structured investment.
+Certification confirming that a land title meets institutional lending
+and investment standards.
 </p>
 <p><strong>Professional Fee: ₦200,000</strong></p>
+</section>
+
+<section>
+<h2>What You Receive</h2>
+<ul>
+<li>Signed professional report (PDF)</li>
+<li>Title risk grading summary</li>
+<li>Encumbrance and defect findings</li>
+<li>Clear recommendations and next steps</li>
+<li>FSTL certification where applicable</li>
+</ul>
 </section>
 
 <section id="payment">
@@ -211,6 +244,20 @@ making it acceptable for mortgages, development finance, and structured investme
 
 <h3>MRTC™ – Mortgage Readiness & Title Cleanliness Certification</h3>
 <button onclick="pay('MRTC – Mortgage Readiness Certification',200000)">Pay ₦200,000</button>
+</section>
+
+<section>
+<h2>Request an Initial Discussion</h2>
+<p>
+Not ready to order yet? Request a brief discussion to understand your title position.
+</p>
+<form action="mailto:fstlofficialsite@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="Name" placeholder="Your Name" required>
+<input type="email" name="Email" placeholder="Your Email" required>
+<input type="tel" name="Phone" placeholder="Your Phone" required>
+<textarea name="Message" placeholder="Brief description of the land/property"></textarea>
+<button type="submit">Submit Request</button>
+</form>
 </section>
 
 <section id="contact">
