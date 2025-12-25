@@ -1,145 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIRST STANDARD TITLE LIMITED (FSTL) - Official Website</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; }
-    .navbar { background-color: #003366; }
-    .navbar-brand, .nav-link { color: #ffffff !important; }
-    .hero { background: url('https://yourdomain.com/hero-image.jpg') no-repeat center center/cover; height: 60vh; display: flex; justify-content: center; align-items: center; color: #fff; text-shadow: 1px 1px 3px #000; }
-    .section { padding: 60px 0; }
-    .footer { background-color: #003366; color: #fff; padding: 20px 0; text-align: center; }
-    .btn-primary { background-color: #0066cc; border: none; }
-    .btn-primary:hover { background-color: #004999; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FSTL Real Estate OSHOBE: Nigeria's first AI-backed title verification app, powered by ChatGPT, providing institutional-level risk clarity.">
+<title>FSTL Real Estate OSHOBE</title>
+<style>
+  body { font-family: sans-serif; background:#f8f8f8; color:#222; margin:0; padding:0;}
+  header { background:#1f2937; color:#fff; padding:1rem; text-align:center;}
+  main { padding:1rem; max-width:800px; margin: auto;}
+  .card { background:#fff; padding:1rem; margin:1rem 0; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+  button { padding:0.5rem 1rem; border:none; border-radius:4px; background:#4ade80; color:#000; cursor:pointer; font-weight:bold;}
+</style>
 </head>
 <body>
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">FSTL</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#naticon">NATICON</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
+<header>
+  <h1>FSTL Real Estate OSHOBE</h1>
+  <p>Title Verification & Risk Intelligence – Powered by ChatGPT</p>
+</header>
+<main>
+  <div class="card">
+    <h2>Step 1: Property Input</h2>
+    <input type="text" id="state" placeholder="State"><br><br>
+    <input type="text" id="lga" placeholder="LGA"><br><br>
+    <input type="text" id="survey" placeholder="Survey Reference"><br><br>
+    <input type="file" id="docUpload"><br><br>
+    <button onclick="runOshobeCheck()">Run OSHOBE Check</button>
   </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero">
-  <h1>FIRST STANDARD TITLE LIMITED</h1>
-  <p>Your Trusted Partner in Title & Mortgage Insurance</p>
-</section>
-
-<!-- About Section -->
-<section id="about" class="section bg-light">
-  <div class="container">
-    <h2>About FSTL</h2>
-    <p>FIRST STANDARD TITLE LIMITED (FSTL) is Nigeria's pioneer in title insurance and mortgage insurance, committed to providing security and confidence in property transactions. Our legacy is built on decades of expertise and unwavering integrity.</p>
-    <ul>
-      <li>Founded to secure property rights in Nigeria</li>
-      <li>Pioneers of title and mortgage insurance</li>
-      <li>Trusted by clients nationwide</li>
-      <li>Consulted by ORGANISATION & METHODS NIG LTD since 1969</li>
-    </ul>
+  
+  <div class="card" id="resultCard" style="display:none;">
+    <h2>OSHOBE Result</h2>
+    <p id="confidenceBand"></p>
+    <p id="riskSummary"></p>
+    <button onclick="generateReport()">Generate Report</button>
   </div>
-</section>
+</main>
 
-<!-- Services Section -->
-<section id="services" class="section">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <h4>Title Insurance</h4>
-        <p>Comprehensive protection for property owners against legal challenges to their ownership.</p>
-      </div>
-      <div class="col-md-4">
-        <h4>Mortgage Insurance</h4>
-        <p>Secure your lending transactions and protect financial institutions and borrowers.</p>
-      </div>
-      <div class="col-md-4">
-        <h4>Consultancy Services</h4>
-        <p>Professional advice and risk assessment for property transactions and investments.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NATICON Project Section -->
-<section id="naticon" class="section bg-light">
-  <div class="container">
-    <h2>NATICON Project</h2>
-    <p>The NATICON project is FSTL's strategic initiative to modernize and streamline property insurance across Nigeria. Currently awaiting Federal Government approval.</p>
-    <a href="https://yourdomain.com/naticon-whitepaper.pdf" class="btn btn-primary" target="_blank">Download White Paper</a>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p>Reach out to FSTL for inquiries, partnerships, or services.</p>
-    <form id="contactForm">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email" required>
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </form>
-    <p id="formStatus" class="mt-3"></p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 FIRST STANDARD TITLE LIMITED. All Rights Reserved.</p>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Google Script Integration -->
 <script>
-  const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
+async function runOshobeCheck() {
+  // Placeholder: Replace with real ChatGPT API logic
+  const confidence = ['🟢 Probable Clear', '🟠 Probable Risk', '🔴 Probable Defect'];
+  const rand = Math.floor(Math.random()*3);
+  document.getElementById('confidenceBand').innerText = confidence[rand];
+  document.getElementById('riskSummary').innerText = 'Weighted analysis summary here.';
+  document.getElementById('resultCard').style.display='block';
+  
+  // Simulate automatic cloud upload
+  console.log('Uploading property data and results to FSTL cloud...');
+}
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const data = new FormData(form);
-    fetch(scriptURL, { method: 'POST', body: data })
-      .then(response => {
-        status.innerHTML = 'Message sent successfully!';
-        form.reset();
-      })
-      .catch(error => {
-        status.innerHTML = 'Error sending message. Please try again.';
-        console.error(error);
-      });
-  });
+function generateReport() {
+  alert('Generating PDF report (mock). Cloud sync + remuneration triggered.');
+  console.log('Report PDF generated and synced to cloud. Automatic remuneration triggered.');
+}
 </script>
-
 </body>
 </html>
