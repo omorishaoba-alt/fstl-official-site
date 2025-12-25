@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FSTL Real Estate OSHOBE: Nigeria's first AI-backed title verification app, powered by ChatGPT, providing institutional-level risk clarity.">
+<title>FSTL Real Estate OSHOBE</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  body { font-family: sans-serif; background:#f8f8f8; color:#222; margin:0; padding:0;}
+  header { background:#1f2937; color:#fff; padding:1rem; text-align:center;}
+  main { padding:1rem; max-width:800px; margin:auto;}
+  .card { background:#fff; padding:1rem; margin:1rem 0; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+  button { padding:0.5rem 1rem; border:none; border-radius:4px; background:#4ade80; color:#000; cursor:pointer; font-weight:bold;}
+</style>
+</head>
+<body>
+<header>
+  <h1>FSTL Real Estate OSHOBE</h1>
+  <p>Title Verification & Risk Intelligence – Powered by ChatGPT</p>
+</header>
+<main>
+  <div class="card">
+    <h2>Step 1: Property Input</h2>
+    <input type="text" id="state" placeholder="State"><br><br>
+    <input type="text" id="lga" placeholder="LGA"><br><br>
+    <input type="text" id="survey" placeholder="Survey Reference"><br><br>
+    <input type="file" id="docUpload"><br><br>
+    <button onclick="runOshobeCheck()">Run OSHOBE Check</button>
+  </div>  <div class="card" id="resultCard" style="display:none;">
+    <h2>OSHOBE Result</h2>
+    <p id="confidenceBand"></p>
+    <p id="riskSummary"></p>
+    <button onclick="generateReport()">Generate Report & Trigger Remuneration</button>
+  </div>
+</main>
+<script>
+// Placeholder for ChatGPT API integration
+async function runOshobeCheck() {
+  const confidence = ['🟢 Probable Clear', '🟠 Probable Risk', '🔴 Probable Defect'];
+  const rand = Math.floor(Math.random()*3);
+  document.getElementById('confidenceBand').innerText = confidence[rand];
+  document.getElementById('riskSummary').innerText = 'Weighted evidence summary based on balance of probability.';
+  document.getElementById('resultCard').style.display='block';// Simulate automatic cloud upload console.log('Uploading property data and OSHOBE result to FSTL cloud...'); await fakeCloudUpload(); }
+
+async function generateReport() { alert('Generating PDF report (mock) and triggering automatic remuneration.'); console.log('PDF report generated and synced. Automatic remuneration triggered.'); }
+
+async function fakeCloudUpload(){ return new Promise(resolve => setTimeout(()=>{ console.log('Cloud upload complete.'); resolve(); },1000)); } </script>
+
+</body>
+</html>
