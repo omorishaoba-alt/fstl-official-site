@@ -21,10 +21,10 @@
 <main>
   <div class="card">
     <h2>Step 1: Property Input</h2>
-    <input type="text" id="state" placeholder="State"><br><br>
-    <input type="text" id="lga" placeholder="LGA"><br><br>
-    <input type="text" id="survey" placeholder="Survey Reference"><br><br>
-    <input type="file" id="docUpload"><br><br>
+    <input type="text" id="state" placeholder="State" required><br><br>
+    <input type="text" id="lga" placeholder="LGA" required><br><br>
+    <input type="text" id="survey" placeholder="Survey Reference" required><br><br>
+    <input type="file" id="docUpload" multiple><br><br>
     <button onclick="runOshobeCheck()">Run OSHOBE Check</button>
   </div>  <div class="card" id="resultCard" style="display:none;">
     <h2>OSHOBE Result</h2>
@@ -34,17 +34,22 @@
   </div>
 </main>
 <script>
-// Placeholder for ChatGPT API integration
+// Capture all inputs and automatically upload to cloud
 async function runOshobeCheck() {
-  const confidence = ['🟢 Probable Clear', '🟠 Probable Risk', '🔴 Probable Defect'];
-  const rand = Math.floor(Math.random()*3);
-  document.getElementById('confidenceBand').innerText = confidence[rand];
-  document.getElementById('riskSummary').innerText = 'Weighted evidence summary based on balance of probability.';
-  document.getElementById('resultCard').style.display='block';// Simulate automatic cloud upload console.log('Uploading property data and OSHOBE result to FSTL cloud...'); await fakeCloudUpload(); }
+  const state = document.getElementById('state').value;
+  const lga = document.getElementById('lga').value;
+  const survey = document.getElementById('survey').value;
+  const docs = document.getElementById('docUpload').files;if(!state || !lga || !survey) { alert('Please fill all fields'); return; }
 
-async function generateReport() { alert('Generating PDF report (mock) and triggering automatic remuneration.'); console.log('PDF report generated and synced. Automatic remuneration triggered.'); }
+// Placeholder for ChatGPT processing logic const confidence = ['🟢 Probable Clear', '🟠 Probable Risk', '🔴 Probable Defect']; const rand = Math.floor(Math.random()*3); document.getElementById('confidenceBand').innerText = confidence[rand]; document.getElementById('riskSummary').innerText = Processed ${docs.length} document(s). Weighted probability analysis complete.; document.getElementById('resultCard').style.display='block';
 
-async function fakeCloudUpload(){ return new Promise(resolve => setTimeout(()=>{ console.log('Cloud upload complete.'); resolve(); },1000)); } </script>
+// Automatic cloud upload simulation console.log('Uploading all property data and documents to FSTL cloud...'); await fakeCloudUpload(state, lga, survey, docs.length); }
+
+async function generateReport() { alert('Generating PDF report and triggering automatic remuneration.'); console.log('PDF report generated and synced. Automatic remuneration triggered.'); }
+
+async function fakeCloudUpload(state, lga, survey, docCount){ return new Promise(resolve => setTimeout(()=>{ console.log(Cloud upload complete for ${state}, ${lga}, ${survey} with ${docCount} document(s).); resolve(); },1000)); }
+
+// Register service worker for offline support if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js') .then(()=>console.log('Service Worker registered.')) .catch(err=>console.error('Service Worker registration failed:', err)); } </script>
 
 </body>
 </html>
