@@ -1,21 +1,46 @@
-# 1. Clone repository locally (replace YOUR_USERNAME and REPO_NAME)
-git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
-cd REPO_NAME
+#!/bin/bash
 
-# 2. Restore main website from the last good commit
-# Replace abc1234 with the commit ID of your last main site commit
-git checkout abc1234 -- .
+# ==============================
+# FSTL OSHOBE PWA Git Auto Deploy
+# ==============================
+# Usage: ./deploy_fstl_oshobe.sh <GitHubRepoURL>
+# Example: ./deploy_fstl_oshobe.sh https://github.com/YourUsername/FSTL-OSHOBE-PWA.git
+# ==============================
 
-# 3. Create folder for Phase 2
-mkdir activation
+if [ -z "$1" ]; then
+    echo "ERROR: Please provide GitHub repository URL as first argument."
+    echo "Usage: ./deploy_fstl_oshobe.sh <GitHubRepoURL>"
+    exit 1
+fi
 
-# 4. Move Phase 2 files into activation folder
-# Adjust file names if different
-mv index.html fstl-services.html css js assets activation/
+GITHUB_REPO=$1
 
-# 5. Stage and commit changes
+echo "Starting FSTL OSHOBE PWA Git deployment..."
+echo "Repository: $GITHUB_REPO"
+
+# Step 1: Initialize git if not already
+if [ ! -d ".git" ]; then
+    git init
+    echo "Git repository initialized."
+else
+    echo "Git repository already exists."
+fi
+
+# Step 2: Stage all files
 git add .
-git commit -m "Restore main website and move Phase 2 to activation folder"
+echo "All files staged."
 
-# 6. Push to GitHub
-git push origin main
+# Step 3: Commit changes
+git commit -m "FSTL OSHOBE PWA ready for deployment – EXECUTE BLAST"
+echo "Files committed."
+
+# Step 4: Add remote repository
+git remote remove origin 2>/dev/null
+git remote add origin $GITHUB_REPO
+echo "Remote origin set to $GITHUB_REPO"
+
+# Step 5: Set main branch and push
+git branch -M main
+git push -u origin main
+
+echo "Deployment complete. Check GitHub repository to confirm files are live."
