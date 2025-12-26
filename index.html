@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OSHOBE – Universal App</title>
-  <meta name="description" content="OSHOBE – The universal mobile app for everyone. Fully deployable and accessible instantly.">
+  <title>OSHOBE App – ChatGPT Powered</title>
+  <meta name="description" content="OSHOBE App – Universal app for everyone, powered by ChatGPT.">
   <meta name="theme-color" content="#0055aa">
 
-  <!-- Embedded manifest data for PWABuilder -->
+  <!-- PWA manifest embedded -->
   <script type="application/json+oembed" id="pwa-manifest">
   {
-    "name": "OSHOBE – Universal App",
+    "name": "OSHOBE App",
     "short_name": "OSHOBE",
     "start_url": "./index.html",
     "display": "standalone",
@@ -50,8 +50,10 @@
     }
     .button:hover { background-color: #003d80; }
     .footer { margin-top: 40px; font-size: 0.9em; color: #777; }
-    .phone { font-weight: bold; font-size: 1.2em; margin-bottom: 30px; color: #0055aa; }
+    .phone { font-weight: bold; font-size: 1.2em; margin-bottom: 20px; color: #0055aa; }
     #searchBox { padding: 10px; width: 80%; max-width: 400px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; }
+    #chatBox { width: 80%; max-width: 400px; height: 300px; border: 1px solid #ccc; border-radius: 6px; padding: 10px; margin: 10px auto; overflow-y: auto; background: #f9f9f9; }
+    #chatInput { width: 80%; max-width: 400px; padding: 10px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 20px; }
     @media(max-width: 600px){
       h1 { font-size: 2em; }
       h2 { font-size: 1em; }
@@ -63,14 +65,20 @@
 </head>
 <body>
 
-  <h1>OSHOBE – Universal App</h1>
-  <h2>Accessible to Everyone, Anytime</h2>
-  <p>Welcome to OSHOBE. This app is fully mobile-friendly, simple to use, and ready for deployment. Anyone can access it, anytime, anywhere.</p>
+  <h1>OSHOBE App</h1>
+  <h2>Everyone Can Use – Powered by ChatGPT</h2>
+  <p>Welcome to OSHOBE. Chat with our AI assistant live, access services, and stay connected.</p>
 
   <div class="phone">Call/WhatsApp: +2348035888622</div>
 
-  <!-- Search box (internal or external search) -->
+  <!-- Search box -->
   <input type="text" id="searchBox" placeholder="Search...">
+
+  <!-- Chat box -->
+  <div id="chatBox"></div>
+  <input type="text" id="chatInput" placeholder="Type your question..." />
+
+  <button class="button" id="sendBtn">Send</button>
 
   <a class="button" href="mailto:info@oshobe.com">Contact Us</a>
   <a class="button" href="https://wa.me/2348035888622">WhatsApp Us</a>
@@ -78,6 +86,36 @@
   <div class="footer">
     &copy; 2025 OSHOBE. All rights reserved.
   </div>
+
+  <!-- ChatGPT interaction (placeholder) -->
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function appendMessage(sender, text) {
+      const msg = document.createElement('div');
+      msg.textContent = sender + ': ' + text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    sendBtn.onclick = async () => {
+      const question = chatInput.value.trim();
+      if (!question) return;
+      appendMessage('You', question);
+      chatInput.value = '';
+
+      // Placeholder response
+      appendMessage('OSHOBE AI', 'Processing your question...');
+
+      // Here, you would integrate with OpenAI API to get live ChatGPT responses
+      // Example: fetch('/chat-api', { method:'POST', body: JSON.stringify({prompt:question}) })
+      setTimeout(() => {
+        appendMessage('OSHOBE AI', 'This is a placeholder response. ChatGPT integration can go here.');
+      }, 1000);
+    };
+  </script>
 
 </body>
 </html>
