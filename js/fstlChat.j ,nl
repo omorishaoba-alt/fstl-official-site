@@ -1,0 +1,90 @@
+// fstlChat.js
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.createElement("div");
+  container.style.padding = "20px";
+  container.style.fontFamily = "Arial, sans-serif";
+
+  const title = document.createElement("h1");
+  title.innerText = "FSTL / NATICON Chat Assistant";
+  title.style.textAlign = "center";
+  container.appendChild(title);
+
+  const chatBox = document.createElement("div");
+  chatBox.style.border = "1px solid #ccc";
+  chatBox.style.padding = "10px";
+  chatBox.style.height = "300px";
+  chatBox.style.overflowY = "auto";
+  chatBox.style.marginBottom = "10px";
+  chatBox.style.borderRadius = "5px";
+  chatBox.style.backgroundColor = "#f9f9f9";
+  container.appendChild(chatBox);
+
+  const inputContainer = document.createElement("div");
+  inputContainer.style.display = "flex";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Ask FSTL / NATICON Assistant...";
+  input.style.flexGrow = "1";
+  input.style.padding = "10px";
+  input.style.borderRadius = "5px 0 0 5px";
+  input.style.border = "1px solid #ccc";
+  input.style.outline = "none";
+
+  const button = document.createElement("button");
+  button.innerText = "Send";
+  button.style.padding = "10px";
+  button.style.border = "none";
+  button.style.borderRadius = "0 5px 5px 0";
+  button.style.backgroundColor = "#0b5ed7";
+  button.style.color = "#fff";
+  button.style.cursor = "pointer";
+
+  inputContainer.appendChild(input);
+  inputContainer.appendChild(button);
+  container.appendChild(inputContainer);
+
+  document.body.appendChild(container);
+
+  // Simple mock ChatGPT response for now
+  function getResponse(userMsg) {
+    // You can replace this with real API call later
+    if (userMsg.toLowerCase().includes("title")) {
+      return "To verify a property title, submit the title number to FSTL via this app.";
+    } else if (userMsg.toLowerCase().includes("mortgage")) {
+      return "FSTL protects your mortgage by verifying the title and providing insurance coverage.";
+    } else if (userMsg.toLowerCase().includes("naticon")) {
+      return "NATICON ensures transparency and verification in property and financial processes.";
+    } else {
+      return "I am guided by Iwori Osa Aweda Jawusa: act decisively and verify all steps.";
+    }
+  }
+
+  button.addEventListener("click", function () {
+    const userMsg = input.value.trim();
+    if (!userMsg) return;
+
+    const userDiv = document.createElement("div");
+    userDiv.style.textAlign = "right";
+    userDiv.style.marginBottom = "5px";
+    userDiv.innerHTML = `<span style="display:inline-block;padding:5px 10px;border-radius:5px;background:#0b5ed7;color:#fff;">${userMsg}</span>`;
+    chatBox.appendChild(userDiv);
+
+    const response = getResponse(userMsg);
+
+    const botDiv = document.createElement("div");
+    botDiv.style.textAlign = "left";
+    botDiv.style.marginBottom = "5px";
+    botDiv.innerHTML = `<span style="display:inline-block;padding:5px 10px;border-radius:5px;background:#ddd;color:#000;">${response}</span>`;
+    chatBox.appendChild(botDiv);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+    input.value = "";
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      button.click();
+    }
+  });
+});
