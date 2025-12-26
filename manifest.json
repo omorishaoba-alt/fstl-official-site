@@ -1,0 +1,22 @@
+{
+  "name": "First Standard Title Limited (FSTL)",
+  "short_name": "FSTL",
+  "description": "Pioneers of Title & Mortgage Insurance in Nigeria. Digital platform under deployment.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#e0f0ff",
+  "theme_color": "#0055aa",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
