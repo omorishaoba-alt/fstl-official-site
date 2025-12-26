@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OSHOBE App – Universal & Downloadable</title>
-  <meta name="description" content="OSHOBE App – Fully deployable, downloadable, and accessible to everyone. Prove your point quietly.">
+  <title>OSHOBE App – ChatGPT Powered & Downloadable</title>
+  <meta name="description" content="OSHOBE App – Fully deployable, downloadable, and ChatGPT-powered. Accessible to everyone.">
   <meta name="theme-color" content="#0055aa">
 
   <!-- PWA manifest embedded -->
@@ -58,4 +58,67 @@
       h1 { font-size: 2em; }
       h2 { font-size: 1em; }
       p { font-size: 1em; }
-      .button { padding: 10px 20px; font-size: 0.9em
+      .button { padding: 10px 20px; font-size: 0.9em; }
+      .phone { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>OSHOBE App</h1>
+  <h2>ChatGPT Powered & Downloadable</h2>
+  <p>Welcome to OSHOBE. Fully deployable, downloadable, and accessible to everyone. Interact with the AI assistant live.</p>
+
+  <div class="phone">Call/WhatsApp: +2348035888622</div>
+
+  <!-- Search box -->
+  <input type="text" id="searchBox" placeholder="Search...">
+
+  <!-- Chat box -->
+  <div id="chatBox"></div>
+  <input type="text" id="chatInput" placeholder="Type your question..." />
+
+  <button class="button" id="sendBtn">Send</button>
+
+  <a class="button" href="mailto:info@oshobe.com">Contact Us</a>
+  <a class="button" href="https://wa.me/2348035888622">WhatsApp Us</a>
+
+  <div class="footer">
+    &copy; 2025 OSHOBE. All rights reserved.
+  </div>
+
+  <!-- Live ChatGPT Integration -->
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function appendMessage(sender, text) {
+      const msg = document.createElement('div');
+      msg.textContent = sender + ': ' + text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    sendBtn.onclick = async () => {
+      const question = chatInput.value.trim();
+      if (!question) return;
+      appendMessage('You', question);
+      chatInput.value = '';
+
+      appendMessage('OSHOBE AI', 'Thinking...');
+
+      // Replace the placeholder below with OpenAI API call
+      // Example:
+      // const response = await fetch('/chat-api', { method:'POST', body: JSON.stringify({prompt: question}) });
+      // const data = await response.json();
+      // appendMessage('OSHOBE AI', data.answer);
+
+      setTimeout(() => {
+        appendMessage('OSHOBE AI', 'This is a live ChatGPT-powered response placeholder.');
+      }, 1000);
+    };
+  </script>
+
+</body>
+</html>
