@@ -3,56 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="FSTL Real Estate OSHOBE: Nigeria's first AI-backed title verification app, powered by ChatGPT, providing institutional-level risk clarity.">
-<title>FSTL Real Estate OSHOBE</title>
+<title>FSTL NATICON</title>
+
+<!-- Embedded CSS -->
 <style>
-  body { font-family: sans-serif; background:#f8f8f8; color:#222; margin:0; padding:0;}
-  header { background:#1f2937; color:#fff; padding:1rem; text-align:center;}
-  main { padding:1rem; max-width:800px; margin: auto;}
-  .card { background:#fff; padding:1rem; margin:1rem 0; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
-  button { padding:0.5rem 1rem; border:none; border-radius:4px; background:#4ade80; color:#000; cursor:pointer; font-weight:bold;}
+body {
+  font-family: Arial, sans-serif;
+  margin:0; padding:0; background:#f9f9f9; color:#333;
+}
+header { background:#003366; color:#fff; padding:20px; text-align:center; }
+main { padding:20px; text-align:center; }
+button { background:#0066cc; color:#fff; border:none; padding:15px 30px; font-size:16px; cursor:pointer; border-radius:10px; }
+button:hover { background:#005bb5; }
+footer { background:#003366; color:#fff; padding:10px; text-align:center; position:fixed; width:100%; bottom:0; }
+img.icon { width:100px; height:100px; margin:20px 0; }
 </style>
+
+<!-- Embedded Manifest -->
+<link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkZTVEwgTkFUSUNPTiIsCiAgInNob3J0X25hbWUiOiAiRlNUTCIsCiAgInN0YXJ0X3VybCI6ICJpbmRleC5odG1sIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjMDAzMzY2IiwKICAidGhlbWVfY29sb3IiOiAiIzAwMzM2NiIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxJTlZPREUuLi4iLAogICAgICAic2l6ZXMiOiAiMTkyeDE5MiIsCiAgICAgICJ0eXBlIjogImltYWdlL3BuZyIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTp...
+">
 </head>
 <body>
+
 <header>
-  <h1>FSTL Real Estate OSHOBE</h1>
-  <p>Title Verification & Risk Intelligence – Powered by ChatGPT</p>
+  <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABgUlEQVR4nO3cMWrDMAwF0K7+0u4HCt4AIpDdbi9zLCINkPmlX9UAAIDff23wBgtIhGAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4vZ3VL3nW7bL/U2r+94Jb2q1+o9r8nzvK0bY3n1y+HfGJ3f9a1bWg1V0o1kkuKntFv62tvu8Fq36pKj8nU51M+l7Lf+v9Xq9w6hW2n0+V8pC+Eda/1Xv+0ev9oX7U2b+z6pZ/NqLrCeqX6r6d+e3gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAC4FHAACAAAi1G2dwqfjgAAAABJRU5ErkJggg==" alt="FSTL Icon">
+  <h1>First Standard Title Limited - NATICON</h1>
 </header>
+
 <main>
-  <div class="card">
-    <h2>Step 1: Property Input</h2>
-    <input type="text" id="state" placeholder="State"><br><br>
-    <input type="text" id="lga" placeholder="LGA"><br><br>
-    <input type="text" id="survey" placeholder="Survey Reference"><br><br>
-    <input type="file" id="docUpload"><br><br>
-    <button onclick="runOshobeCheck()">Run OSHOBE Check</button>
-  </div>
-  
-  <div class="card" id="resultCard" style="display:none;">
-    <h2>OSHOBE Result</h2>
-    <p id="confidenceBand"></p>
-    <p id="riskSummary"></p>
-    <button onclick="generateReport()">Generate Report</button>
-  </div>
+  <p>Welcome to FSTL. Your gateway to title and mortgage insurance solutions in Nigeria.</p>
+  <button id="contactBtn">Contact Us</button>
 </main>
 
-<script>
-async function runOshobeCheck() {
-  // Placeholder: Replace with real ChatGPT API logic
-  const confidence = ['🟢 Probable Clear', '🟠 Probable Risk', '🔴 Probable Defect'];
-  const rand = Math.floor(Math.random()*3);
-  document.getElementById('confidenceBand').innerText = confidence[rand];
-  document.getElementById('riskSummary').innerText = 'Weighted analysis summary here.';
-  document.getElementById('resultCard').style.display='block';
-  
-  // Simulate automatic cloud upload
-  console.log('Uploading property data and results to FSTL cloud...');
-}
+<footer>
+  <p>&copy; 2025 FSTL. All rights reserved.</p>
+</footer>
 
-function generateReport() {
-  alert('Generating PDF report (mock). Cloud sync + remuneration triggered.');
-  console.log('Report PDF generated and synced to cloud. Automatic remuneration triggered.');
-}
+<!-- Embedded JS -->
+<script>
+document.getElementById("contactBtn").addEventListener("click", () => {
+    window.location.href = "mailto:info@fstl.com.ng";
+});
+console.log("FSTL NATICON App Loaded");
 </script>
+
 </body>
 </html>
