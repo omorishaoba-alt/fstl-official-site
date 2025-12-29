@@ -1,114 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FSTL OSHOBE App</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0b3d2e;
-      color: #ffffff;
-      text-align: center;
-    }
-    .screen {
-      display: none;
-      padding: 30px 20px;
-    }
-    .active {
-      display: block;
-    }
-    input, textarea {
-      width: 90%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: none;
-    }
-    button {
-      margin-top: 20px;
-      padding: 15px 25px;
-      font-size: 18px;
-      background-color: #1abc9c;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #000;
-    }
-    .confirm {
-      margin-top: 20px;
-      background: #083026;
-      padding: 15px;
-      border-radius: 6px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL OSHOBE – Live Test App</title>
+<style>
+  body { font-family: Arial; background:#0b5d1e; color:#fff; padding:20px; }
+  h1 { text-align:center; }
+  .section { max-width:600px; margin:auto; margin-top:20px; padding:20px; background:#fff; color:#000; border-radius:8px; }
+  label { display:block; margin-top:10px; font-weight:bold; }
+  input, textarea, button { width:100%; padding:10px; margin-top:5px; font-size:16px; }
+  button { background:#0b5d1e; color:#fff; border:none; margin-top:15px; cursor:pointer; }
+  button:hover { background:#097018; }
+  .success { text-align:center; margin-top:20px; color:#0bff6a; font-weight:bold; }
+  table { width:100%; border-collapse: collapse; margin-top:15px; }
+  th, td { border:1px solid #000; padding:8px; text-align:left; font-size:14px; }
+  th { background:#0b5d1e; color:#fff; }
+  tr:nth-child(even) { background:#f0f0f0; color:#000; }
+</style>
 </head>
-
 <body>
 
-  <!-- SPLASH -->
-  <div id="splash" class="screen active">
-    <h1>FSTL OSHOBE</h1>
-    <p>Lift • Deliver • Earn</p>
-    <button onclick="enterApp()">ENTER APP</button>
+<h1>FSTL OSHOBE – Live Test App</h1>
+
+<div class="section">
+  <h2>Submit Request / Feedback</h2>
+  <form id="appForm">
+    <label>Full Name</label>
+    <input type="text" required />
+    <label>Phone Number</label>
+    <input type="tel" required />
+    <label>Service Requested / Feedback</label>
+    <textarea placeholder="Describe request or suggestions..." required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="success" id="successMsg" style="display:none;">
+    ✅ Your entry has been recorded.
   </div>
+</div>
 
-  <!-- APP -->
-  <div id="app" class="screen">
+<div class="section">
+  <h2>Dashboard – All Entries</h2>
+  <table id="entriesTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Entries appear here -->
+    </tbody>
+  </table>
+</div>
 
-    <h2>LIFT REQUEST</h2>
-    <input id="clientName" placeholder="Client Name">
-    <textarea id="requestDetails" placeholder="Describe the request"></textarea>
-    <button onclick="submitLift()">SUBMIT REQUEST</button>
+<script>
+const form = document.getElementById('appForm');
 
-    <div id="liftConfirm" class="confirm" style="display:none;"></div>
+function loadEntries() {
+  const records = JSON.parse(localStorage.getItem('fstlEntries')) || [];
+  const tbody = document.getElementById('entriesTable').querySelector('tbody');
+  tbody.innerHTML = '';
+  records.forEach((rec,index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${index+1}</td>
+                     <td>${rec.name}</td>
+                     <td>${rec.phone}</td>
+                     <td>${rec.message}</td>
+                     <td>${new Date(rec.time).toLocaleString()}</td>`;
+    tbody.appendChild(row);
+  });
+}
 
-    <hr style="margin:30px 0;">
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = {
+    name: form[0].value,
+    phone: form[1].value,
+    message: form[2].value,
+    time: new Date().toISOString()
+  };
+  let records = JSON.parse(localStorage.getItem('fstlEntries')) || [];
+  records.push(data);
+  localStorage.setItem('fstlEntries', JSON.stringify(records));
+  form.reset();
+  document.getElementById('successMsg').style.display = 'block';
+  loadEntries();
+});
 
-    <h2>DELIVER JOB</h2>
-    <input id="agentName" placeholder="Agent Name / ID">
-    <button onclick="acceptDelivery()">ACCEPT DELIVERY</button>
-
-    <div id="deliverConfirm" class="confirm" style="display:none;"></div>
-
-  </div>
-
-  <script>
-    function enterApp() {
-      document.getElementById("splash").classList.remove("active");
-      document.getElementById("app").classList.add("active");
-    }
-
-    function submitLift() {
-      const name = document.getElementById("clientName").value;
-      const details = document.getElementById("requestDetails").value;
-
-      if (!name || !details) {
-        alert("Please complete all fields");
-        return;
-      }
-
-      document.getElementById("liftConfirm").style.display = "block";
-      document.getElementById("liftConfirm").innerHTML =
-        "✅ Request received from <b>" + name + "</b><br>Details: " + details;
-    }
-
-    function acceptDelivery() {
-      const agent = document.getElementById("agentName").value;
-
-      if (!agent) {
-        alert("Enter agent name or ID");
-        return;
-      }
-
-      document.getElementById("deliverConfirm").style.display = "block";
-      document.getElementById("deliverConfirm").innerHTML =
-        "🚚 Delivery accepted by <b>" + agent + "</b><br>Revenue logged for FSTL";
-    }
-  </script>
+// Load saved entries immediately
+loadEntries();
+</script>
 
 </body>
 </html>
