@@ -1,1 +1,77 @@
 index.html 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>First Standard Title OSHOBE</title>
+  <meta name="theme-color" content="#0b3d2e"/>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f4f6f5; }
+    header { background:#0b3d2e; color:#fff; padding:16px; text-align:center; }
+    section { padding:16px; }
+    button { width:100%; padding:12px; margin:6px 0; font-size:16px; }
+    .card { background:#fff; padding:12px; margin-bottom:10px; border-radius:6px; }
+    .small { font-size:12px; color:#555; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>FIRST STANDARD TITLE OSHOBE</h2>
+  <div class="small">Title & Mortgage Insurance Delivery Engine</div>
+</header>
+
+<section>
+  <div class="card">
+    <h3>Client Request (LIFT)</h3>
+    <input id="name" placeholder="Client Name" style="width:100%;padding:8px"/><br><br>
+    <input id="phone" placeholder="Phone" style="width:100%;padding:8px"/><br><br>
+    <input id="property" placeholder="Property Location" style="width:100%;padding:8px"/><br><br>
+    <button onclick="submitRequest()">Submit Request</button>
+  </div>
+
+  <div class="card">
+    <h3>Agent Dashboard (DELIVER)</h3>
+    <div id="jobs">No jobs yet.</div>
+  </div>
+</section>
+
+<script>
+let jobs = [];
+
+function submitRequest() {
+  const job = {
+    name: name.value,
+    phone: phone.value,
+    property: property.value,
+    status: "PENDING"
+  };
+  jobs.push(job);
+  render();
+  alert("Request lifted into OSHOBE");
+}
+
+function deliver(index) {
+  jobs[index].status = "DELIVERED";
+  alert("Delivered ✔️\n90% FSTL | 10% Agent (Logged)");
+  render();
+}
+
+function render() {
+  const el = document.getElementById("jobs");
+  if (!jobs.length) { el.innerHTML = "No jobs yet."; return; }
+  el.innerHTML = jobs.map((j,i)=>`
+    <div class="card">
+      <b>${j.property}</b><br>
+      ${j.name} (${j.phone})<br>
+      Status: <b>${j.status}</b><br>
+      ${j.status==="PENDING" ? `<button onclick="deliver(${i})">Deliver</button>` : ""}
+    </div>
+  `).join("");
+}
+</script>
+
+</body>
+</html>
