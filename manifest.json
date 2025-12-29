@@ -1,12 +1,10 @@
 {
-  "name": "First Standard Title Limited (FSTL)",
-  "short_name": "FSTL",
-  "description": "Pioneers of Title & Mortgage Insurance in Nigeria. Digital platform under deployment.",
+  "name": "FIRST STANDARD TITLE OSHOBE",
+  "short_name": "OSHOBE",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#e0f0ff",
-  "theme_color": "#0055aa",
-  "orientation": "portrait",
+  "background_color": "#0b3d2e",
+  "theme_color": "#0b3d2e",
   "icons": [
     {
       "src": "icon-192.png",
