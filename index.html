@@ -5,65 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FIRST STANDARD TITLE OSHOBE</title>
 <meta name="theme-color" content="#0b3d2e">
-
-<!-- PWA Manifest embedded via script -->
-<script type="application/json" id="manifest">
-{
-  "name": "FIRST STANDARD TITLE OSHOBE",
-  "short_name": "OSHOBE",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#0b3d2e",
-  "theme_color": "#0b3d2e",
-  "icons": [
-    { "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABr0lEQVRYhe2XvUrDUBCG3xVkgEKQl9CQlOqTd7FEiGHuBStVh6JScQyRHRN/RJ9k7vTKgkX7+MNeL8Z9z8z2fJ7lEkiRJkiRJ0kj4DX1Ct2W+n+GUGOoSln2x6WVGJIGDsmabjpmhaBfI0c4F+z+XMIbU6UQSP4pjmwPE+l8BAkKog1Se5aG0eX+AN+BS3Cj0l2nU9bBzxCkHwG+tk6GXeJCrE7qJSxBmcCJYV+UHVdXZYRlgdIuTPKEJu+iqtVu8v6bz8zpHClb0phlLJax3YAJxFhKhylT9gC4i4SH5C3wLk4w7bgl+AW7A5WwbNElZ1TtGLuZXv0pV22qTqLz1WT+3lb1A4auIMvPC2I0o8aF5VSCpF4ErbEXdB6YhGp+1w8KzGtzmIHR7i4K4kqfsBTq07gHLVZ/95hMnk0I7V6Y3TyeS6ZJkiRJkiRJ8lHcB2tZzVtZosnUAAAAASUVORK5CYII=", "sizes": "32x32", "type": "image/png" },
-    { "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABvklEQVRo3u3YwUoDQRQG4F+4IGqHfFZ4gIyIqJHsCSnkgm6gX4AGyHysrYQQMk4R2EgcRqWSnODwzcE3HzD8Dcw8lkqRJkiRJkiRJ0n9iX2AjfALv9chYm+0CwG3wD2AG7IEnwB0OgogO9otMGbgO4ADY7g0yDli9wC6DPHDlR1kgIuCJcYQHc2b3gA4d1gSgCvcA3F2jWbNf9fIEH9mwd4+PaW8XMBexh+xxLgOoPP4OtP0PaYcFqZl0jhnXQ7zHBfUOabn3mE48lvC6xJ0GX4I9NQ9LZtXgR9wSfzwv4I7u9gS+XMPYf0HfYb1JeYBn9D/U6X2Bx1n8A4yCveBi5p6CoqB/rrk5GgL9jHwH2yXCeZJkiRJkiRJ0kj4j2CT4BXGz/txVYoXIAAAAASUVORK5CYII=", "sizes": "64x64", "type": "image/png" }
-  ]
-}
-</script>
-
 <style>
-  body { font-family: Arial, sans-serif; margin:0; background:#f4f6f5; }
-  header { background:#0b3d2e; color:#fff; padding:16px; text-align:center; }
-  section { padding:16px; }
-  button { width:100%; padding:12px; margin:6px 0; font-size:16px; cursor:pointer; }
-  .card { background:#fff; padding:12px; margin-bottom:10px; border-radius:6px; }
-  .small { font-size:12px; color:#555; }
-  input { width:100%; padding:8px; margin-bottom:8px; }
+body { margin:0; font-family: Arial,sans-serif; background:#f4f6f5; }
+#splash { position:fixed; top:0; left:0; width:100%; height:100%; background:#0b3d2e; color:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:1000; }
+#app { display:none; }
+button { padding:12px; font-size:16px; cursor:pointer; margin-top:20px; }
+header { background:#0b3d2e; color:#fff; padding:16px; text-align:center; }
+section { padding:16px; }
+.card { background:#fff; padding:12px; margin-bottom:10px; border-radius:6px; }
+input { width:100%; padding:8px; margin-bottom:8px; }
+.small { font-size:12px; color:#555; }
 </style>
 </head>
-
 <body>
 
+<div id="splash">
+  <h1>WELCOME TO OSHOBE</h1>
+  <p>Tap to Enter App</p>
+  <button onclick="enterApp()">ENTER</button>
+</div>
+
+<div id="app">
 <header>
   <h2>FIRST STANDARD TITLE OSHOBE</h2>
   <div class="small">Title & Mortgage Insurance Delivery Engine</div>
 </header>
-
 <section>
   <div class="card">
     <h3>Client Request (LIFT)</h3>
-    <input id="name" placeholder="Client Name" />
-    <input id="phone" placeholder="Phone" />
-    <input id="property" placeholder="Property Location" />
+    <input id="name" placeholder="Client Name">
+    <input id="phone" placeholder="Phone">
+    <input id="property" placeholder="Property Location">
     <button onclick="submitRequest()">Submit Request</button>
   </div>
-
   <div class="card">
     <h3>Agent Dashboard (DELIVER)</h3>
     <div id="jobs">No jobs yet.</div>
   </div>
 </section>
+</div>
 
 <script>
 let jobs = [];
+
+function enterApp() {
+  document.getElementById('splash').style.display='none';
+  document.getElementById('app').style.display='block';
+}
 
 function submitRequest() {
   const job = {
     name: document.getElementById('name').value,
     phone: document.getElementById('phone').value,
     property: document.getElementById('property').value,
-    status: "PENDING"
+    status:"PENDING"
   };
   jobs.push(job);
   renderJobs();
@@ -71,14 +66,14 @@ function submitRequest() {
 }
 
 function deliver(index) {
-  jobs[index].status = "DELIVERED";
+  jobs[index].status="DELIVERED";
   alert("Delivered ✔️\nRevenue split: 90% FSTL | 10% Agent (mocked)");
   renderJobs();
 }
 
 function renderJobs() {
   const el = document.getElementById("jobs");
-  if (!jobs.length) { el.innerHTML = "No jobs yet."; return; }
+  if(!jobs.length){el.innerHTML="No jobs yet.";return;}
   el.innerHTML = jobs.map((j,i)=>`
     <div class="card">
       <b>${j.property}</b><br>
@@ -89,20 +84,4 @@ function renderJobs() {
   `).join("");
 }
 
-// Register embedded service worker
-if ('serviceWorker' in navigator) {
-  const swCode = `
-    const CACHE_NAME = "fstl-oshobe-cache-v1";
-    const urlsToCache = ["/","/index.html"];
-    self.addEventListener("install", e=>e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(urlsToCache))));
-    self.addEventListener("fetch", e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
-  `;
-  const blob = new Blob([swCode], {type: 'text/javascript'});
-  navigator.serviceWorker.register(URL.createObjectURL(blob))
-    .then(() => console.log("Service Worker registered"))
-    .catch(err => console.log("Service Worker failed:", err));
-}
-</script>
-
-</body>
-</html>
+//
