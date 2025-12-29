@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FSTL OSHOBE App</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0a3d2e;
-      color: white;
+      background-color: #0b3d2e;
+      color: #ffffff;
       text-align: center;
     }
     .screen {
@@ -21,49 +21,44 @@
       display: block;
     }
     button {
-      padding: 15px 25px;
+      margin-top: 20px;
+      padding: 15px 30px;
       font-size: 18px;
+      background-color: #1abc9c;
       border: none;
-      background: #1abc9c;
-      color: #000;
       border-radius: 6px;
       cursor: pointer;
+      color: #000;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- SPLASH SCREEN -->
+  <!-- SPLASH -->
   <div id="splash" class="screen active">
-    <h1>WELCOME TO</h1>
-    <h2>FSTL OSHOBE</h2>
+    <h1>FSTL OSHOBE</h1>
     <p>Lift • Deliver • Earn</p>
-    <br/>
-    <button onclick="enterApp()">ENTER APP</button>
+    <button id="enterBtn">ENTER APP</button>
   </div>
 
-  <!-- APP SCREEN -->
+  <!-- APP -->
   <div id="app" class="screen">
     <h2>FSTL OSHOBE – TEST RUN</h2>
-    <p>The app is now LIVE.</p>
+    <p>The app is now active.</p>
 
-    <hr/>
-
-    <button onclick="alert('Lift request submitted')">LIFT REQUEST</button>
-    <br/><br/>
+    <button onclick="alert('Lift request sent')">LIFT REQUEST</button>
+    <br><br>
     <button onclick="alert('Delivery accepted')">DELIVER JOB</button>
 
-    <p style="margin-top:30px;">
-      Revenue auto-tracked by FSTL
-    </p>
+    <p style="margin-top:30px;">Revenue tracked by FSTL</p>
   </div>
 
   <script>
-    function enterApp() {
+    document.getElementById("enterBtn").addEventListener("click", function () {
       document.getElementById("splash").classList.remove("active");
       document.getElementById("app").classList.add("active");
-    }
+    });
   </script>
 
 </body>
