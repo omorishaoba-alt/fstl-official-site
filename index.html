@@ -87,7 +87,12 @@ function renderJobs() {
   `).join("");
 }
 
-// ⚠️ Removed service worker temporarily to fix ENTER button
+// Register proper service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+    .then(() => console.log("Service Worker registered"))
+    .catch(err => console.log("Service Worker failed:", err));
+}
 </script>
 
 </body>
