@@ -59,7 +59,37 @@
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-const sheetUrl = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // Replace with your Google Apps Script Web App URL
+// ========== STEP 1: Create Google Sheet ==========
+// 1. Name the sheet: FSTL_OSHOBE_Submissions
+// 2. First row headers: name | phone | message | time
+// 3. Create Apps Script linked to this sheet with doPost & doGet (see below)
+
+// ========== STEP 2: Google Apps Script ==========
+// Paste into Apps Script and deploy as Web App
+/*
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data = JSON.parse(e.postData.contents);
+    sheet.appendRow([data.name, data.phone, data.message, data.time]);
+    return ContentService.createTextOutput(JSON.stringify({status:'success'}))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch(err) {
+    return ContentService.createTextOutput(JSON.stringify({status:'error', message: err.message}))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const rows = sheet.getDataRange().getValues().slice(1);
+  const records = rows.map(r => ({name:r[0], phone:r[1], message:r[2], time:r[3]}));
+  return ContentService.createTextOutput(JSON.stringify(records))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+*/
+
+// ========== STEP 3: Replace with your Web App URL ==========
+const sheetUrl = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
 
 function appendToSheet(data) {
   axios.post(sheetUrl, data)
