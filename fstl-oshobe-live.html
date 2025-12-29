@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSTL OSHOBE – Live App</title>
+<style>
+  body { font-family: Arial; background:#0b5d1e; color:#fff; padding:20px; }
+  h1 { text-align:center; }
+  .section { max-width:600px; margin:auto; margin-top:20px; padding:20px; background:#fff; color:#000; border-radius:8px; }
+  label { display:block; margin-top:10px; font-weight:bold; }
+  input, textarea, button { width:100%; padding:10px; margin-top:5px; font-size:16px; }
+  button { background:#0b5d1e; color:#fff; border:none; margin-top:15px; cursor:pointer; }
+  button:hover { background:#097018; }
+  .success { text-align:center; margin-top:20px; color:#0bff6a; font-weight:bold; }
+  table { width:100%; border-collapse: collapse; margin-top:15px; }
+  th, td { border:1px solid #000; padding:8px; text-align:left; font-size:14px; }
+  th { background:#0b5d1e; color:#fff; }
+  tr:nth-child(even) { background:#f0f0f0; color:#000; }
+</style>
+</head>
+<body>
+
+<h1>FSTL OSHOBE – Lift, Deliver & Feedback</h1>
+
+<div class="section">
+  <h2>Submit Request / Feedback</h2>
+  <form id="appForm">
+    <label>Full Name</label>
+    <input type="text" required />
+    <label>Phone Number</label>
+    <input type="tel" required />
+    <label>Service Requested / Feedback</label>
+    <textarea placeholder="Describe request or suggestions..." required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="success" id="successMsg" style="display:none;">
+    ✅ Your entry has been recorded. FSTL will respond.
+  </div>
+</div>
+
+<div class="section">
+  <h2>Dashboard – All Entries</h2>
+  <table id="entriesTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Entries appear here -->
+    </tbody>
+  </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+const sheetUrl = 'YOUR_GOOGLE_SCRIPT_URL_HERE'; // Replace with your Google Apps Script Web App URL
+
+function appendToSheet(data) {
+  axios.post(sheetUrl, data)
+    .then(res => console.log('Entry sent to sheet'))
+    .catch(err => console.error(err));
+}
+
+function loadEntries() {
+  axios.get(sheetUrl)
+    .then(res => {
+      const records = res.data || [];
+      const tbody = document.getElementById('entriesTable').querySelector('tbody');
+      tbody.innerHTML = '';
+      records.forEach((rec,index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${index+1}</td>
+                        <td>${rec.name}</td>
+                        <td>${rec.phone}</td>
+                        <td>${rec.message}</td>
+                        <td>${new Date(rec.time).toLocaleString()}</td>`;
+        tbody.appendChild(row);
+      });
+    });
+}
+
+document.getElementById('appForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = {
+    name: e.target[0].value,
+    phone: e.target[1].value,
+    message: e.target[2].value,
+    time: new Date().toISOString()
+  };
+  appendToSheet(data);
+  e.target.reset();
+  document.getElementById('successMsg').style.display = 'block';
+  setTimeout(loadEntries, 1000);
+});
+
+loadEntries();
+</script>
+
+</body>
+</html>
