@@ -15,20 +15,34 @@
     }
     .screen {
       display: none;
-      padding: 40px 20px;
+      padding: 30px 20px;
     }
     .active {
       display: block;
     }
+    input, textarea {
+      width: 90%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
     button {
       margin-top: 20px;
-      padding: 15px 30px;
+      padding: 15px 25px;
       font-size: 18px;
       background-color: #1abc9c;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       color: #000;
+    }
+    .confirm {
+      margin-top: 20px;
+      background: #083026;
+      padding: 15px;
+      border-radius: 6px;
     }
   </style>
 </head>
@@ -39,26 +53,61 @@
   <div id="splash" class="screen active">
     <h1>FSTL OSHOBE</h1>
     <p>Lift • Deliver • Earn</p>
-    <button id="enterBtn">ENTER APP</button>
+    <button onclick="enterApp()">ENTER APP</button>
   </div>
 
   <!-- APP -->
   <div id="app" class="screen">
-    <h2>FSTL OSHOBE – TEST RUN</h2>
-    <p>The app is now active.</p>
 
-    <button onclick="alert('Lift request sent')">LIFT REQUEST</button>
-    <br><br>
-    <button onclick="alert('Delivery accepted')">DELIVER JOB</button>
+    <h2>LIFT REQUEST</h2>
+    <input id="clientName" placeholder="Client Name">
+    <textarea id="requestDetails" placeholder="Describe the request"></textarea>
+    <button onclick="submitLift()">SUBMIT REQUEST</button>
 
-    <p style="margin-top:30px;">Revenue tracked by FSTL</p>
+    <div id="liftConfirm" class="confirm" style="display:none;"></div>
+
+    <hr style="margin:30px 0;">
+
+    <h2>DELIVER JOB</h2>
+    <input id="agentName" placeholder="Agent Name / ID">
+    <button onclick="acceptDelivery()">ACCEPT DELIVERY</button>
+
+    <div id="deliverConfirm" class="confirm" style="display:none;"></div>
+
   </div>
 
   <script>
-    document.getElementById("enterBtn").addEventListener("click", function () {
+    function enterApp() {
       document.getElementById("splash").classList.remove("active");
       document.getElementById("app").classList.add("active");
-    });
+    }
+
+    function submitLift() {
+      const name = document.getElementById("clientName").value;
+      const details = document.getElementById("requestDetails").value;
+
+      if (!name || !details) {
+        alert("Please complete all fields");
+        return;
+      }
+
+      document.getElementById("liftConfirm").style.display = "block";
+      document.getElementById("liftConfirm").innerHTML =
+        "✅ Request received from <b>" + name + "</b><br>Details: " + details;
+    }
+
+    function acceptDelivery() {
+      const agent = document.getElementById("agentName").value;
+
+      if (!agent) {
+        alert("Enter agent name or ID");
+        return;
+      }
+
+      document.getElementById("deliverConfirm").style.display = "block";
+      document.getElementById("deliverConfirm").innerHTML =
+        "🚚 Delivery accepted by <b>" + agent + "</b><br>Revenue logged for FSTL";
+    }
   </script>
 
 </body>
