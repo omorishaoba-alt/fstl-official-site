@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>FSTL OSHOBE Pilot</title>
+<title>FSTL OSHOBE Agent Pilot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{
@@ -14,13 +14,10 @@ body{
 header{
   padding:20px;
   text-align:center;
-  background:#001f3f; /* darker blue */
+  background:#001f3f;
 }
-.screen{
-  display:none;
-  padding:20px;
-}
-.active{display:block}
+.screen{display:none;padding:20px;}
+.active{display:block;}
 button{
   width:100%;
   padding:14px;
@@ -63,11 +60,11 @@ input,textarea{
 <body>
 
 <header>
-  <h2>FSTL OSHOBE Pilot</h2>
+  <h2>FSTL OSHOBE Agent Pilot</h2>
   <div class="small">Agent Operational Interface</div>
 </header>
 
-<!-- LOGIN / AGENT ID -->
+<!-- LOGIN -->
 <div id="login" class="screen active">
   <h3>Enter Agent Name</h3>
   <input id="agentName" placeholder="Agent Name">
@@ -83,9 +80,9 @@ input,textarea{
     <strong>Agent Fee Applies:</strong> 10% per successful engagement.
   </p>
   <p class="small">
-    <strong>Why OSHOBE?</strong> Automatically records submissions, tracks status, timestamps entries, and organizes opportunities efficiently. Agents focus on fieldwork; OSHOBE carries the administrative tasks.
+    <strong>Why OSHOBE?</strong> Automatically records submissions, tracks status, timestamps entries, and organizes opportunities efficiently. Agents focus on fieldwork; OSHOBE carries administrative tasks.
   </p>
-  <button class="primary" onclick="go('submit')">Record a Property Matter</button>
+  <button class="primary" onclick="go('submit')">Record Property Matter</button>
   <button class="primary" onclick="go('records')">View My Records</button>
   <button onclick="logout()">Logout</button>
 </div>
@@ -113,7 +110,7 @@ let currentAgent='';
 
 function login(){
   let agent=agentName.value.trim();
-  if(!agent){ alert('Please enter your name'); return; }
+  if(!agent){ alert('Enter your name'); return; }
   currentAgent=agent;
   agentName.value='';
   go('home');
@@ -133,39 +130,4 @@ function go(id){
 }
 
 function save(){
-  if(!name.value||!contact.value||!location.value||!details.value){
-    alert('Please complete all fields'); return;
-  }
-  const rec={
-    agent: currentAgent,
-    name:name.value,
-    contact:contact.value,
-    location:location.value,
-    details:details.value,
-    status:'Pending',
-    time:new Date().toLocaleString()
-  };
-  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  data.push(rec);
-  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
-  alert('Recorded as Pending');
-  name.value=''; contact.value=''; location.value=''; details.value='';
-  go('records');
-}
-
-function toggle(i){
-  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  let agentData=data.filter(d=>d.agent===currentAgent);
-  let record=data.indexOf(agentData[i]);
-  switch(data[record].status){
-    case 'Pending': data[record].status='Reviewed'; break;
-    case 'Reviewed': data[record].status='Delivered'; break;
-    case 'Delivered': data[record].status='Pending'; break;
-  }
-  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
-  load();
-  updateDashboard();
-}
-
-function load(){
-  let data=JSON.parse(localStorage.get
+  if(!name
