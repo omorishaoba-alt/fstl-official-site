@@ -10,12 +10,12 @@ header{background:#06261d;padding:18px;text-align:center}
 .screen{display:none;padding:20px}
 .active{display:block}
 button{width:100%;padding:14px;margin-top:12px;font-size:16px}
-input,textarea{width:100%;padding:10px;margin-top:10px}
+input,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
 .card{background:#fff;color:#000;padding:12px;margin-top:10px}
-.badge{display:inline-block;padding:4px 8px;font-size:12px;border-radius:4px}
+.badge{display:inline-block;padding:4px 8px;font-size:12px;border-radius:4px;margin-top:6px}
 .pending{background:#f0ad4e;color:#000}
 .reviewed{background:#5cb85c;color:#fff}
-.small{font-size:13px;opacity:.9}
+.small{font-size:13px;opacity:.9;margin-top:10px}
 </style>
 </head>
 <body>
@@ -28,15 +28,22 @@ input,textarea{width:100%;padding:10px;margin-top:10px}
 <!-- HOME -->
 <div id="home" class="screen active">
   <p>
-    Operational interface of <strong>First Standard Title Limited</strong>
-    for recording and reviewing land and property matters.
+    <strong>FSTL OSHOBE</strong> is the operational interface of <strong>First Standard Title Limited</strong> for recording and reviewing land and property matters.
   </p>
 
   <p class="small">
     <strong>Agent Fee Applies</strong><br>
-    All independently sourced land or property matters submitted through this
-    platform are subject to an applicable agent fee, payable upon successful
-    review and engagement by FSTL.
+    All independently sourced land or property matters submitted through this platform are subject to an agent fee of 10%, payable upon successful review and engagement by FSTL.
+  </p>
+
+  <p class="small">
+    <strong>Why OSHOBE?</strong><br>
+    OSHOBE (the deliverer) reduces your workload by:<br>
+    - Automatically recording submissions<br>
+    - Showing status of all matters (Pending / Reviewed)<br>
+    - Timestamping entries for clarity<br>
+    - Organizing opportunities efficiently<br>
+    Agents can focus on fieldwork while the app carries the administrative tasks.
   </p>
 
   <button onclick="go('submit')">Record a Land / Property Matter</button>
@@ -65,7 +72,7 @@ input,textarea{width:100%;padding:10px;margin-top:10px}
 function go(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  if(id==='records') load();
+  if(id==='records'){ load(); }
 }
 
 function save(){
@@ -86,32 +93,3 @@ function save(){
   alert('Recorded as Pending');
   go('records');
 }
-
-function toggle(i){
-  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  data[i].status = data[i].status==='Pending' ? 'Reviewed' : 'Pending';
-  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
-  load();
-}
-
-function load(){
-  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  list.innerHTML='';
-  if(!data.length){ list.innerHTML='<p class="small">No records yet.</p>'; return; }
-  data.forEach((r,i)=>{
-    list.innerHTML+=`
-      <div class="card">
-        <strong>${r.location}</strong><br>
-        ${r.details}<br>
-        <small>${r.time}</small><br><br>
-        <span class="badge ${r.status==='Pending'?'pending':'reviewed'}">
-          ${r.status}
-        </span>
-        <button onclick="toggle(${i})">Toggle Status</button>
-      </div>`;
-  });
-}
-</script>
-
-</body>
-</html>
