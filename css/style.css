@@ -1,17 +1,15 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-h1, h2 {
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-a.btn {
-    margin-top: 10px;
-}
+body { margin:0; padding:0; font-family: Arial,sans-serif; background:#f5f7fa; color:#333; }
+header { background:#003a8f; color:#fff; text-align:center; padding:20px; }
+header h1 { margin:0; font-size:24px; }
+.app { max-width:600px; margin:30px auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+label { display:block; margin-top:15px; font-weight:bold; }
+input { width:100%; padding:12px; margin-top:6px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
+button { width:100%; padding:14px; margin-top:12px; background:#003a8f; color:#fff; border:none; border-radius:6px; cursor:pointer; }
+button:hover { background:#002a6a; }
+.result, .totalEarnings, .leadList { margin-top:20px; background:#eef3ff; padding:14px; border-radius:6px; display:none; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th, td { border:1px solid #ccc; padding:6px; text-align:left; font-size:14px; }
+th { background:#eef3ff; }
+.feedback, .contact { margin-top:25px; padding-top:15px; border-top:1px solid #ddd; font-size:14px; }
+.feedback a, .contact a { display:block; margin-top:8px; text-decoration:none; color:#003a8f; font-weight:bold; }
+.footer { text-align:center; font-size:12px; margin-top:20px; color:#666; }
