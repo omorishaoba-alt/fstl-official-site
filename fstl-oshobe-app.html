@@ -1,96 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FSTL OSHOBE – Lift & Deliver</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b5d1e;
-      color: #fff;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-    }
-    form {
-      background: #ffffff;
-      color: #000;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 500px;
-      margin: auto;
-    }
-    label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 16px;
-    }
-    button {
-      background: #0b5d1e;
-      color: #fff;
-      border: none;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #097018;
-    }
-    .success {
-      text-align: center;
-      margin-top: 20px;
-      color: #0bff6a;
-      font-weight: bold;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>FSTL OSHOBE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{margin:0;font-family:Arial;background:#0b3d2e;color:#fff}
+.screen{display:none;padding:20px}
+.active{display:block}
+button{width:100%;padding:15px;margin-top:12px;font-size:16px}
+input,textarea{width:100%;padding:10px;margin-top:10px}
+.card{background:#fff;color:#000;padding:10px;margin-top:10px}
+</style>
 </head>
 <body>
 
-<h1>FIRST STANDARD TITLE LIMITED<br>OSHOBE APP</h1>
-<p style="text-align:center;">Lift • Deliver • Earn</p>
+<!-- HOME -->
+<div id="home" class="screen active">
+<h2>FSTL OSHOBE</h2>
+<p>Official land operations interface of <strong>First Standard Title Limited</strong>.</p>
+<button onclick="go('submit')">Submit Land / Property Matter</button>
+<button onclick="go('records')">View Test Records</button>
+</div>
 
-<form id="fstlForm">
-  <label>Full Name</label>
-  <input type="text" required />
+<!-- SUBMIT -->
+<div id="submit" class="screen">
+<h3>Submit Information</h3>
+<input id="name" placeholder="Your Name">
+<input id="contact" placeholder="Phone or Email">
+<input id="location" placeholder="Property Location">
+<textarea id="details" placeholder="Describe issue or opportunity"></textarea>
+<button onclick="save()">Submit</button>
+<button onclick="go('home')">Back</button>
+</div>
 
-  <label>Phone Number</label>
-  <input type="tel" required />
-
-  <label>Service Requested</label>
-  <textarea required></textarea>
-
-  <button type="submit">Submit Request</button>
-</form>
-
-<div class="success" id="successMsg" style="display:none;">
-  ✅ Request received. FSTL will respond.
+<!-- RECORDS -->
+<div id="records" class="screen">
+<h3>Submitted Records (Test Mode)</h3>
+<div id="list"></div>
+<button onclick="go('home')">Back</button>
 </div>
 
 <script>
-  document.getElementById("fstlForm").addEventListener("submit", function(e){
-    e.preventDefault();
+function go(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ if(id==='records') load();
+}
 
-    const data = {
-      name: e.target[0].value,
-      phone: e.target[1].value,
-      service: e.target[2].value,
-      time: new Date().toISOString()
-    };
+function save(){
+ const record={
+  name:name.value,
+  contact:contact.value,
+  location:location.value,
+  details:details.value,
+  time:new Date().toLocaleString()
+ };
+ let data=JSON.parse(localStorage.getItem('fstl')||'[]');
+ data.push(record);
+ localStorage.setItem('fstl',JSON.stringify(data));
+ alert('Recorded successfully');
+ go('records');
+}
 
-    let records = JSON.parse(localStorage.getItem("fstlRequests")) || [];
-    records.push(data);
-    localStorage.setItem("fstlRequests", JSON.stringify(records));
-
-    e.target.reset();
-    document.getElementById("successMsg").style.display = "block";
-  });
+function load(){
+ let data=JSON.parse(localStorage.getItem('fstl')||'[]');
+ list.innerHTML='';
+ data.forEach(r=>{
+  list.innerHTML+=`
+   <div class="card">
+    <strong>${r.name}</strong><br>
+    ${r.location}<br>
+    ${r.details}<br>
+    <small>${r.time}</small>
+   </div>`;
+ });
+}
 </script>
 
 </body>
