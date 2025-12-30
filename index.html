@@ -42,19 +42,15 @@ function showHome() {
   document.getElementById('home').style.display = 'block';
   document.getElementById('pilot').style.display = 'none';
 }
-
 function showPilot() {
   document.getElementById('home').style.display = 'none';
   document.getElementById('pilot').style.display = 'block';
 }
-
 function addModule(title="Agent Module", content="New module added.") {
   const div = document.createElement("section");
   div.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
   document.getElementById("modules").appendChild(div);
 }
-
-// Preload one example module
 addModule("Example Module", "This module shows how agents can extend the app.");
 </script>
 
