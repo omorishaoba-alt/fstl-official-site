@@ -3,27 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OSHOBE – FSTL Agent Toolkit Pilot</title>
-<style>
-body { margin:0; padding:0; font-family: Arial,sans-serif; background:#f5f7fa; color:#333; }
-header { background:#003a8f; color:#fff; text-align:center; padding:20px; }
-header h1 { margin:0; font-size:24px; }
-.app { max-width:600px; margin:30px auto; background:#fff; padding:25px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-label { display:block; margin-top:15px; font-weight:bold; }
-input { width:100%; padding:12px; margin-top:6px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
-button { width:100%; padding:14px; margin-top:12px; background:#003a8f; color:#fff; border:none; border-radius:6px; cursor:pointer; }
-button:hover { background:#002a6a; }
-.result, .totalEarnings, .leadList { margin-top:20px; background:#eef3ff; padding:14px; border-radius:6px; display:none; }
-table { width:100%; border-collapse:collapse; margin-top:10px; }
-th, td { border:1px solid #ccc; padding:6px; text-align:left; font-size:14px; }
-th { background:#eef3ff; }
-.feedback, .contact { margin-top:25px; padding-top:15px; border-top:1px solid #ddd; font-size:14px; }
-.feedback a, .contact a { display:block; margin-top:8px; text-decoration:none; color:#003a8f; font-weight:bold; }
-.footer { text-align:center; font-size:12px; margin-top:20px; color:#666; }
-</style>
+<title>OSHOBE – FSTL Pilot</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
 <h1>FSTL OSHOBE Pilot App</h1>
 </header>
@@ -31,7 +14,6 @@ th { background:#eef3ff; }
 <div class="app">
 <div style="text-align:center; font-weight:bold; color:#b30000; margin-bottom:20px;">⚠️ PILOT VERSION – FEEDBACK REQUESTED</div>
 
-<!-- Transaction Calculator -->
 <label>Transaction Value (₦)</label>
 <input id="transactionValue" type="number" placeholder="Enter transaction value">
 <button onclick="calculate()">Calculate Earnings</button>
@@ -41,7 +23,6 @@ th { background:#eef3ff; }
 <div class="totalEarnings" id="totalEarnings"></div>
 <button onclick="resetTransactions()">Reset Summary</button>
 
-<!-- Lead Logging -->
 <div style="margin-top:30px; font-weight:bold;">Log Property / Lead</div>
 <label>Property Name</label>
 <input id="propertyName" type="text" placeholder="Enter property name">
@@ -52,84 +33,22 @@ th { background:#eef3ff; }
 <button onclick="addLead()">Add Lead</button>
 <div class="leadList" id="leadList"></div>
 
-<!-- Feedback -->
 <div class="feedback">
 <strong>Send Feedback:</strong>
-<a href="mailto:fstlofficialsite@gmail.com?subject=OSHOBE Pilot Feedback">📧 Email: fstlofficialsite@gmail.com</a>
-<a href="https://wa.me/2348035888622?text=Hello%20FSTL,%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot">💬 WhatsApp</a>
+<a href="mailto:fstlofficialsite@gmail.com?subject=OSHOBE Pilot Feedback">📧 Email</a>
+<a href="https://wa.me/2348035888622?text=Hello%20FSTL,%20this%20is%20my%20feedback">💬 WhatsApp</a>
 </div>
 
-<!-- Contact -->
 <div class="contact">
 <strong>Official Contact & Address:</strong><br>
 First Standard Title Limited (FSTL)<br>
 19, EGBUE AVENUE, OFF BENONI HOSPITAL ROAD, GRA, BENIN CITY, NIGERIA<br>
-Website: <a href="https://omorishaoba-alt.github.io/fstl-official-site/" target="_blank">fstl-official-site</a>
+Website: <a href="index.html" target="_blank">fstl-official-site</a>
 </div>
 
 <div class="footer">FSTL OSHOBE Pilot – feedback-driven</div>
 </div>
 
-<script>
-let transactionHistory = [];
-let leadHistory = [];
-
-// Calculate single transaction
-function calculate(){
-  const val = parseFloat(document.getElementById("transactionValue").value);
-  const resultDiv = document.getElementById("result");
-  if(isNaN(val) || val<=0){
-    resultDiv.style.display="block";
-    resultDiv.innerHTML="Enter a valid transaction value";
-    return;
-  }
-  const earnings = val*0.1;
-  resultDiv.style.display="block";
-  resultDiv.innerHTML=`Transaction: ₦${val.toLocaleString()}<br>Agent Earnings (10%): ₦${earnings.toLocaleString()}`;
-}
-
-// Add transaction to summary
-function addTransaction(){
-  const val = parseFloat(document.getElementById("transactionValue").value);
-  if(isNaN(val) || val<=0){ alert("Enter valid transaction"); return; }
-  transactionHistory.push(val);
-  updateSummary();
-}
-
-// Update earnings summary
-function updateSummary(){
-  const totalDiv = document.getElementById("totalEarnings");
-  let total = transactionHistory.reduce((a,b)=>a+b*0.1,0);
-  totalDiv.style.display="block";
-  totalDiv.innerHTML=`Total Transactions: ${transactionHistory.length}<br>Total Agent Earnings: ₦${total.toLocaleString()}`;
-}
-
-// Reset summary
-function resetTransactions(){
-  transactionHistory=[];
-  document.getElementById("totalEarnings").style.display="none";
-}
-
-// Add lead
-function addLead(){
-  const property = document.getElementById("propertyName").value.trim();
-  const client = document.getElementById("clientName").value.trim();
-  const value = parseFloat(document.getElementById("leadValue").value);
-  if(!property || !client || isNaN(value) || value<=0){ alert("Fill all fields correctly"); return; }
-  leadHistory.push({property, client, value});
-  updateLeadList();
-}
-
-// Display lead table
-function updateLeadList(){
-  const listDiv = document.getElementById("leadList");
-  let html = "<table><tr><th>Property</th><th>Client</th><th>Transaction (₦)</th></tr>";
-  leadHistory.forEach(l=>{ html+=`<tr><td>${l.property}</td><td>${l.client}</td><td>₦${l.value.toLocaleString()}</td></tr>` });
-  html+="</table>";
-  listDiv.style.display="block";
-  listDiv.innerHTML = html;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
