@@ -3,55 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FSTL OSHOBE Pilot App</title>
+<title>FSTL OSHOBE Pilot</title>
+
 <style>
-body { font-family: Arial; margin:0; padding:0; background:#f4f4f4; color:#222; }
-header { background:#004080; color:#fff; padding:1rem; text-align:center; }
-nav a { color:#fff; margin:0 10px; text-decoration:none; font-weight:bold; cursor:pointer; }
-main { padding:2rem; }
-button { padding:10px 16px; background:#004080; color:#fff; border:none; cursor:pointer; margin-top:1rem; }
-section { margin-top:1rem; padding:1rem; background:#fff; border-radius:6px; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+header {
+  background: #002f6c;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+main {
+  padding: 20px;
+}
+button {
+  padding: 10px 15px;
+  background: #002f6c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.module {
+  background: white;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 6px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <h1>FIRST STANDARD TITLE LIMITED</h1>
-  <p>OSHOBE – Pilot App</p>
-  <nav>
-    <a onclick="showHome()">Home</a> | 
-    <a onclick="showPilot()">Pilot App</a>
-  </nav>
+  <p>OSHOBE — Pilot App (LIVE)</p>
 </header>
 
-<main id="home">
-  <h2>Welcome to FSTL Pilot Project</h2>
-  <p>This is the fully self-contained pilot app. Agents can extend it modularly.</p>
-  <button onclick="showPilot()">Go to Pilot App</button>
-</main>
+<main>
+  <h2>Pilot Control Panel</h2>
+  <p>This is a working pilot. Agents can extend from here.</p>
 
-<main id="pilot" style="display:none;">
-  <h2>Status: LIVE</h2>
-  <p>Agents can add modules dynamically below:</p>
   <button onclick="addModule()">Add Agent Module</button>
+
   <div id="modules"></div>
 </main>
 
 <script>
-function showHome() {
-  document.getElementById('home').style.display = 'block';
-  document.getElementById('pilot').style.display = 'none';
-}
-function showPilot() {
-  document.getElementById('home').style.display = 'none';
-  document.getElementById('pilot').style.display = 'block';
-}
-function addModule(title="Agent Module", content="New module added.") {
-  const div = document.createElement("section");
-  div.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
+function addModule() {
+  const div = document.createElement("div");
+  div.className = "module";
+  div.innerHTML =
+    "<h3>Agent Module</h3><p>Module loaded successfully.</p>";
   document.getElementById("modules").appendChild(div);
 }
-addModule("Example Module", "This module shows how agents can extend the app.");
+
+/* preload so page is never empty */
+addModule();
 </script>
 
 </body>
