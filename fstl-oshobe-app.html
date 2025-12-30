@@ -5,17 +5,65 @@
 <title>FSTL OSHOBE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{margin:0;font-family:Arial;background:#0b3d2e;color:#fff}
-header{background:#06261d;padding:18px;text-align:center}
-.screen{display:none;padding:20px}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#002855; /* FSTL blue */
+  color:#ffffff;
+}
+header{
+  padding:20px;
+  text-align:center;
+  background:#001f3f; /* darker blue */
+}
+.screen{
+  display:none;
+  padding:20px;
+}
 .active{display:block}
-button{width:100%;padding:14px;margin-top:12px;font-size:16px}
-input,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
-.card{background:#fff;color:#000;padding:12px;margin-top:10px}
-.badge{display:inline-block;padding:4px 8px;font-size:12px;border-radius:4px;margin-top:6px}
+button{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  font-size:16px;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+button.primary{
+  background:#0074D9;
+  color:#ffffff;
+}
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  font-size:15px;
+  border-radius:4px;
+  border:1px solid #ccc;
+}
+.card{
+  background:#f5f5f5;
+  color:#000;
+  padding:12px;
+  margin-top:10px;
+  border-radius:6px;
+}
+.badge{
+  display:inline-block;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:4px;
+  margin-top:6px;
+}
 .pending{background:#f0ad4e;color:#000}
 .reviewed{background:#5cb85c;color:#fff}
-.small{font-size:13px;opacity:.9;margin-top:10px}
+.delivered{background:#0074D9;color:#fff}
+.small{
+  font-size:13px;
+  opacity:0.9;
+  margin-top:10px;
+}
 </style>
 </head>
 <body>
@@ -40,14 +88,14 @@ input,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
     <strong>Why OSHOBE?</strong><br>
     OSHOBE (the deliverer) reduces your workload by:<br>
     - Automatically recording submissions<br>
-    - Showing status of all matters (Pending / Reviewed)<br>
+    - Showing status of all matters (Pending / Reviewed / Delivered)<br>
     - Timestamping entries for clarity<br>
     - Organizing opportunities efficiently<br>
     Agents can focus on fieldwork while the app carries the administrative tasks.
   </p>
 
-  <button onclick="go('submit')">Record a Land / Property Matter</button>
-  <button onclick="go('records')">View Records</button>
+  <button class="primary" onclick="go('submit')">Record a Land / Property Matter</button>
+  <button class="primary" onclick="go('records')">View Records</button>
 </div>
 
 <!-- SUBMIT -->
@@ -57,7 +105,7 @@ input,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
   <input id="contact" placeholder="Phone or email">
   <input id="location" placeholder="Property location">
   <textarea id="details" rows="4" placeholder="Describe the matter"></textarea>
-  <button onclick="save()">Submit</button>
+  <button class="primary" onclick="save()">Submit</button>
   <button onclick="go('home')">Cancel</button>
 </div>
 
@@ -65,7 +113,7 @@ input,textarea{width:100%;padding:10px;margin-top:10px;font-size:15px}
 <div id="records" class="screen">
   <h3>Records</h3>
   <div id="list"></div>
-  <button onclick="go('home')">Back</button>
+  <button class="primary" onclick="go('home')">Back</button>
 </div>
 
 <script>
@@ -93,3 +141,18 @@ function save(){
   alert('Recorded as Pending');
   go('records');
 }
+
+function toggle(i){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  switch(data[i].status){
+    case 'Pending': data[i].status='Reviewed'; break;
+    case 'Reviewed': data[i].status='Delivered'; break;
+    case 'Delivered': data[i].status='Pending'; break;
+  }
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  load();
+}
+
+function load(){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  list.innerHTML='';
