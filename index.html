@@ -2,110 +2,193 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>FSTL OSHOBE</title>
+<title>FSTL OSHOBE Pilot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background:#0b3d2e;
-  color:#fff;
+body{
   margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#002855; /* FSTL blue */
+  color:#ffffff;
 }
-.screen {
-  display:none;
+header{
   padding:20px;
+  text-align:center;
+  background:#001f3f;
 }
-.active {
-  display:block;
-}
-button {
+.screen{display:none;padding:20px;}
+.active{display:block;}
+button{
   width:100%;
-  padding:15px;
-  margin-top:15px;
+  padding:14px;
+  margin-top:12px;
   font-size:16px;
-  background:#ffffff;
-  color:#0b3d2e;
   border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
-input, textarea {
+button.primary{background:#0074D9;color:#fff;}
+input,textarea{
   width:100%;
   padding:10px;
   margin-top:10px;
+  font-size:15px;
+  border-radius:4px;
+  border:1px solid #ccc;
 }
-.small {
-  font-size:13px;
-  opacity:0.9;
+.card{
+  background:#f5f5f5;
+  color:#000;
+  padding:12px;
+  margin-top:10px;
+  border-radius:6px;
 }
+.badge{
+  display:inline-block;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:4px;
+  margin-top:6px;
+}
+.pending{background:#f0ad4e;color:#000}
+.reviewed{background:#5cb85c;color:#fff}
+.delivered{background:#0074D9;color:#fff}
+.small{font-size:13px;opacity:.9;margin-top:10px}
+.dashboard{background:#001f3f;padding:12px;border-radius:6px;margin-bottom:12px;}
 </style>
 </head>
-
 <body>
 
-<!-- HOME SCREEN -->
-<div id="home" class="screen active">
-  <h2>FSTL OSHOBE</h2>
-  <p>
-    FSTL OSHOBE is the operational interface of
-    <strong>First Standard Title Limited (FSTL)</strong>.
-  </p>
-  <p>
-    This app records land and property matters for
-    verification, review, and execution.
-  </p>
+<header>
+  <h2>FSTL OSHOBE Pilot</h2>
+  <div class="small">Agent Operational Interface</div>
+</header>
 
-  <button onclick="go('submit')">Submit Land / Property Issue</button>
-  <button onclick="go('about')">How This Makes Money</button>
+<!-- LOGIN -->
+<div id="login" class="screen active">
+  <h3>Enter Agent Name</h3>
+  <input id="agentName" placeholder="Agent Name">
+  <button class="primary" onclick="login()">Enter</button>
+</div>
 
+<!-- HOME -->
+<div id="home" class="screen">
+  <div class="dashboard" id="dashboard">
+    <strong>Dashboard:</strong> Pending: 0 | Reviewed: 0 | Delivered: 0
+  </div>
   <p class="small">
-    Infrastructure first. Refinement follows.
+    <strong>Agent Fee Applies:</strong> 10% per successful engagement.
   </p>
+  <p class="small">
+    <strong>Why OSHOBE?</strong> Automatically records submissions, tracks status, timestamps entries, and organizes opportunities efficiently. Agents focus on fieldwork; OSHOBE carries administrative tasks.
+  </p>
+  <button class="primary" onclick="go('submit')">Record Property Matter</button>
+  <button class="primary" onclick="go('records')">View My Records</button>
+  <button onclick="logout()">Logout</button>
 </div>
 
-<!-- SUBMIT SCREEN -->
+<!-- SUBMIT -->
 <div id="submit" class="screen">
-  <h3>Submit Information</h3>
-
-  <input placeholder="Your Name">
-  <input placeholder="Phone or Email">
-  <input placeholder="Land / Property Location">
-  <textarea placeholder="Describe the issue or opportunity"></textarea>
-
-  <button onclick="go('done')">Submit to FSTL</button>
-  <button onclick="go('home')">Back</button>
+  <h3>Record Property Information</h3>
+  <input id="name" placeholder="Your name">
+  <input id="contact" placeholder="Phone or email">
+  <input id="location" placeholder="Property location">
+  <textarea id="details" rows="4" placeholder="Describe the matter"></textarea>
+  <button class="primary" onclick="save()">Submit</button>
+  <button onclick="go('home')">Cancel</button>
 </div>
 
-<!-- DONE SCREEN -->
-<div id="done" class="screen">
-  <h3>Recorded</h3>
-  <p>
-    Your information has been captured.
-    FSTL operations will review and act where applicable.
-  </p>
-
-  <button onclick="go('home')">Return Home</button>
-</div>
-
-<!-- ABOUT / MONEY -->
-<div id="about" class="screen">
-  <h3>How This Creates Value</h3>
-  <p>
-    FSTL executes land verification, risk mitigation,
-    title intelligence, and structured transactions.
-  </p>
-  <p>
-    Agents contribute intelligence.
-    FSTL executes infrastructure.
-  </p>
-  <p><strong>90% FSTL / 10% Agents</strong></p>
-
-  <button onclick="go('home')">Back</button>
+<!-- RECORDS -->
+<div id="records" class="screen">
+  <h3>My Records</h3>
+  <div id="list"></div>
+  <button class="primary" onclick="go('home')">Back</button>
 </div>
 
 <script>
+let currentAgent='';
+
+function login(){
+  let agent=agentName.value.trim();
+  if(!agent){ alert('Enter your name'); return; }
+  currentAgent=agent;
+  agentName.value='';
+  go('home');
+  updateDashboard();
+}
+
+function logout(){
+  currentAgent='';
+  go('login');
+}
+
 function go(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+  if(id==='records'){ load(); }
+  if(id==='home'){ updateDashboard(); }
+}
+
+function save(){
+  if(!name.value||!contact.value||!location.value||!details.value){
+    alert('Complete all fields'); return;
+  }
+  const rec={
+    agent: currentAgent,
+    name:name.value,
+    contact:contact.value,
+    location:location.value,
+    details:details.value,
+    status:'Pending',
+    time:new Date().toLocaleString()
+  };
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  data.push(rec);
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  alert('Recorded as Pending');
+  name.value=''; contact.value=''; location.value=''; details.value='';
+  go('records');
+}
+
+function toggle(i){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  let record=data.indexOf(agentData[i]);
+  switch(data[record].status){
+    case 'Pending': data[record].status='Reviewed'; break;
+    case 'Reviewed': data[record].status='Delivered'; break;
+    case 'Delivered': data[record].status='Pending'; break;
+  }
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  load();
+  updateDashboard();
+}
+
+function load(){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  list.innerHTML='';
+  if(!agentData.length){ list.innerHTML='<p class="small">No records yet.</p>'; return; }
+  agentData.forEach((r,i)=>{
+    let badgeClass = r.status==='Pending'?'pending':r.status==='Reviewed'?'reviewed':'delivered';
+    list.innerHTML+=`
+      <div class="card">
+        <strong>${r.location}</strong><br>
+        ${r.details}<br>
+        <small>${r.time}</small><br>
+        <span class="badge ${badgeClass}">${r.status}</span>
+        <button onclick="toggle(${i})">Toggle Status</button>
+      </div>`;
+  });
+}
+
+function updateDashboard(){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  let pending=agentData.filter(r=>r.status==='Pending').length;
+  let reviewed=agentData.filter(r=>r.status==='Reviewed').length;
+  let delivered=agentData.filter(r=>r.status==='Delivered').length;
+  dashboard.innerHTML=`<strong>Dashboard:</strong> Pending: ${pending} | Reviewed: ${reviewed} | Delivered: ${delivered}`;
 }
 </script>
 
