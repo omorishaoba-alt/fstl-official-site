@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>FSTL OSHOBE</title>
+<title>FSTL OSHOBE Pilot</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{
@@ -30,11 +30,8 @@ button{
   border-radius:6px;
   cursor:pointer;
 }
-button.primary{
-  background:#0074D9;
-  color:#ffffff;
-}
-input, textarea{
+button.primary{background:#0074D9;color:#fff;}
+input,textarea{
   width:100%;
   padding:10px;
   margin-top:10px;
@@ -59,48 +56,43 @@ input, textarea{
 .pending{background:#f0ad4e;color:#000}
 .reviewed{background:#5cb85c;color:#fff}
 .delivered{background:#0074D9;color:#fff}
-.small{
-  font-size:13px;
-  opacity:0.9;
-  margin-top:10px;
-}
+.small{font-size:13px;opacity:.9;margin-top:10px}
+.dashboard{background:#001f3f;padding:12px;border-radius:6px;margin-bottom:12px;}
 </style>
 </head>
 <body>
 
 <header>
-  <h2>FSTL OSHOBE</h2>
-  <div class="small">Land & Property Operations Interface</div>
+  <h2>FSTL OSHOBE Pilot</h2>
+  <div class="small">Agent Operational Interface</div>
 </header>
 
+<!-- LOGIN / AGENT ID -->
+<div id="login" class="screen active">
+  <h3>Enter Agent Name</h3>
+  <input id="agentName" placeholder="Agent Name">
+  <button class="primary" onclick="login()">Enter</button>
+</div>
+
 <!-- HOME -->
-<div id="home" class="screen active">
-  <p>
-    <strong>FSTL OSHOBE</strong> is the operational interface of <strong>First Standard Title Limited</strong> for recording and reviewing land and property matters.
-  </p>
-
+<div id="home" class="screen">
+  <div class="dashboard" id="dashboard">
+    <strong>Dashboard:</strong> Pending: 0 | Reviewed: 0 | Delivered: 0
+  </div>
   <p class="small">
-    <strong>Agent Fee Applies</strong><br>
-    All independently sourced land or property matters submitted through this platform are subject to an agent fee of 10%, payable upon successful review and engagement by FSTL.
+    <strong>Agent Fee Applies:</strong> 10% per successful engagement.
   </p>
-
   <p class="small">
-    <strong>Why OSHOBE?</strong><br>
-    OSHOBE (the deliverer) reduces your workload by:<br>
-    - Automatically recording submissions<br>
-    - Showing status of all matters (Pending / Reviewed / Delivered)<br>
-    - Timestamping entries for clarity<br>
-    - Organizing opportunities efficiently<br>
-    Agents can focus on fieldwork while the app carries the administrative tasks.
+    <strong>Why OSHOBE?</strong> Automatically records submissions, tracks status, timestamps entries, and organizes opportunities efficiently. Agents focus on fieldwork; OSHOBE carries the administrative tasks.
   </p>
-
-  <button class="primary" onclick="go('submit')">Record a Land / Property Matter</button>
-  <button class="primary" onclick="go('records')">View Records</button>
+  <button class="primary" onclick="go('submit')">Record a Property Matter</button>
+  <button class="primary" onclick="go('records')">View My Records</button>
+  <button onclick="logout()">Logout</button>
 </div>
 
 <!-- SUBMIT -->
 <div id="submit" class="screen">
-  <h3>Record Information</h3>
+  <h3>Record Property Information</h3>
   <input id="name" placeholder="Your name">
   <input id="contact" placeholder="Phone or email">
   <input id="location" placeholder="Property location">
@@ -111,16 +103,33 @@ input, textarea{
 
 <!-- RECORDS -->
 <div id="records" class="screen">
-  <h3>Records</h3>
+  <h3>My Records</h3>
   <div id="list"></div>
   <button class="primary" onclick="go('home')">Back</button>
 </div>
 
 <script>
+let currentAgent='';
+
+function login(){
+  let agent=agentName.value.trim();
+  if(!agent){ alert('Please enter your name'); return; }
+  currentAgent=agent;
+  agentName.value='';
+  go('home');
+  updateDashboard();
+}
+
+function logout(){
+  currentAgent='';
+  go('login');
+}
+
 function go(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   if(id==='records'){ load(); }
+  if(id==='home'){ updateDashboard(); }
 }
 
 function save(){
@@ -128,6 +137,7 @@ function save(){
     alert('Please complete all fields'); return;
   }
   const rec={
+    agent: currentAgent,
     name:name.value,
     contact:contact.value,
     location:location.value,
@@ -139,20 +149,23 @@ function save(){
   data.push(rec);
   localStorage.setItem('fstl_oshobe',JSON.stringify(data));
   alert('Recorded as Pending');
+  name.value=''; contact.value=''; location.value=''; details.value='';
   go('records');
 }
 
 function toggle(i){
   let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  switch(data[i].status){
-    case 'Pending': data[i].status='Reviewed'; break;
-    case 'Reviewed': data[i].status='Delivered'; break;
-    case 'Delivered': data[i].status='Pending'; break;
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  let record=data.indexOf(agentData[i]);
+  switch(data[record].status){
+    case 'Pending': data[record].status='Reviewed'; break;
+    case 'Reviewed': data[record].status='Delivered'; break;
+    case 'Delivered': data[record].status='Pending'; break;
   }
   localStorage.setItem('fstl_oshobe',JSON.stringify(data));
   load();
+  updateDashboard();
 }
 
 function load(){
-  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
-  list.innerHTML='';
+  let data=JSON.parse(localStorage.get
