@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSHOBE – FSTL Agent Toolkit Pilot</title>
+<style>
+/* Base styling */
+body { margin:0; padding:0; font-family: Arial,sans-serif; background:#f5f7fa; color:#333; }
+.app { max-width: 500px; margin: 25px auto; background:#fff; padding:25px 20px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);}
+h1 { text-align:center; color:#003a8f; margin-bottom:5px; }
+.pilot { text-align:center; font-size:13px; color:#b30000; margin-bottom:20px; font-weight:bold; }
+.section { margin-bottom:15px; font-size:14px; }
+.section strong { color:#003a8f; }
+.example { background:#eef3ff; padding:12px; border-radius:6px; margin-top:8px; font-size:14px; }
+/* Input */
+label { font-weight:bold; display:block; margin-top:15px; }
+input { width:100%; padding:12px; margin-top:6px; font-size:16px; border-radius:6px; border:1px solid #ccc; }
+/* Buttons */
+button { width:100%; margin-top:15px; padding:14px; background:#003a8f; color:#fff; font-size:16px; border:none; border-radius:6px; cursor:pointer; transition:background 0.3s; }
+button:hover { background:#002a6a; }
+/* Results */
+.result, .totalEarnings, .leadList { margin-top:20px; background:#eef3ff; padding:14px; border-radius:6px; font-size:16px; color:#003a8f; display:none; }
+/* Feedback & contact */
+.feedback, .contact { margin-top:25px; padding-top:15px; border-top:1px solid #ddd; font-size:14px; }
+.feedback a, .contact a { display:block; margin-top:8px; text-decoration:none; color:#003a8f; font-weight:bold; }
+/* Footer */
+.footer { text-align:center; font-size:12px; margin-top:20px; color:#666; }
+/* Lead list table */
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th, td { border:1px solid #ccc; padding:6px; text-align:left; font-size:14px; }
+th { background:#eef3ff; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <h1>OSHOBE</h1>
+  <div class="pilot">⚠️ PILOT VERSION – FSTL REQUESTS FEEDBACK</div>
+
+  <!-- Purpose -->
+  <div class="section"><strong>Purpose:</strong><br>
+  OSHOBE reduces calculation stress for agents. Instantly calculate your earnings per property transaction.</div>
+
+  <div class="section"><strong>Agent Earnings Rule:</strong><br>
+  Agents earn a fixed <strong>10%</strong> of the transaction value.</div>
+
+  <div class="section"><strong>Example:</strong>
+    <div class="example">Transaction: ₦50,000,000<br>Agent Earnings (10%): <strong>₦5,000,000</strong></div>
+  </div>
+
+  <!-- Earnings Calculator -->
+  <label>Enter Transaction Value (₦)</label>
+  <input id="transactionValue" type="number" placeholder="Example: 50000000">
+  <button onclick="calculate()">Calculate Earnings</button>
+  <div class="result" id="result"></div>
+
+  <!-- Multi-transaction summary -->
+  <button onclick="addTransaction()">Add Transaction to Summary</button>
+  <div class="totalEarnings" id="totalEarnings"></div>
+  <button onclick="resetTransactions()">Reset Summary</button>
+
+  <!-- Quick Lead / Property Logging -->
+  <div class="section"><strong>Log Property / Lead</strong></div>
+  <label>Property Name</label>
+  <input id="propertyName" type="text" placeholder="Enter property name">
+  <label>Client Name</label>
+  <input id="clientName" type="text" placeholder="Enter client name">
+  <label>Transaction Value (₦)</label>
+  <input id="leadValue" type="number" placeholder="Enter transaction value">
+  <button onclick="addLead()">Add Lead</button>
+  <div class="leadList" id="leadList"></div>
+
+  <!-- Feedback -->
+  <div class="feedback">
+    <strong>Send Feedback:</strong><br>
+    This is a pilot. Your feedback helps FSTL improve OSHOBE.
+    <a href="mailto:fstlofficialsite@gmail.com?subject=OSHOBE Pilot Feedback&body=This is my feedback on the OSHOBE pilot:%0A%0A">📧 Email: fstlofficialsite@gmail.com</a>
+    <a href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A">💬 WhatsApp: +234 803 588 8622</a>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact">
+    <strong>Official Contact & Address:</strong><br>
+    First Standard Title Limited (FSTL)<br>
+    19, EGBUE AVENUE, OFF BENONI HOSPITAL ROAD, GRA, BENIN CITY, NIGERIA<br>
+    Website: <a href="https://omorishaoba-alt.github.io/fstl-official-site/" target="_blank">fstl-official-site</a>
+  </div>
+
+  <div class="footer">FSTL OSHOBE Pilot – feedback-driven</div>
+</div>
+
+<script>
+// Earnings calculator
+let transactionHistory = [];
+let leadHistory = [];
+
+function calculate() {
+  const value = parseFloat(document.getElementById("transactionValue").value);
+  const result = document.getElementById("result");
+
+  if (isNaN(value) || value <= 0) {
+    result.style.display = "block";
+    result.innerHTML = "Please enter a valid transaction amount.";
+    return;
+  }
+
+  const earnings = value * 0.10;
+  result.style.display = "block";
+  result.innerHTML = "<strong>Transaction Value:</strong> ₦" + value.toLocaleString() + "<br>" +
+                     "<strong>Agent Earnings (10%):</strong> ₦" + earnings.toLocaleString() + "<br><br>" +
+                     "<em>This is a pilot. Please send feedback using the email or WhatsApp links below.</em>";
+}
+
+// Multi-transaction summary
+function addTransaction() {
+  const value = parseFloat(document.getElementById("transactionValue").value);
+  if (isNaN(value) || value <= 0) { alert("Enter a valid transaction."); return; }
+  transactionHistory.push(value);
+  updateSummary();
+}
+
+function updateSummary() {
+  const totalDiv = document.getElementById("totalEarnings");
+  let total = transactionHistory.reduce((sum,val)=>sum+val*0.10,0);
+  totalDiv.style.display = "block";
+  totalDiv.innerHTML = "<strong>Total Transactions:</strong> " + transactionHistory.length + "<br>" +
+                       "<strong>Total Agent Earnings:</strong> ₦" + total.toLocaleString();
+}
+
+function resetTransactions() {
+  transactionHistory = [];
+  document.getElementById("totalEarnings").style.display="none";
+}
+
+// Lead logging
+function addLead() {
+  const property = document.getElementById("propertyName").value.trim();
+  const client = document.getElementById("clientName").value.trim();
+  const value = parseFloat(document.getElementById("leadValue").value);
+
+  if (!property || !client || isNaN(value) || value <=0) { alert("Fill all fields correctly."); return; }
+
+  leadHistory.push({property, client, value});
+  updateLeadList();
+}
+
+function updateLeadList() {
+  const listDiv = document.getElementById("leadList");
+  let html = "<table><tr><th>Property</th><th>Client</th><th>Transaction (₦)</th></tr>";
+  leadHistory.forEach(l => { html += `<tr><td>${l.property}</td><td>${l.client}</td><td>₦${l.value.toLocaleString()}</td></tr>` });
+  html += "</table>";
+  listDiv.style.display="block";
+  listDiv.innerHTML = html;
+}
+</script>
+
+</body>
+</html>
