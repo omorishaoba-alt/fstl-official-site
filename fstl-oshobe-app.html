@@ -130,4 +130,67 @@ function go(id){
 }
 
 function save(){
-  if(!name
+  if(!name.value||!contact.value||!location.value||!details.value){
+    alert('Complete all fields'); return;
+  }
+  const rec={
+    agent: currentAgent,
+    name:name.value,
+    contact:contact.value,
+    location:location.value,
+    details:details.value,
+    status:'Pending',
+    time:new Date().toLocaleString()
+  };
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  data.push(rec);
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  alert('Recorded as Pending');
+  name.value=''; contact.value=''; location.value=''; details.value='';
+  go('records');
+}
+
+function toggle(i){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  let record=data.indexOf(agentData[i]);
+  switch(data[record].status){
+    case 'Pending': data[record].status='Reviewed'; break;
+    case 'Reviewed': data[record].status='Delivered'; break;
+    case 'Delivered': data[record].status='Pending'; break;
+  }
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  load();
+  updateDashboard();
+}
+
+function load(){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  list.innerHTML='';
+  if(!agentData.length){ list.innerHTML='<p class="small">No records yet.</p>'; return; }
+  agentData.forEach((r,i)=>{
+    let badgeClass = r.status==='Pending'?'pending':r.status==='Reviewed'?'reviewed':'delivered';
+    list.innerHTML+=`
+      <div class="card">
+        <strong>${r.location}</strong><br>
+        ${r.details}<br>
+        <small>${r.time}</small><br>
+        <span class="badge ${badgeClass}">${r.status}</span>
+        <button onclick="toggle(${i})">Toggle Status</button>
+      </div>`;
+  });
+}
+
+function updateDashboard(){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  let agentData=data.filter(d=>d.agent===currentAgent);
+  let pending=agentData.filter(r=>r.status==='Pending').length;
+  let reviewed=agentData.filter(r=>r.status==='Reviewed').length;
+  let delivered=agentData.filter(r=>r.status==='Delivered').length;
+  dashboard.innerHTML=`<strong>Dashboard:</strong> Pending: ${pending} | Reviewed: ${reviewed} | Delivered: ${delivered}`;
+}
+</script>
+
+</body>
+</html>
