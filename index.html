@@ -1,50 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FSTL OSHOBE – Land Operations Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial, sans-serif; background:#f5f5f5; padding:20px; }
-    .box { background:#fff; padding:20px; max-width:500px; margin:auto; border-radius:6px; }
-    h2 { margin-top:0; }
-    label { display:block; margin-top:12px; }
-    input, textarea, button {
-      width:100%; padding:10px; margin-top:6px;
-    }
-    button { background:#000; color:#fff; border:none; margin-top:16px; }
-  </style>
+<meta charset="UTF-8">
+<title>FSTL OSHOBE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background:#0b3d2e;
+  color:#fff;
+  margin:0;
+}
+.screen {
+  display:none;
+  padding:20px;
+}
+.active {
+  display:block;
+}
+button {
+  width:100%;
+  padding:15px;
+  margin-top:15px;
+  font-size:16px;
+  background:#ffffff;
+  color:#0b3d2e;
+  border:none;
+}
+input, textarea {
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+.small {
+  font-size:13px;
+  opacity:0.9;
+}
+</style>
 </head>
+
 <body>
 
-<div class="box">
+<!-- HOME SCREEN -->
+<div id="home" class="screen active">
   <h2>FSTL OSHOBE</h2>
   <p>
-    Official land-operations intake portal of
+    FSTL OSHOBE is the operational interface of
     <strong>First Standard Title Limited (FSTL)</strong>.
   </p>
+  <p>
+    This app records land and property matters for
+    verification, review, and execution.
+  </p>
 
-  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-    <label>Full Name</label>
-    <input type="text" name="name" required>
+  <button onclick="go('submit')">Submit Land / Property Issue</button>
+  <button onclick="go('about')">How This Makes Money</button>
 
-    <label>Phone / Email</label>
-    <input type="text" name="contact" required>
-
-    <label>Location of Land / Property</label>
-    <input type="text" name="location" required>
-
-    <label>Describe the Issue or Request</label>
-    <textarea name="message" rows="5" required></textarea>
-
-    <button type="submit">Submit to FSTL</button>
-  </form>
-
-  <p style="font-size:12px;margin-top:10px;">
-    Submissions are sent to FSTL operations for review,
-    verification, and possible assignment.
+  <p class="small">
+    Infrastructure first. Refinement follows.
   </p>
 </div>
+
+<!-- SUBMIT SCREEN -->
+<div id="submit" class="screen">
+  <h3>Submit Information</h3>
+
+  <input placeholder="Your Name">
+  <input placeholder="Phone or Email">
+  <input placeholder="Land / Property Location">
+  <textarea placeholder="Describe the issue or opportunity"></textarea>
+
+  <button onclick="go('done')">Submit to FSTL</button>
+  <button onclick="go('home')">Back</button>
+</div>
+
+<!-- DONE SCREEN -->
+<div id="done" class="screen">
+  <h3>Recorded</h3>
+  <p>
+    Your information has been captured.
+    FSTL operations will review and act where applicable.
+  </p>
+
+  <button onclick="go('home')">Return Home</button>
+</div>
+
+<!-- ABOUT / MONEY -->
+<div id="about" class="screen">
+  <h3>How This Creates Value</h3>
+  <p>
+    FSTL executes land verification, risk mitigation,
+    title intelligence, and structured transactions.
+  </p>
+  <p>
+    Agents contribute intelligence.
+    FSTL executes infrastructure.
+  </p>
+  <p><strong>90% FSTL / 10% Agents</strong></p>
+
+  <button onclick="go('home')">Back</button>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
 
 </body>
 </html>
