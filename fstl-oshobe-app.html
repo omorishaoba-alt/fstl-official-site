@@ -6,75 +6,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body{margin:0;font-family:Arial;background:#0b3d2e;color:#fff}
+header{background:#06261d;padding:18px;text-align:center}
 .screen{display:none;padding:20px}
 .active{display:block}
-button{width:100%;padding:15px;margin-top:12px;font-size:16px}
+button{width:100%;padding:14px;margin-top:12px;font-size:16px}
 input,textarea{width:100%;padding:10px;margin-top:10px}
-.card{background:#fff;color:#000;padding:10px;margin-top:10px}
+.card{background:#fff;color:#000;padding:12px;margin-top:10px}
+.badge{display:inline-block;padding:4px 8px;font-size:12px;border-radius:4px}
+.pending{background:#f0ad4e;color:#000}
+.reviewed{background:#5cb85c;color:#fff}
+.small{font-size:13px;opacity:.9}
 </style>
 </head>
 <body>
 
+<header>
+  <h2>FSTL OSHOBE</h2>
+  <div class="small">Land & Property Operations Interface</div>
+</header>
+
 <!-- HOME -->
 <div id="home" class="screen active">
-<h2>FSTL OSHOBE</h2>
-<p>Official land operations interface of <strong>First Standard Title Limited</strong>.</p>
-<button onclick="go('submit')">Submit Land / Property Matter</button>
-<button onclick="go('records')">View Test Records</button>
+  <p>
+    Operational interface of <strong>First Standard Title Limited</strong>
+    for recording and reviewing land and property matters.
+  </p>
+
+  <p class="small">
+    <strong>Agent Fee Applies</strong><br>
+    All independently sourced land or property matters submitted through this
+    platform are subject to an applicable agent fee, payable upon successful
+    review and engagement by FSTL.
+  </p>
+
+  <button onclick="go('submit')">Record a Land / Property Matter</button>
+  <button onclick="go('records')">View Records</button>
 </div>
 
 <!-- SUBMIT -->
 <div id="submit" class="screen">
-<h3>Submit Information</h3>
-<input id="name" placeholder="Your Name">
-<input id="contact" placeholder="Phone or Email">
-<input id="location" placeholder="Property Location">
-<textarea id="details" placeholder="Describe issue or opportunity"></textarea>
-<button onclick="save()">Submit</button>
-<button onclick="go('home')">Back</button>
+  <h3>Record Information</h3>
+  <input id="name" placeholder="Your name">
+  <input id="contact" placeholder="Phone or email">
+  <input id="location" placeholder="Property location">
+  <textarea id="details" rows="4" placeholder="Describe the matter"></textarea>
+  <button onclick="save()">Submit</button>
+  <button onclick="go('home')">Cancel</button>
 </div>
 
 <!-- RECORDS -->
 <div id="records" class="screen">
-<h3>Submitted Records (Test Mode)</h3>
-<div id="list"></div>
-<button onclick="go('home')">Back</button>
+  <h3>Records</h3>
+  <div id="list"></div>
+  <button onclick="go('home')">Back</button>
 </div>
 
 <script>
 function go(id){
- document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- if(id==='records') load();
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(id==='records') load();
 }
 
 function save(){
- const record={
-  name:name.value,
-  contact:contact.value,
-  location:location.value,
-  details:details.value,
-  time:new Date().toLocaleString()
- };
- let data=JSON.parse(localStorage.getItem('fstl')||'[]');
- data.push(record);
- localStorage.setItem('fstl',JSON.stringify(data));
- alert('Recorded successfully');
- go('records');
+  if(!name.value||!contact.value||!location.value||!details.value){
+    alert('Please complete all fields'); return;
+  }
+  const rec={
+    name:name.value,
+    contact:contact.value,
+    location:location.value,
+    details:details.value,
+    status:'Pending',
+    time:new Date().toLocaleString()
+  };
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  data.push(rec);
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  alert('Recorded as Pending');
+  go('records');
+}
+
+function toggle(i){
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  data[i].status = data[i].status==='Pending' ? 'Reviewed' : 'Pending';
+  localStorage.setItem('fstl_oshobe',JSON.stringify(data));
+  load();
 }
 
 function load(){
- let data=JSON.parse(localStorage.getItem('fstl')||'[]');
- list.innerHTML='';
- data.forEach(r=>{
-  list.innerHTML+=`
-   <div class="card">
-    <strong>${r.name}</strong><br>
-    ${r.location}<br>
-    ${r.details}<br>
-    <small>${r.time}</small>
-   </div>`;
- });
+  let data=JSON.parse(localStorage.getItem('fstl_oshobe')||'[]');
+  list.innerHTML='';
+  if(!data.length){ list.innerHTML='<p class="small">No records yet.</p>'; return; }
+  data.forEach((r,i)=>{
+    list.innerHTML+=`
+      <div class="card">
+        <strong>${r.location}</strong><br>
+        ${r.details}<br>
+        <small>${r.time}</small><br><br>
+        <span class="badge ${r.status==='Pending'?'pending':'reviewed'}">
+          ${r.status}
+        </span>
+        <button onclick="toggle(${i})">Toggle Status</button>
+      </div>`;
+  });
 }
 </script>
 
