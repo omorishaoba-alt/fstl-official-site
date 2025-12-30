@@ -8,8 +8,10 @@ This repository contains the **FSTL OSHOBE Pilot App**, fully self-contained in 
 - Agents can add dynamic modules
 - Fully self-contained (no external CSS or JS)
 
-## Deployment
+## Deployment on GitHub Pages
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages → Deploy from main branch**.
-3. After a few minutes, your app will be live at:
+1. Push this repository to GitHub.  
+2. Go to **Settings → Pages → Source → main branch / root** → Save.  
+3. Wait 2–3 minutes.  
+
+**Your live URL will be:**
