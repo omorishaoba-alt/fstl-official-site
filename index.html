@@ -1,130 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>OSHOBE – FSTL Pilot</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  background: #0b1c2d;
-  color: #fff;
-  margin: 0;
-  padding: 20px;
-}
-h1, h2 {
-  color: #d4af37;
-}
-.card {
-  background: rgba(0,0,0,0.45);
-  border: 1px solid #d4af37;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-input, button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: none;
-}
-button {
-  background: #1f3c57;
-  color: #d4af37;
-  font-weight: bold;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-td, th {
-  border: 1px solid #555;
-  padding: 8px;
-  text-align: left;
-}
-.footer {
-  font-size: 0.9em;
-  opacity: 0.85;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Standard Title Limited – Title Verification & Mortgage Insurance</title>
+  <meta name="description" content="First Standard Title Limited (FSTL) provides professional title verification and mortgage insurance services in Nigeria. Secure your property transactions with us.">
+  <link rel="canonical" href="https://fstl.com.ng/">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "First Standard Title Limited",
+    "url": "https://fstl.com.ng",
+    "logo": "https://fstl.com.ng/assets/logo.png",
+    "sameAs": [
+      "https://www.linkedin.com/company/fstl",
+      "https://www.facebook.com/fstl",
+      "https://twitter.com/fstl"
+    ]
+  }
+  </script>
 </head>
-
 <body>
+  <header>
+    <h1>First Standard Title Limited (FSTL)</h1>
+    <p>Your trusted partner in Title Verification & Mortgage Insurance</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="verification.html">Title Verification</a></li>
+        <li><a href="mortgage.html">Mortgage Insurance</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<h1>OSHOBE</h1>
-<p><strong>⚠️ PILOT VERSION – FSTL REQUESTS FEEDBACK</strong></p>
+  <main>
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li><a href="verification.html">Title Verification</a></li>
+        <li><a href="mortgage.html">Mortgage Insurance</a></li>
+      </ul>
+    </section>
 
-<div class="card">
-  <p><strong>Purpose:</strong> OSHOBE reduces calculation stress for agents.</p>
-  <p><strong>Agent Earnings Rule:</strong> 10% of transaction value</p>
+    <section id="contact">
+      <h2>Contact FSTL</h2>
+      <p>Address: 123 FSTL Street, Lagos, Nigeria</p>
+      <p>Phone: +234 802 222 5557</p>
+      <p>Email: info@fstl.com.ng</p>
+    </section>
+  </main>
 
-  <input type="number" id="amount" placeholder="Enter Transaction Value (₦)">
-  <button onclick="calculate()">Calculate Earnings</button>
-
-  <p id="result"></p>
-</div>
-
-<div class="card">
-  <h2>Log Property / Lead</h2>
-  <input id="property" placeholder="Property Name">
-  <input id="client" placeholder="Client Name">
-  <input id="value" type="number" placeholder="Transaction Value (₦)">
-  <button onclick="addRow()">Add Lead</button>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Property</th>
-        <th>Client</th>
-        <th>Value (₦)</th>
-        <th>Earnings (₦)</th>
-      </tr>
-    </thead>
-    <tbody id="log"></tbody>
-  </table>
-</div>
-
-<div class="card footer">
-  <p><strong>Send Feedback:</strong></p>
-  <p>Email: fstlofficialsite@gmail.com</p>
-  <p>
-    <a style="color:#d4af37" href="https://wa.me/2348035888622?text=Hello%20FSTL%2C%20this%20is%20my%20feedback%20on%20the%20OSHOBE%20pilot%3A">
-      WhatsApp Feedback
-    </a>
-  </p>
-
-  <p><strong>Official Address:</strong><br>
-  First Standard Title Limited (FSTL)<br>
-  19, Egbue Avenue, Off Benoni Hospital Road, GRA, Benin City</p>
-</div>
-
-<script>
-function calculate() {
-  const val = document.getElementById("amount").value;
-  const earn = val * 0.10;
-  document.getElementById("result").innerHTML =
-    "Agent Earnings: ₦" + earn.toLocaleString();
-}
-
-function addRow() {
-  const p = property.value;
-  const c = client.value;
-  const v = value.value;
-  const e = v * 0.10;
-
-  const row = `<tr>
-    <td>${p}</td>
-    <td>${c}</td>
-    <td>₦${Number(v).toLocaleString()}</td>
-    <td>₦${e.toLocaleString()}</td>
-  </tr>`;
-
-  document.getElementById("log").innerHTML += row;
-}
-</script>
-
+  <footer>
+    <p>&copy; 2025 First Standard Title Limited. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
