@@ -1,113 +1,50 @@
-<!-- FORCE REBUILD -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FSTL OSHOBE – Pilot App</title>
+  <meta charset="UTF-8">
+  <title>FSTL Pilot App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #222;
-    }
-    header {
-      background: #0b3c5d;
-      color: #fff;
-      padding: 20px;
+      background: #0b1c2d;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    header p {
-      margin: 6px 0 0;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
     }
     .card {
-      background: #fff;
-      border-radius: 6px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      max-width: 640px;
+      padding: 32px;
+      border-radius: 14px;
+      border: 2px solid #d4af37;
+      background: rgba(0,0,0,0.45);
     }
-    button {
-      background: #0b3c5d;
-      color: #fff;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    button:hover {
-      background: #06283d;
-    }
-    footer {
-      text-align: center;
-      font-size: 12px;
-      padding: 20px;
-      color: #666;
+    h1 { color: #d4af37; margin-bottom: 12px; }
+    p { line-height: 1.6; }
+    .badge {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #1f3c57;
+      color: #d4af37;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-
-  <header>
+  <div class="card">
     <h1>FIRST STANDARD TITLE LIMITED</h1>
-    <p>OSHOBE — Pilot App (LIVE)</p>
-  </header>
-
-  <main>
-    <div class="card">
-      <h2>Pilot Status</h2>
-      <p>
-        This is a <strong>live pilot deployment</strong> for demonstration,
-        testing, and decision-making.
-      </p>
-      <p>
-        No payments. No integrations. No risk.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>Agent Module</h2>
-      <p>Basic placeholder module for future expansion.</p>
-      <button onclick="addAgent()">Add Agent Module</button>
-      <ul id="agentList"></ul>
-    </div>
-
-    <div class="card">
-      <h2>Next Steps</h2>
-      <ul>
-        <li>Confirm GitHub Pages deployment</li>
-        <li>Gather stakeholder feedback</li>
-        <li>Iterate features</li>
-        <li>Monetise later</li>
-      </ul>
-    </div>
-  </main>
-
-  <footer>
-    © First Standard Title Limited — Pilot Environment
-  </footer>
-
-  <script>
-    function addAgent() {
-      const list = document.getElementById("agentList");
-      const item = document.createElement("li");
-      item.textContent = "Agent module loaded at " + new Date().toLocaleTimeString();
-      list.appendChild(item);
-    }
-  </script>
-
+    <p><strong>FSTL Pilot Web App</strong></p>
+    <p>This pilot application is live and deployed via GitHub Pages.</p>
+    <div class="badge">STATUS: LIVE</div>
+    <p style="margin-top:18px;font-size:0.9em;opacity:.85;">
+      © 2025 First Standard Title Limited
+    </p>
+  </div>
 </body>
 </html>
