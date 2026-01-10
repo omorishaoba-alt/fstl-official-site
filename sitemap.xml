@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fstl.com.ng/</loc>
-    <priority>1.0</priority>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/</loc>
+    <changefreq>weekly</changefreq>
   </url>
-  <!-- Title Verification Page -->
   <url>
-    <loc>https://fstl.com.ng/verification.html</loc>
-    <priority>0.8</priority>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/#about</loc>
+    <changefreq>weekly</changefreq>
   </url>
-  <!-- Mortgage Insurance Page -->
   <url>
-    <loc>https://fstl.com.ng/mortgage.html</loc>
-    <priority>0.8</priority>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/#services</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/#vc</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://omorishaoba-alt.github.io/fstl-official-site/#contact</loc>
+    <changefreq>weekly</changefreq>
   </url>
 </urlset>
